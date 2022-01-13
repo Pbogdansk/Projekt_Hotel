@@ -16,6 +16,11 @@ class Person
 	private: string _password;
 	private: bool _isLogged;
 
+	enum typeOfAccount { Customer = 0, Receptionist = 1, Admin = 2 };
+	private: typeOfAccount _permissions;
+
+	public: int getPermissions();
+
 	public: bool logIn(string aString_email, string aString_password);
 
 	public: bool changePassword(string aString_password, string aString_newPassword);

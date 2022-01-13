@@ -4,6 +4,22 @@
 #include <string>
 #include <exception>
 
+#include "classes/Admin.h"
+#include "classes/BookIn.h"
+#include "classes/Customer.h"
+#include "classes/Person.h"
+#include "classes/Receptionist.h"
+#include "classes/Reservation.h"
+#include "classes/Room.h"
+
+void menu_admin();
+void menu_receptionist();
+void menu_customer();
+
+extern Room* rooms;
+extern Person currentlyLoggedIn;
+extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*, Room*);
+
 using namespace std;
 namespace menu_gui
 {

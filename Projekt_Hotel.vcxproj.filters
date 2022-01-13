@@ -19,4 +19,93 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="schematy\anulowanie rezerwacji.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\anuluj rezerwację Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\Class Diagram1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\dodaj pokój.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\dokonaj płatności Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\Dokonaj płatności.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\HHotel.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\logowanie.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\Requirement Diagram1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\rezerwacja Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\Rezerwacja.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\Sprawdzenie dostępności.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\sprawdź dostępność Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\usuwanie.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\usuwanie_dopisywanie pokoi Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\usuwanie_dopisywanie pokoi Sequence Diagram2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\wprowadź dane personalne.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\wyloguj.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\wymeldowanie.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\wymelduj Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\zaloguj Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\załóż konto .jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\załóż konto Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\zameldowanie.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\zamelduj Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\zmień dane Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\Zmień dane.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\zmień hasło Sequence Diagram.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="schematy\zmień hasło.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -141,6 +141,37 @@
   <ItemGroup>
     <ClCompile Include="Projekt_Hotel.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="schematy\anulowanie rezerwacji.jpg" />
+    <Image Include="schematy\anuluj rezerwację Sequence Diagram.jpg" />
+    <Image Include="schematy\Class Diagram1.jpg" />
+    <Image Include="schematy\dodaj pokój.jpg" />
+    <Image Include="schematy\dokonaj płatności Sequence Diagram.jpg" />
+    <Image Include="schematy\Dokonaj płatności.jpg" />
+    <Image Include="schematy\HHotel.jpg" />
+    <Image Include="schematy\logowanie.jpg" />
+    <Image Include="schematy\Requirement Diagram1.jpg" />
+    <Image Include="schematy\rezerwacja Sequence Diagram.jpg" />
+    <Image Include="schematy\Rezerwacja.jpg" />
+    <Image Include="schematy\Sprawdzenie dostępności.jpg" />
+    <Image Include="schematy\sprawdź dostępność Sequence Diagram.jpg" />
+    <Image Include="schematy\usuwanie.jpg" />
+    <Image Include="schematy\usuwanie_dopisywanie pokoi Sequence Diagram.jpg" />
+    <Image Include="schematy\usuwanie_dopisywanie pokoi Sequence Diagram2.jpg" />
+    <Image Include="schematy\wprowadź dane personalne.jpg" />
+    <Image Include="schematy\wyloguj.jpg" />
+    <Image Include="schematy\wymeldowanie.jpg" />
+    <Image Include="schematy\wymelduj Sequence Diagram.jpg" />
+    <Image Include="schematy\zaloguj Sequence Diagram.jpg" />
+    <Image Include="schematy\zameldowanie.jpg" />
+    <Image Include="schematy\zamelduj Sequence Diagram.jpg" />
+    <Image Include="schematy\załóż konto .jpg" />
+    <Image Include="schematy\załóż konto Sequence Diagram.jpg" />
+    <Image Include="schematy\zmień dane Sequence Diagram.jpg" />
+    <Image Include="schematy\Zmień dane.jpg" />
+    <Image Include="schematy\zmień hasło Sequence Diagram.jpg" />
+    <Image Include="schematy\zmień hasło.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

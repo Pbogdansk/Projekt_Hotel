@@ -139,6 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="classes\Admin.cpp" />
+    <ClCompile Include="classes\Klient.cpp" />
+    <ClCompile Include="classes\osoba.cpp" />
+    <ClCompile Include="classes\Pokój.cpp" />
+    <ClCompile Include="classes\Recepcjonistka.cpp" />
+    <ClCompile Include="classes\Rezerwacja.cpp" />
+    <ClCompile Include="classes\zameldowanie.cpp" />
     <ClCompile Include="Projekt_Hotel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +178,15 @@
     <Image Include="schematy\Zmień dane.jpg" />
     <Image Include="schematy\zmień hasło Sequence Diagram.jpg" />
     <Image Include="schematy\zmień hasło.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="classes\Admin.h" />
+    <ClInclude Include="classes\Klient.h" />
+    <ClInclude Include="classes\osoba.h" />
+    <ClInclude Include="classes\Pokój.h" />
+    <ClInclude Include="classes\Recepcjonistka.h" />
+    <ClInclude Include="classes\Rezerwacja.h" />
+    <ClInclude Include="classes\zameldowanie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

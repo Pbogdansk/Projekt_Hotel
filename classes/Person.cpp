@@ -52,3 +52,8 @@ void Person::setEmail(string aEmail) {
 	this->_email = aEmail;
 }
 
+int Person::getPermissions()
+{
+	return static_cast <int> (this->_permissions);
+}
+

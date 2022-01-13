@@ -2,11 +2,11 @@
 #include <vector>
 using namespace std;
 
-#include "Pokój.h"
-#include "Rezerwacja.h"
+#include "Room.h"
+#include "Reservation.h"
 #include "Admin.h"
 
-void Pokój::oblicz_cene() {
+void Room::calculatePrice() {
 	throw "Not yet implemented";
 }
 

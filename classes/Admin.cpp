@@ -2,14 +2,14 @@
 using namespace std;
 
 #include "Admin.h"
-#include "Pokój.h"
-#include "osoba.h"
+#include "Room.h"
+#include "Person.h"
 
-void Admin::dodaj_pokój(string aInt_ilosc_osób, string aInt_piêtro, string aInt_standard, string aInt_powierzchnia) {
+void Admin::addRoom(string aInt_numberOfPeople, string aInt_floor, string aInt_roomQuality, string aInt_surfaceArea) {
 	throw "Not yet implemented";
 }
 
-void Admin::usuñ_pokój(string aPokój) {
+void Admin::removeRoom(string aRoomj) {
 	throw "Not yet implemented";
 }
 

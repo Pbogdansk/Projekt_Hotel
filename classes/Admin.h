@@ -4,20 +4,20 @@ using namespace std;
 #ifndef __Admin_h__
 #define __Admin_h__
 
-// #include "Pokój.h"
-#include "osoba.h"
+// #include "Room.h"
+#include "Person.h"
 
-class Pokój;
-// class osoba;
+class Room;
+// class Person;
 class Admin;
 
-class Admin: public osoba
+class Admin: public Person
 {
-	public: Pokój* _unnamed_Pokój_;
+	public: Room* _unnamed_Room_;
 
-	public: void dodaj_pokój(string aInt_ilosc_osób, string aInt_piêtro, string aInt_standard, string aInt_powierzchnia);
+	public: void addRoom(string aInt_numberOfPeople, string aInt_floor, string aInt_roomQuality, string aInt_surfaceArea);
 
-	public: void usuñ_pokój(string aPokój);
+	public: void removeRoom(string aRoomj);
 };
 
 #endif

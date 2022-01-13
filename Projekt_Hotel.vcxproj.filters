@@ -39,6 +39,9 @@
     <ClCompile Include="classes\zameldowanie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="menu_gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="schematy\anulowanie rezerwacji.jpg">
@@ -149,6 +152,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="classes\zameldowanie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

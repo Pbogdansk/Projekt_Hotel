@@ -146,6 +146,7 @@
     <ClCompile Include="classes\Recepcjonistka.cpp" />
     <ClCompile Include="classes\Rezerwacja.cpp" />
     <ClCompile Include="classes\zameldowanie.cpp" />
+    <ClCompile Include="menu_gui.cpp" />
     <ClCompile Include="Projekt_Hotel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +188,7 @@
     <ClInclude Include="classes\Recepcjonistka.h" />
     <ClInclude Include="classes\Rezerwacja.h" />
     <ClInclude Include="classes\zameldowanie.h" />
+    <ClInclude Include="include.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,6 +5,7 @@ using namespace std;
 #define __BookIn_h__
 
 // #include "Reservation.h"
+#include <string>
 
 class Reservation;
 class BookIn;

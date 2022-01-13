@@ -26,7 +26,7 @@ class Person
 
 	public: string* getName();
 
-	public: void setName(string aName[2] );
+	public: void setName(string aName, string bName );
 
 	public: string getSurename();
 

@@ -23,8 +23,9 @@ string* Person::getName() {
 	return this->_name;
 }
 
-void Person::setName(string aName[2] ) {
-	this->_name = aName;
+void Person::setName(string aName, string bName ) {
+	this->_name[0] = aName;
+	this->_name[1] = bName;
 }
 
 string Person::getSurename() {

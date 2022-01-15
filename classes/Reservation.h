@@ -23,11 +23,6 @@ class Reservation
 	private: int _startingDate;
 	private: int _endingDate;
 	private: bool _paymentStatus;
-	public: Customer* _unnamed_Customer_;
-	public: BookIn* _unnamed_BookIn_;
-	public: std::vector<Receptionist*> _unnamed_Receptionist_;
-	public: std::vector<Admin*> _unnamed_Admin_;
-	public: Room* _unnamed_Room_;
 
 	public: void pay(string aBool_paymentMethod);
 

@@ -8,7 +8,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace classRoom
 {
 	TEST_CLASS(AddingNewObject)
-	{
+{
 	public:
 
 		TEST_METHOD(RandomTest0)

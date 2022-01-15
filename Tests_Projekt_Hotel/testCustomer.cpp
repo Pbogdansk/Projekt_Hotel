@@ -5,16 +5,15 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace customer
-{
+namespace customer {
 	TEST_CLASS(AddingNewObject)
 	{
 	public:
 
 		TEST_METHOD(RandomTest0)
 		{
-			Room newroom(1, 2, 30);
-			Assert::AreEqual(newroom.getFloor(), 2);
+			Customer newCustomer(Reservation newReservation);
+			//Assert::AreEqual(newCustomer.getFloor(), 2);
 		}
 	};
 }

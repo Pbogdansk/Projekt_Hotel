@@ -5,8 +5,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace receptionist
-{
+namespace receptionist {
 	TEST_CLASS(AddingNewObject)
 	{
 	public:

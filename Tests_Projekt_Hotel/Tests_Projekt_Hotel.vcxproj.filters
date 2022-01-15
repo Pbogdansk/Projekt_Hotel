@@ -30,10 +30,10 @@
     <ClCompile Include="testReceptionist.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="testCustomer.cpp">
+    <ClCompile Include="testReservation.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="testReservation.cpp">
+    <ClCompile Include="testCustomer.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>

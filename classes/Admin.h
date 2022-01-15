@@ -14,6 +14,9 @@ class Admin;
 class Admin: public Person
 {
 public:
+	Admin();
+	Admin(string newName, string newSurname, int newDateOfBirth, string newEmail);
+
 	void addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea);
 	void removeRoom(Room p);
 };

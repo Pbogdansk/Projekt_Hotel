@@ -6,13 +6,12 @@ using namespace std;
 #include "Reservation.h"
 #include "Admin.h"
 
-Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea, bool newIsOccupied)
+Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea)
 {
 	numberOfPeople = newNumberOfPeople;
 	floor = newFloor;
 	roomQuality = newRoomQuality;
 	surfaceArea = newSurfaceArea;
-	isOccupied = newIsOccupied;
 
 	price = calculatePrice(surfaceArea);
 }

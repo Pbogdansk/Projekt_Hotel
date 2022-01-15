@@ -20,10 +20,10 @@ private:
 	int roomQuality;
 	int price;
 	int surfaceArea;
-	bool isOccupied;
+	bool isOccupied = 0;
 
 public:
-	Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea, bool newIsOccupied);
+	Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea);
 
 	int calculatePrice(int roomArea);
 	

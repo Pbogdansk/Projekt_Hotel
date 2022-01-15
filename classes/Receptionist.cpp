@@ -6,6 +6,14 @@ using namespace std;
 #include "Reservation.h"
 #include "Person.h"
 
+Receptionist::Receptionist(){}
+Receptionist::Receptionist(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+	name[0] = newName;
+	surname = newSurname;
+	dateOfBirth = newDateOfBirth;
+	email = newEmail;
+}
+
 Room* Receptionist::checkAvailability(int startingDate, int endingDate) {
 	throw "Not yet implemented";
 }

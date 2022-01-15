@@ -2,9 +2,6 @@
 
 void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts, Room* rooms)
 {   
-	Person kot("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
-	Customer kor("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
-
 	customersAccounts[0] = Customer("Bazyli ", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
 	customersAccounts[1] = Customer("Dobrogost", "Wojciechowski", 3091971, "DobrogostWojciechowski@rhyta.com");
 	customersAccounts[2] = Customer("Ludmita ", "Zajac", 4101988, "LudmitaZajac@dayrep.com");
@@ -16,8 +13,14 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	customersAccounts[8] = Customer("Lidia", "Czerwinska", 8111982, "LidiaCzerwinska@teleworm.us");
 	customersAccounts[9] = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com");
 
-	//customersAccounts[0] = Admin("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com");
+	receptionistsAccounts[0] = Receptionist("Tobiasz", "Tomaszewski", 24081965, "TobiaszTomaszewski@rhyta.com");
+	receptionistsAccounts[1] = Receptionist("Gertruda", "Dudek", 3091951, "GertrudaDudek@jourrapide.com");
 
+	adminsAccounts[0] = Admin("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com");
+	adminsAccounts[1] = Admin("Eligiusz", "Kaczmarek", 24091987, "EligiuszKaczmarek@teleworm.us");
+
+	rooms[0] = Room(2, 2, 5, 50);
+	rooms[1] = Room(1, 3, 4, 20);
 }
 
 

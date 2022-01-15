@@ -5,6 +5,14 @@ using namespace std;
 #include "Room.h"
 #include "Person.h"
 
+Admin::Admin(){}
+Admin::Admin(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+	name[0] = newName;
+	surname = newSurname;
+	dateOfBirth = newDateOfBirth;
+	email = newEmail;
+}
+
 void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea) {
 	throw "Not yet implemented";
 }

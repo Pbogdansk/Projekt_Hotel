@@ -18,7 +18,7 @@ string Person::get2Name() {
 	return name[1];
 }
 string Person::getSurename() {
-	throw "Not yet implemented";
+	return surname;
 }
 int Person::getDateOfBirth() {
 	return this->dateOfBirth;

@@ -20,12 +20,12 @@ namespace customer
         TEST_METHOD(RandomTest1) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
             string theName2 = "Kucharski";
-            Assert::AreSame(newCustomer.getName()[1], theName2);
+            Assert::AreEqual(theName2, newCustomer.getSurename());
         }
         TEST_METHOD(RandomTest2) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
             string theName3 = "BazyliKucharski@dayrep.com";
-            Assert::AreSame(newCustomer.getEmail(), theName3);
+            Assert::AreEqual(newCustomer.getEmail(), theName3);
         }
         TEST_METHOD(RandomTest3) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");

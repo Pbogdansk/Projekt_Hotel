@@ -10,6 +10,9 @@ using namespace std;
 Customer::Customer() {}
 Customer::Customer(string newName, string newSurname, int newDateOfBirth, string newEmail) {
 	name[0] = newName;
+	surname = newSurname;
+	dateOfBirth = newDateOfBirth;
+	email = newEmail;
 }
 
 Room* Customer::checkAvailability(int startingDate, int endingDate) {

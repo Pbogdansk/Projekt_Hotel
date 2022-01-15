@@ -13,8 +13,8 @@ namespace reservation
 
 		TEST_METHOD(RandomTest0)
 		{
-			Room newReservation(01012022, 31042022, 1);
-			//Assert::AreEqual(newroom.getFloor(), 2);
+			Reservation newReservation(01012022, 31042022, 1);
+			Assert::AreEqual(newReservation.getStartingDate(), 01012022);
 		}
 	};
 }

@@ -26,8 +26,14 @@ private:
 	bool paymentStatus;
 
 public:
+	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus);
+
 	void pay(bool paymentMethod);
 	void annulReservation();
+
+	int getStartingDate();
+	int getEndingDate();
+	bool getPaymentStatus();
 };
 
 #endif

@@ -6,10 +6,6 @@ using namespace std;
 #include "Reservation.h"
 #include "Admin.h"
 
-int Room::calculatePrice(int roomArea) {
-	throw "Not yet implemented";
-}
-
 Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea, bool newIsOccupied)
 {
 	numberOfPeople = newNumberOfPeople;
@@ -19,6 +15,10 @@ Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfa
 	isOccupied = newIsOccupied;
 
 	price = calculatePrice(surfaceArea);
+}
+
+int Room::calculatePrice(int roomArea) {
+	throw "Not yet implemented";
 }
 
 int Room::getNumberOfPeople() {

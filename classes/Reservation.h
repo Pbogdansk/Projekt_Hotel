@@ -34,6 +34,7 @@ public:
 	int getStartingDate();
 	int getEndingDate();
 	bool getPaymentStatus();
+
 };
 
 #endif

@@ -14,18 +14,20 @@ class Room;
 
 class Room
 {
-	private: string _numberOfPeople_int;
-	private: int _floor;
-	private: int _roomQuality;
-	private: int _price;
-	private: int _surfaceArea;
-	int isOccupied;
+private:
+	int numberOfPeople;
+	int floor;
+	int roomQuality;
+	int price;
+	int surfaceArea;
+	bool isOccupied;
 
-	public: std::vector<Reservation*> _unnamed_Reservation_;
-	public: Admin* _unnamed_Admin_;
-	public: void calculatePrice();
-	public: Room(int floor, int roomQuality, int surfaceArea);
-	public: int getFloor();
+public:
+	Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea, bool newIsOccupied);
+
+	int calculatePrice(int roomArea);
+	
+	int getFloor();
 };
 
 #endif

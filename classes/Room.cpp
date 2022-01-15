@@ -6,15 +6,21 @@ using namespace std;
 #include "Reservation.h"
 #include "Admin.h"
 
-void Room::calculatePrice() {
+int Room::calculatePrice(int roomArea) {
 	throw "Not yet implemented";
 }
 
-Room::Room(int floor = 0, int roomQuality=0, int surfaceArea=0)
+Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfaceArea, bool newIsOccupied)
 {
-	_floor = floor;
+	numberOfPeople = newNumberOfPeople;
+	floor = newFloor;
+	roomQuality = newRoomQuality;
+	surfaceArea = newSurfaceArea;
+	isOccupied = newIsOccupied;
+
+	price = calculatePrice(surfaceArea);
 }
 
 int Room::getFloor() {
-	return _floor;
+	return floor;
 }

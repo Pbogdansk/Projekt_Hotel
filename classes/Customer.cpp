@@ -9,8 +9,7 @@ using namespace std;
 
 Customer::Customer() {}
 Customer::Customer(string newName, string newSurname, int newDateOfBirth, string newEmail) {
-
-	throw "Not yet implemented";
+	name[0] = newName;
 }
 
 Room* Customer::checkAvailability(int startingDate, int endingDate) {

@@ -5,7 +5,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace reservation
+namespace customer
 {
 	TEST_CLASS(AddingNewObject)
 	{
@@ -15,7 +15,7 @@ namespace reservation
         {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
             string theName = "Bazyli";
-            Assert::AreSame(newCustomer.getName()[0], theName);
+            Assert::AreEqual(theName, newCustomer.getName()[0]);
         }
         TEST_METHOD(RandomTest1) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");

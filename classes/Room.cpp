@@ -31,11 +31,11 @@ int Room::getRoomQuality() {
 	return roomQuality;
 }
 int Room::getPrice() {
-	price;
+	return price;
 }
 int Room::getSurfaceArea() {
-	surfaceArea;
+	return surfaceArea;
 }
 bool Room::getIsOccupied() {
-	isOccupied;
+	return isOccupied;
 }

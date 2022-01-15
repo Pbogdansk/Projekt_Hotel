@@ -7,7 +7,9 @@ using namespace std;
 #include "Room.h"
 #include "Person.h"
 
+Customer::Customer() {}
 Customer::Customer(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+
 	throw "Not yet implemented";
 }
 

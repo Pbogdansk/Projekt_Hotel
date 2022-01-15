@@ -20,8 +20,10 @@ private:
 
 public:
 	Person(string newName, string newSurname, int newDateOfBirth, string newEmail);
+	Person();
 
 	string* getName();
+	string get2Name();
 	string getSurename();
 	int getDateOfBirth();
 	string getEmail();

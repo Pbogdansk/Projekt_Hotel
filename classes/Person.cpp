@@ -7,10 +7,15 @@ using namespace std;
 Person::Person(string newName, string newSurname, int newDateOfBirth, string newEmail) {
 	throw "Not yet implemented";
 }
+Person::Person() {
+}
 
 
 string* Person::getName() {
 	return this->name;
+}
+string Person::get2Name() {
+	return name[1];
 }
 string Person::getSurename() {
 	throw "Not yet implemented";

@@ -9,14 +9,10 @@ using namespace std;
 // #include "Room.h"
 #include "Person.h"
 
-class Reservation;
-class Room;
-// class Person;
-class Customer;
-
 class Customer: public Person
 {
 public:
+	Customer();
 	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail);
 
 	Room* checkAvailability(int startingDate, int endingDate);

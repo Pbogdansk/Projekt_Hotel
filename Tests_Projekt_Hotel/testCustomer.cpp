@@ -9,11 +9,16 @@ namespace customer {
 	TEST_CLASS(AddingNewObject)
 	{
 	public:
-
 		TEST_METHOD(RandomTest0)
 		{
-			Customer newCustomer(Reservation newReservation);
-			//Assert::AreEqual(newCustomer.getFloor(), 2);
+			string theName = "Bazyli";
+			string theName2 = "Kucharski";
+			string theName3 = "BazyliKucharski@dayrep.com";
+			Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
+			Assert::AreSame(newCustomer.getName()[0], theName);
+			Assert::AreSame(newCustomer.getName()[1], theName2);
+			Assert::AreSame(newCustomer.getEmail(), theName3);
+			Assert::AreEqual(newCustomer.getDateOfBirth(), 13021954);
 		}
 	};
 }

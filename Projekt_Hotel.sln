@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Projekt_Hotel", "Projekt_Hotel.vcxproj", "{FB1D9505-AE20-4796-865D-244CFF9A4CF4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests_Projekt_Hotel", "Tests_Projekt_Hotel\Tests_Projekt_Hotel.vcxproj", "{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{FB1D9505-AE20-4796-865D-244CFF9A4CF4}.Release|x64.Build.0 = Release|x64
 		{FB1D9505-AE20-4796-865D-244CFF9A4CF4}.Release|x86.ActiveCfg = Release|Win32
 		{FB1D9505-AE20-4796-865D-244CFF9A4CF4}.Release|x86.Build.0 = Release|Win32
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Debug|x64.ActiveCfg = Debug|x64
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Debug|x64.Build.0 = Debug|x64
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Debug|x86.ActiveCfg = Debug|Win32
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Debug|x86.Build.0 = Debug|Win32
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Release|x64.ActiveCfg = Release|x64
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Release|x64.Build.0 = Release|x64
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Release|x86.ActiveCfg = Release|Win32
+		{114C4318-1065-4B41-BAAD-3FD0ACD81CCA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

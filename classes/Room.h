@@ -23,6 +23,8 @@ class Room
 	public: Admin* _unnamed_Admin_;
 
 	public: void calculatePrice();
+	public: Room(int floor, int roomQuality, int surfaceArea);
+	public: int getFloor();
 };
 
 #endif

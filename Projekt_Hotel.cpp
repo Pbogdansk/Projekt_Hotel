@@ -7,9 +7,9 @@ int main()
    Admin adminsAccounts[2];
    Person currentlyLoggedIn;
 
-   Room rooms[50];
+   //Room rooms[50];
 
-   initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
+   //initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
 
    //main menu
    menu_gui::reset();

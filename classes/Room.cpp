@@ -21,6 +21,21 @@ Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfa
 	price = calculatePrice(surfaceArea);
 }
 
+int Room::getNumberOfPeople() {
+	return numberOfPeople;
+}
 int Room::getFloor() {
 	return floor;
+}
+int Room::getRoomQuality() {
+	return roomQuality;
+}
+int Room::getPrice() {
+	price;
+}
+int Room::getSurfaceArea() {
+	surfaceArea;
+}
+bool Room::getIsOccupied() {
+	isOccupied;
 }

@@ -27,7 +27,12 @@ public:
 
 	int calculatePrice(int roomArea);
 	
+	int getNumberOfPeople();
 	int getFloor();
+	int getRoomQuality();
+	int getPrice();
+	int getSurfaceArea();
+	bool getIsOccupied();
 };
 
 #endif

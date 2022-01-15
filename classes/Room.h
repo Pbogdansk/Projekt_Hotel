@@ -19,9 +19,10 @@ class Room
 	private: int _roomQuality;
 	private: int _price;
 	private: int _surfaceArea;
+	int isOccupied;
+
 	public: std::vector<Reservation*> _unnamed_Reservation_;
 	public: Admin* _unnamed_Admin_;
-
 	public: void calculatePrice();
 	public: Room(int floor, int roomQuality, int surfaceArea);
 	public: int getFloor();

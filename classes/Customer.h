@@ -17,7 +17,7 @@ class Customer;
 class Customer: public Person
 {
 public:
-	Customer();
+	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail);
 
 	Room* checkAvailability(int startingDate, int endingDate);
 	Reservation reservation(Room p, int startingDate, int endingDate);

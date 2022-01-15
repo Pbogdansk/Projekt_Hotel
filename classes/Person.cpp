@@ -4,7 +4,7 @@ using namespace std;
 
 #include "Person.h"
 
-void Person::person(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+Person::Person(string newName, string newSurname, int newDateOfBirth, string newEmail) {
 	throw "Not yet implemented";
 }
 

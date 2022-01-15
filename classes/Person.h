@@ -5,8 +5,6 @@ using namespace std;
 #ifndef __Person_h__
 #define __Person_h__
 
-class Person;
-
 class Person
 {
 private:
@@ -21,7 +19,7 @@ private:
 	typeOfAccount _permissions;
 
 public:
-	void person(string newName, string newSurname, int newDateOfBirth, string newEmail);
+	Person(string newName, string newSurname, int newDateOfBirth, string newEmail);
 
 	string* getName();
 	string getSurename();

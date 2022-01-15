@@ -12,4 +12,3 @@ void Admin::addRoom(string aInt_numberOfPeople, string aInt_floor, string aInt_r
 void Admin::removeRoom(string aRoomj) {
 	throw "Not yet implemented";
 }
-

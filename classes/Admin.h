@@ -13,11 +13,9 @@ class Admin;
 
 class Admin: public Person
 {
-	public: Room* _unnamed_Room_;
-
-	public: void addRoom(string aInt_numberOfPeople, string aInt_floor, string aInt_roomQuality, string aInt_surfaceArea);
-
-	public: void removeRoom(string aRoomj);
+public:
+	void addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea);
+	void removeRoom(Room p);
 };
 
 #endif

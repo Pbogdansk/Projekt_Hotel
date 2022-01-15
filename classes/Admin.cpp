@@ -5,11 +5,11 @@ using namespace std;
 #include "Room.h"
 #include "Person.h"
 
-void Admin::addRoom(string aInt_numberOfPeople, string aInt_floor, string aInt_roomQuality, string aInt_surfaceArea) {
+void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea) {
 	throw "Not yet implemented";
 }
 
-void Admin::removeRoom(string aRoomj) {
+void Admin::removeRoom(Room p) {
 	throw "Not yet implemented";
 }
 

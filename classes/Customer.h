@@ -16,11 +16,9 @@ class Customer;
 
 class Customer: public Person
 {
-	public: std::vector<Reservation*> _unnamed_Reservation_;
-
-	public: Room* checkAvailability(string aInt_startingDate, string aInt_endingDate);
-
-	public: Reservation reservation(string aRoom_p, string aInt_startingDate, string aInt_endingDate);
+public:
+	Room* checkAvailability(int startingDate, int endingDate);
+	Reservation reservation(Room p, int startingDate, int endingDate);
 };
 
 #endif

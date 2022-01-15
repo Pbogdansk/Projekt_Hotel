@@ -1,14 +1,13 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "../include.h"
-#include "../classes/Room.cpp"
+#include "../classes/Receptionist.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace classRoom
-{
+namespace receptionist {
 	TEST_CLASS(AddingNewObject)
-{
+	{
 	public:
 
 		TEST_METHOD(RandomTest0)

@@ -6,11 +6,10 @@ using namespace std;
 #include "Reservation.h"
 #include "Person.h"
 
-Room* Receptionist::checkAvailability(string aInt_startingDate, string aInt_endingDate) {
+Room* Receptionist::checkAvailability(int startingDate, int endingDate) {
 	throw "Not yet implemented";
 }
 
-Reservation Receptionist::reservation(string aRoom_p, string aInt_startingDate, string aInt_endingDate) {
+Reservation Receptionist::reservation(Room p, int startingDate, int endingDate) {
 	throw "Not yet implemented";
 }
-

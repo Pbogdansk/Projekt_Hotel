@@ -7,6 +7,10 @@ using namespace std;
 #include "Room.h"
 #include "Person.h"
 
+Customer::Customer() {
+
+}
+
 Room* Customer::checkAvailability(int startingDate, int endingDate) {
 	throw "Not yet implemented";
 }

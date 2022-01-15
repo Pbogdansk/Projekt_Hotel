@@ -156,6 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="testCustomer.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -164,7 +165,6 @@
     </ClCompile>
     <ClCompile Include="testAdmin.cpp" />
     <ClCompile Include="testClassRoom.cpp" />
-    <ClCompile Include="testCustomer.cpp" />
     <ClCompile Include="testReceptionist.cpp" />
     <ClCompile Include="testReservation.cpp" />
     <ClCompile Include="Tests_Projekt_Hotel.cpp" />

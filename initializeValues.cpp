@@ -7,7 +7,7 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 
 	customersAccounts[0] = Customer("Bazyli ", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
 	customersAccounts[1] = Customer("Dobrogost", "Wojciechowski", 3091971, "DobrogostWojciechowski@rhyta.com");
-	customersAccounts[2] = Customer("Ludmita ", "Zaj¹c", 4101988, "LudmitaZajac@dayrep.com");
+	customersAccounts[2] = Customer("Ludmita ", "Zajac", 4101988, "LudmitaZajac@dayrep.com");
 	customersAccounts[3] = Customer("Dominik ", "Olszewski", 20071963, "DominikOlszewski@jourrapide.com");
 	customersAccounts[4] = Customer("Klementyna", "Zawadzka", 16061960, "KlementynaZawadzka@dayrep.com");
 	customersAccounts[5] = Customer("Marek", "Pawlak", 27111938, "MarekPawlak@rhyta.com");

@@ -9,7 +9,7 @@ using namespace std;
 #include "Admin.h"
 #include "Room.h"
 
-void Reservation::pay(string aBool_paymentMethod) {
+void Reservation::pay(bool paymentMethod) {
 	throw "Not yet implemented";
 }
 

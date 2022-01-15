@@ -15,9 +15,9 @@ class Receptionist;
 
 class Receptionist: public Person
 {
-	public: Room* checkAvailability(string aInt_startingDate, string aInt_endingDate);
-
-	public: Reservation reservation(string aRoom_p, string aInt_startingDate, string aInt_endingDate);
+public:
+	Room* checkAvailability(int startingDate, int endingDate);
+	Reservation reservation(Room p, int startingDate, int endingDate);
 };
 
 #endif

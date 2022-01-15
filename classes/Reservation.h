@@ -20,13 +20,14 @@ class Reservation;
 
 class Reservation
 {
-	private: int _startingDate;
-	private: int _endingDate;
-	private: bool _paymentStatus;
+private:
+	int startingDate;
+	int endingDate;
+	bool paymentStatus;
 
-	public: void pay(string aBool_paymentMethod);
-
-	public: void annulReservation();
+public:
+	void pay(bool paymentMethod);
+	void annulReservation();
 };
 
 #endif

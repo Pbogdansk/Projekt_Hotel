@@ -12,4 +12,3 @@ void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceA
 void Admin::removeRoom(Room p) {
 	throw "Not yet implemented";
 }
-

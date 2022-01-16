@@ -35,8 +35,8 @@ void Room::calculatePrice() {
 		outputPrice *= 3;
 		break;
 	}
-	//surfaceArea		1 -> 10*
-	outputPrice *= (10 * surfaceArea);
+	//surfaceArea		1 -> 3*
+	outputPrice *= (3 * surfaceArea);
 
 	price = outputPrice;
 }

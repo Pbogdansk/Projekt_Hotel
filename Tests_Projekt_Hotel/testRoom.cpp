@@ -71,8 +71,8 @@ namespace room
 		{
 			Room r1 = Room(17, 27, 2, 37);
 			double price = 1;
-			price *= (1 + 17 * 0.8);
-			price *= (10 * 37);
+			price *= (1 + 16 * 0.8);
+			price *= (3 * 37);
 			price *= 2;
 			Assert::AreEqual(price, r1.getPrice());
 			/*
@@ -97,7 +97,7 @@ namespace room
 			Room r1 = Room(2, 2, 2, 24);
 			double price = 1;
 			price *= (1 + 1 * 0.8);
-			price *= (10 * 24);
+			price *= (3 * 24);
 			price *= 2;
 			Assert::AreEqual(price, r1.getPrice());
 		}
@@ -106,7 +106,7 @@ namespace room
 			Room r1 = Room(3, 2, 0, 35);
 			double price = 1;
 			price *= (1 + 2 * 0.8);
-			price *= (10 * 35);
+			price *= (3 * 35);
 			price *= 1;
 			Assert::AreEqual(price, r1.getPrice());
 		}

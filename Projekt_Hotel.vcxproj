@@ -146,6 +146,7 @@
     <ClCompile Include="classes\Receptionist.cpp" />
     <ClCompile Include="classes\Reservation.cpp" />
     <ClCompile Include="classes\Room.cpp" />
+    <ClCompile Include="findRoom.cpp" />
     <ClCompile Include="initializeValues.cpp" />
     <ClCompile Include="LogInAccount.cpp" />
     <ClCompile Include="menu_admin.cpp" />

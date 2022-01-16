@@ -2,6 +2,7 @@
 #include "CppUnitTest.h"
 #include "../include.h"
 #include "../classes/Receptionist.cpp"
+#include "../menu_gui.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

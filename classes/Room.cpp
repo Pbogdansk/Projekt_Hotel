@@ -13,12 +13,32 @@ Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfa
 	roomQuality = newRoomQuality;
 	surfaceArea = newSurfaceArea;
 
-	price = calculatePrice(surfaceArea);
+	calculatePrice();
 }
 
-int Room::calculatePrice(int roomArea) {
-	return 0;
-	throw "Not yet implemented";
+void Room::calculatePrice() {
+	double outputPrice = 1;
+	//numberOfPeople	(n-1)times +80%
+	outputPrice *= (1 + (numberOfPeople - 1) * 0.8);
+	//quality			1 -> 100%, 2 -> 130%, 3 -> 200%, >3 -> 300%
+	switch (roomQuality)
+	{
+	case 0: 
+		break;
+	case 1:
+		outputPrice *= 1.3;
+		break;
+	case 2:
+		outputPrice *= 2;
+		break;
+	default:
+		outputPrice *= 3;
+		break;
+	}
+	//surfaceArea		1 -> 3*
+	outputPrice *= (3 * surfaceArea);
+
+	price = outputPrice;
 }
 
 int Room::getNumberOfPeople() {
@@ -30,12 +50,12 @@ int Room::getFloor() {
 int Room::getRoomQuality() {
 	return roomQuality;
 }
-int Room::getPrice() {
+double Room::getPrice() {
 	return price;
 }
 int Room::getSurfaceArea() {
 	return surfaceArea;
 }
-bool Room::getIsOccupied() {
-	return isOccupied;
+bool Room::getIsOccupied(int dateToCheck) {
+	return isOccupied[dateToCheck];
 }

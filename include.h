@@ -13,15 +13,18 @@
 #include "classes/Room.h"
 
 void menu_admin(Admin account);
-void menu_receptionist(Receptionist account);
+void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms);
 void menu_customer(Customer account);
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
 enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
 extern Room* rooms;
 extern Person currentlyLoggedIn;
-extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*, Room*);
+extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*);
 extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
+extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
+extern int substractDates(int date1, int date2);
+extern string roomToString(Room room);
 
 using namespace std;
 namespace menu_gui

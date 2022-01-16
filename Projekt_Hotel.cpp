@@ -3,16 +3,16 @@
 Person currentlyLoggedIn;
 int main()
 {
+   srand(time(NULL));
    Person allAccounts[15];
    Customer customersAccounts[10];
    Receptionist receptionistsAccounts[2];
    Admin adminsAccounts[2];
 
-   
-
    Room rooms[50];
-   initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
+   initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts);
    assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
+   initializeRoomsWithDefaultValues(rooms, 50);
 
    currentlyLoggedIn = allAccounts[0];
 
@@ -35,7 +35,7 @@ int main()
 		   menu_customer(customersAccounts[currentlyLoggedIn.getIndex()]);
 		   break;
 	   case 1:
-		   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()]);
+		   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()],rooms,50);
 		   break;
 	   case 2:
 		   menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()]);
@@ -58,7 +58,7 @@ int main()
 	   break;
 
    case permReceptionist:	//receptionist
-	   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()]);
+	   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()],rooms,50);
 	   break;
 
    case permAdmin:	//admin

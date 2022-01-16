@@ -1,10 +1,12 @@
 #include "include.h"
 
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
+bool sure;
 void howManyPeople();
 void menu_addRoom();
 void whatSurfaceArea();
 int whatFloor();
+void areYouSure();
 
 void menu_admin(Admin account) {
 
@@ -47,18 +49,21 @@ void menu_admin(Admin account) {
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
+		areYouSure();
 		break;
 	case 1:
 		roomQualityMenu = 2;
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
+		areYouSure();
 		break;
 	case 2:
 		roomQualityMenu = 1;
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
+		areYouSure();
 		break;
 	case 3:
 
@@ -138,3 +143,11 @@ void whatSurfaceArea() {
 	std::cin >> surfaceAreaMenu;
 }
 
+void areYouSure() {
+	std::cout << "czy jesteœ pewien ¿e chcesz utworzyc pokoj z nastepujacymi parametrami?\n";
+	std::cout << "standard: " << roomQualityMenu << "\n liczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
+	std::cin >> sure;
+	if (sure == true) {
+	
+	}
+}

@@ -165,6 +165,7 @@
     </ClCompile>
     <ClCompile Include="testAdmin.cpp" />
     <ClCompile Include="testClassRoom.cpp" />
+    <ClCompile Include="testFindRoom.cpp" />
     <ClCompile Include="testLogInAccount.cpp" />
     <ClCompile Include="testReceptionist.cpp" />
     <ClCompile Include="testReservation.cpp" />

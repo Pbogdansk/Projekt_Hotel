@@ -3,10 +3,10 @@
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
 bool sure;
 void howManyPeople();
-void menu_addRoom();
+void menu_addRoom(Admin account);
 void whatSurfaceArea();
 int whatFloor();
-void areYouSure();
+void areYouSure(Admin account);
 
 void menu_admin(Admin account) {
 
@@ -23,7 +23,7 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		 menu_addRoom();
+		 menu_addRoom(account);
 		break;
 	case 1:
 		//menu_usun_pokoj();
@@ -32,7 +32,7 @@ void menu_admin(Admin account) {
 		break;
 	}
 
-}void menu_addRoom() {
+}void menu_addRoom(Admin account) {
 	
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
@@ -49,21 +49,21 @@ void menu_admin(Admin account) {
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
-		areYouSure();
+		areYouSure(account);
 		break;
 	case 1:
 		roomQualityMenu = 2;
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
-		areYouSure();
+		areYouSure(account);
 		break;
 	case 2:
 		roomQualityMenu = 1;
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
-		areYouSure();
+		areYouSure(account);
 		break;
 	case 3:
 
@@ -143,11 +143,10 @@ void whatSurfaceArea() {
 	std::cin >> surfaceAreaMenu;
 }
 
-void areYouSure() {
+void areYouSure(Admin account) {
 	std::cout << "czy jesteœ pewien ¿e chcesz utworzyc pokoj z nastepujacymi parametrami?\n";
 	std::cout << "standard: " << roomQualityMenu << "\n liczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
 	std::cin >> sure;
 	if (sure == true) {
-	
 	}
 }

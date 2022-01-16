@@ -19,7 +19,7 @@ protected:
 	typeOfAccount _permissions;
 
 public:
-	Person(string newName, string newSurname, int newDateOfBirth, string newEmail);
+	Person(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 	Person();
 
 	string* getName();
@@ -28,6 +28,7 @@ public:
 	int getDateOfBirth();
 	string getEmail();
 	int getPermissions();
+	bool getIsLogged();
 
 	void setName(string aName, string bName );
 	void setSurename(string aSurename);

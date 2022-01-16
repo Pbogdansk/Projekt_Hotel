@@ -4,11 +4,12 @@ using namespace std;
 
 #include "Person.h"
 
-Person::Person(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+Person::Person(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) {
 	name[0] = newName;
 	surname = newSurname;
 	dateOfBirth = newDateOfBirth;
 	email = newEmail;
+	password = newPassword;
 }
 Person::Person() {
 }
@@ -48,7 +49,10 @@ void Person::setDateOfBirth(int aDateOfBirth) {
 void Person::setEmail(string aEmail) {
 	this->email = aEmail;
 }
-
+bool Person::getIsLogged()
+{
+	return isLogged;
+}
 
 bool Person::changePassword(string newPassword, string NewerPassword) {
 	throw "Not yet implemented";
@@ -56,8 +60,14 @@ bool Person::changePassword(string newPassword, string NewerPassword) {
 
 
 bool Person::logIn(string newEmail, string newPassword) {
-	throw "Not yet implemented";
+	
+	if (newEmail == email && newPassword == password)
+	{
+		isLogged = true;
+		return true;
+	}
+	return false;
 }
 void Person::logOut() {
-	throw "Not yet implemented";
+	isLogged = false;
 }

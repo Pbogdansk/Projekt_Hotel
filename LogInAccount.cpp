@@ -1,7 +1,7 @@
 #include "include.h"
 int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, string wantedEmail);
 
-void logInAccount(Person* allAccounts, int numberOfAllAccounts)
+bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
 {
 	string receivedEmailAdress, receivedPassword;
 	system("cls");// czyszczenie ekranu ;p
@@ -15,18 +15,19 @@ void logInAccount(Person* allAccounts, int numberOfAllAccounts)
 	{
 		if (allAccounts[indexOfGivenEmail].logIn(receivedEmailAdress, receivedPassword) == true)
 		{
-			//udalo sie zalogowac
+			currentlyLoggedIn = allAccounts[indexOfGivenEmail];
+			return true;
 		}
 		else
 		{
 			//nie udalo sie
+			return false;
 		}
 	}
 	else	//nie znaleziono
 	{
-
+		return false;
 	}
-
 }
 
 int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, string wantedEmail)

@@ -15,7 +15,7 @@
 void menu_admin();
 void menu_receptionist();
 void menu_customer();
-void logInAccount(Person* allAccounts, int numberOfAllAccounts);
+bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
 extern Room* rooms;
 extern Person currentlyLoggedIn;

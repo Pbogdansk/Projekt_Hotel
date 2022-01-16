@@ -1,16 +1,20 @@
 #include "include.h"
 
+Person currentlyLoggedIn;
 int main()
 {
    Person allAccounts[15];
    Customer customersAccounts[10];
    Receptionist receptionistsAccounts[2];
    Admin adminsAccounts[2];
-   Person currentlyLoggedIn;
+
+   
 
    Room rooms[50];
    initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
    assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
+
+   currentlyLoggedIn = allAccounts[0];
 
    //main menu
    menu_gui::reset();
@@ -36,28 +40,29 @@ int main()
 
 
    // po zalogowaniu siê na odpowiednie konto
+   /*
    menu_gui::reset();
    menu_gui::add_top_text("zaloguj sie na wybrane konto (tymczasowe rozwiazanie pomijajace logowanie)");
    menu_gui::add_top_text("");
    menu_gui::add_option("customersAccounts[0]");
    menu_gui::add_option("receptionistsAccounts[0]");
    menu_gui::add_option("adminsAccounts[0]");
-
-   //switch (currentlyLoggedIn.getPermissions())
-   switch (menu_gui::display())
+   */
+   switch (currentlyLoggedIn.getPermissions())
+   //switch (menu_gui::display())
    {
    case 0:	//customer
-	   currentlyLoggedIn = customersAccounts[0];
+	   //currentlyLoggedIn = customersAccounts[0];
 	   menu_customer();
 	   break;
 
    case 1:	//receptionist
-	   currentlyLoggedIn = receptionistsAccounts[0];
+	   //currentlyLoggedIn = receptionistsAccounts[0];
 	   menu_receptionist();
 	   break;
 
    case 2:	//admin
-	   currentlyLoggedIn = adminsAccounts[0];
+	   //currentlyLoggedIn = adminsAccounts[0];
 	   menu_admin();
 	   break;
    }

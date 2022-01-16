@@ -1,5 +1,8 @@
 #include "include.h"
 
+int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
+void howManyPeople();
+
 void menu_admin(Admin account) {
 
 	//test
@@ -25,6 +28,7 @@ void menu_admin(Admin account) {
 	}
 
 }void menu_addRoom() {
+	
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
 	menu_gui::add_option("belweder");
@@ -36,14 +40,23 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		
+		roomQualityMenu = 3;
+		howManyPeople();
 		break;
 	case 1:
+		roomQualityMenu = 2;
+		howManyPeople();
 		break;
 	case 2:
+		roomQualityMenu = 1;
+		howManyPeople();
 		break;
 	case 3:
 
 		break;
 	}
+}
+void howManyPeople() {
+	std::cout << "ilu ludzi bêdzie w nowym pokoju?\n";
+	std::cin >> numberOfPeopleMenu;
 }

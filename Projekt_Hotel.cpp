@@ -30,6 +30,8 @@ int main()
    case 0:
 	   if (logInAccount(allAccounts, 14) == true)
 			cout << "(TYMCZASOWE!)\nudalo sie zalogowac, poziom konta: " << currentlyLoggedIn.getPermissions() << endl;
+	   switch () {
+	   }
 	   system("pause");
 	   break;
    case 1:

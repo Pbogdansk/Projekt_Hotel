@@ -3,6 +3,7 @@
 Person currentlyLoggedIn;
 int main()
 {
+   srand(time(NULL));
    Person allAccounts[15];
    Customer customersAccounts[10];
    Receptionist receptionistsAccounts[2];
@@ -11,8 +12,9 @@ int main()
    
 
    Room rooms[50];
-   initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
+   initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts);
    assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
+   initializeRoomsWithDefaultValues(rooms, 50);
 
    currentlyLoggedIn = allAccounts[0];
 

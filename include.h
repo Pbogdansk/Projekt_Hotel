@@ -20,8 +20,9 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
 extern Room* rooms;
 extern Person currentlyLoggedIn;
-extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*, Room*);
+extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*);
 extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
+extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 
 using namespace std;
 namespace menu_gui

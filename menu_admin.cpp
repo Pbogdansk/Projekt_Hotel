@@ -46,14 +46,19 @@ void menu_admin(Admin account) {
 		roomQualityMenu = 3;
 		howManyPeople();
 		floorMenu = whatFloor();
+		whatSurfaceArea();
 		break;
 	case 1:
 		roomQualityMenu = 2;
 		howManyPeople();
+		floorMenu = whatFloor();
+		whatSurfaceArea();
 		break;
 	case 2:
 		roomQualityMenu = 1;
 		howManyPeople();
+		floorMenu = whatFloor();
+		whatSurfaceArea();
 		break;
 	case 3:
 
@@ -129,7 +134,7 @@ int whatFloor() {
 	}
 }
 void whatSurfaceArea() {
-	std::cout << "Jaka bedzie powierzchnia nowego pokoju?\n";
+	std::cout << "\nJaka bedzie powierzchnia nowego pokoju? [m^2]\n";
 	std::cin >> surfaceAreaMenu;
 }
 

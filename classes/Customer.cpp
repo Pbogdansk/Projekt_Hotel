@@ -8,11 +8,13 @@ using namespace std;
 #include "Person.h"
 
 Customer::Customer() {}
-Customer::Customer(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+Customer::Customer(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) {
 	name[0] = newName;
 	surname = newSurname;
 	dateOfBirth = newDateOfBirth;
 	email = newEmail;
+	password = newPassword;
+	permissions = permCustomer;
 }
 
 Room* Customer::checkAvailability(int startingDate, int endingDate) {

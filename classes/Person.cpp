@@ -32,7 +32,7 @@ string Person::getEmail() {
 }
 int Person::getPermissions()
 {
-	return static_cast <int> (this->_permissions);
+	return static_cast <int> (this->permissions);
 }
 
 

@@ -1,4 +1,6 @@
 #include "include.h"
+#include "classes/Admin.cpp"
+
 
 void menu_admin(Admin account) {
 
@@ -15,7 +17,7 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		void menu_addRoom();
+		currentlyLoggedIn.addRoom();
 		break;
 	case 1:
 		//menu_usun_pokoj();
@@ -24,26 +26,4 @@ void menu_admin(Admin account) {
 		break;
 	}
 
-}void menu_addRoom() {
-	menu_gui::reset();
-	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
-	menu_gui::add_option("belweder");
-	menu_gui::add_option("premium");
-	menu_gui::add_option("ekonomiczny ");
-	menu_gui::add_option("Wroc do menu");
-
-	
-	switch (menu_gui::display())
-	{
-	case 0:
-		
-		break;
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-
-		break;
-	}
 }

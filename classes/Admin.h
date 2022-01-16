@@ -17,7 +17,7 @@ public:
 	Admin();
 	Admin(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 
-	void addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea);
+	void addRoom();
 	void removeRoom(Room p);
 };
 

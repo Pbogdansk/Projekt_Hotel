@@ -4,6 +4,7 @@ using namespace std;
 #include "Admin.h"
 #include "Room.h"
 #include "Person.h"
+#include "../include.h"
 
 Admin::Admin(){}
 Admin::Admin(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) {
@@ -15,10 +16,27 @@ Admin::Admin(string newName, string newSurname, int newDateOfBirth, string newEm
 	permissions = permAdmin;
 }
 
-void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea) {
-	throw "Not yet implemented";
-}
+void Admin::addRoom() {
+	menu_gui::reset();
+	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
+	menu_gui::add_option("belweder");
+	menu_gui::add_option("premium");
+	menu_gui::add_option("ekonomiczny ");
+	menu_gui::add_option("Wroc do menu");
 
-void Admin::removeRoom(Room p) {
-	throw "Not yet implemented";
+
+	switch (menu_gui::display())
+	{
+	case 0:
+		break;
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	}
 }
+//void Admin::removeRoom(Room p) {
+//	throw "Not yet implemented";
+//}

@@ -23,6 +23,8 @@ extern Person currentlyLoggedIn;
 extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*);
 extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
 extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
+extern int substractDates(int date1, int date2);
+extern string roomToString(Room room);
 
 using namespace std;
 namespace menu_gui

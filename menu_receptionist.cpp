@@ -29,4 +29,8 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms){
 		break;
 	}
 
+	cout << "(TYMCZASOWE!) Wybrano pokoj:" << endl;
+	cout << "ilosc osob | pietro | standard | powierzchnia || cena za dobe" << endl;
+	cout << roomToString(roomToReserve);
+	system("pause");
 }

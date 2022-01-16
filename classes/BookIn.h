@@ -10,16 +10,15 @@ using namespace std;
 class Reservation;
 class BookIn;
 
-class BookIn
-{
-	private: int _startingDate;
-	private: int _endingDate;
-	private: bool _isBooked;
-	public: Reservation* _unnamed_Reservation_;
+class BookIn {
+private:
+	int startingDate;
+	int endingDate;
+	bool isBooked;
 
-	public: void bookIn(string aInt_startingDate, string aEndingDate);
-
-	public: void bookOutj();
+public:
+	void bookIn(int startingDate, int EndingDate);
+	void bookOutj();
 };
 
 #endif

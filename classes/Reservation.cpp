@@ -27,11 +27,9 @@ void Reservation::annulReservation() {
 int Reservation::getStartingDate() {
 	return startingDate;
 }
-
 int Reservation::getEndingDate() {
 	return endingDate;
 }
-
 bool Reservation::getPaymentStatus() {
 	return paymentStatus;
 }

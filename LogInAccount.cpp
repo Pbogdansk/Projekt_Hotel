@@ -15,5 +15,10 @@ void logInAccount(Person* allAccounts, int numberOfAllAccounts)
 
 int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, string wantedEmail)
 {
-	return 0;
+	for (int i = 0; i < numberOfAccounts; i++)
+	{
+		if (allAccounts[i].getEmail() == wantedEmail)
+			return i;
+	}
+	return -1;	//nie znaleziono ¿adnego pasuj¹cego adresu email
 }

@@ -5,7 +5,10 @@ using namespace std;
 #include "Person.h"
 
 Person::Person(string newName, string newSurname, int newDateOfBirth, string newEmail) {
-	throw "Not yet implemented";
+	name[0] = newName;
+	surname = newSurname;
+	dateOfBirth = newDateOfBirth;
+	email = newEmail;
 }
 Person::Person() {
 }

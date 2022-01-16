@@ -29,7 +29,7 @@ public:
 		string wantedEmail = "DominikOlszewski@jourrapide.com";
 
 		int indexInArrayOfGivenEmail = findEmailAdressInGivenArray(accounts, 4, wantedEmail);
-		Assert::AreEqual(indexInArrayOfGivenEmail, 3);
+		Assert::AreEqual(indexInArrayOfGivenEmail, 2);
 	}
 	TEST_METHOD(CannotFindGivenAdress0)
 	{

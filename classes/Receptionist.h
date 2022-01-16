@@ -17,7 +17,7 @@ class Receptionist: public Person
 {
 public:
 	Receptionist();
-	Receptionist(string newName, string newSurname, int newDateOfBirth, string newEmail);
+	Receptionist(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 
 	Room* checkAvailability(int startingDate, int endingDate);
 	Reservation reservation(Room p, int startingDate, int endingDate);

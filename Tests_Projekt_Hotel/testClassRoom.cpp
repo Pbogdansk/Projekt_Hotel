@@ -13,7 +13,7 @@ namespace classRoom
 
 		TEST_METHOD(RandomTest0)
 		{
-			Room newroom(1, 2, 30, 100, 0);
+			Room newroom(1, 2, 30, 100);
 			Assert::AreEqual(newroom.getFloor(), 2);
 		}
 	};

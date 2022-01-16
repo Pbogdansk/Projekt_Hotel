@@ -13,7 +13,7 @@ class Customer: public Person
 {
 public:
 	Customer();
-	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail);
+	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 
 	Room* checkAvailability(int startingDate, int endingDate);
 	Reservation reservation(Room p, int startingDate, int endingDate);

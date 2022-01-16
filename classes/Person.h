@@ -15,11 +15,11 @@ protected:
 	string password;
 	bool isLogged;
 
-	enum typeOfAccount { Customer = 0, Receptionist = 1, Admin = 2 };
-	typeOfAccount _permissions;
+	enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
+	typeOfAccount permissions;
 
 public:
-	Person(string newName, string newSurname, int newDateOfBirth, string newEmail);
+	Person(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 	Person();
 
 	string* getName();
@@ -28,6 +28,7 @@ public:
 	int getDateOfBirth();
 	string getEmail();
 	int getPermissions();
+	bool getIsLogged();
 
 	void setName(string aName, string bName );
 	void setSurename(string aSurename);

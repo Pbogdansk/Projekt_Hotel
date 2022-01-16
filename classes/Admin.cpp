@@ -6,11 +6,13 @@ using namespace std;
 #include "Person.h"
 
 Admin::Admin(){}
-Admin::Admin(string newName, string newSurname, int newDateOfBirth, string newEmail) {
+Admin::Admin(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) {
 	name[0] = newName;
 	surname = newSurname;
 	dateOfBirth = newDateOfBirth;
 	email = newEmail;
+	password = newPassword;
+	permissions = permAdmin;
 }
 
 void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea) {

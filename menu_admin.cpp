@@ -2,7 +2,7 @@
 
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
 void howManyPeople();
-
+void menu_addRoom();
 void menu_admin(Admin account) {
 
 	//test
@@ -18,7 +18,7 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		void menu_addRoom();
+		 menu_addRoom();
 		break;
 	case 1:
 		//menu_usun_pokoj();

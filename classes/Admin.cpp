@@ -16,7 +16,7 @@ Admin::Admin(string newName, string newSurname, int newDateOfBirth, string newEm
 }
 
 void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea) {
-	throw "Not yet implemented";
+//	throw "Not yet implemented";
 }
 
 void Admin::removeRoom(Room p) {

@@ -30,16 +30,25 @@ int main()
    case 0:
 	   if (logInAccount(allAccounts, 14) == true)
 			cout << "(TYMCZASOWE!)\nudalo sie zalogowac, poziom konta: " << currentlyLoggedIn.getPermissions() << endl;
-	   switch () {
+	   switch (currentlyLoggedIn.getPermissions()) {
+	   case 0:
+		   menu_customer(customersAccounts[currentlyLoggedIn.getIndex()]);
+		   break;
+	   case 1:
+		   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()]);
+		   break;
+	   case 2:
+		   menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()]);
+		   break;
 	   }
-	   system("pause");
-	   break;
-   case 1:
-	   //create_a_account();
-	   break;
-   case 2:
-	   return 0x0;
-	   break;
+//	   system("pause");
+//	   break;
+//   case 1:
+//	   //create_a_account();
+//	   break;
+ //  case 2:
+//	   return 0x0;
+//	   break;
    }
 
    switch (currentlyLoggedIn.getPermissions())

@@ -22,7 +22,6 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	rooms[0] = Room(2, 2, 5, 50);
 	rooms[1] = Room(1, 3, 4, 20);
 }
-
 void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts)
 {
 	int numberOfAllAccounts = 14;
@@ -48,5 +47,14 @@ void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAcco
 		allAccounts[counterAllAccounts] = adminsAccounts[i];
 		allAccounts[counterAllAccounts].setIndex(i);
 		counterAllAccounts++;
+	}
+}
+
+void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms)
+{
+	//Room(int newNumberOfPeople = 0, int newFloor = 0, int newRoomQuality = 0, int newSurfaceArea = 0);
+	for (int i = 0; i < numberOfRooms; i++)
+	{
+		rooms[i] = Room();
 	}
 }

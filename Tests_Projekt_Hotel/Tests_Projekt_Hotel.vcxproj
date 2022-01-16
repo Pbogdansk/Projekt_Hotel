@@ -168,6 +168,7 @@
     <ClCompile Include="testLogInAccount.cpp" />
     <ClCompile Include="testReceptionist.cpp" />
     <ClCompile Include="testReservation.cpp" />
+    <ClCompile Include="testRoom.cpp" />
     <ClCompile Include="Tests_Projekt_Hotel.cpp" />
   </ItemGroup>
   <ItemGroup>

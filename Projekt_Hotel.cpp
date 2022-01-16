@@ -24,7 +24,7 @@ int main()
    switch (menu_gui::display())
    {
    case 0:
-	   //log_in();
+	   logInAccount(allAccounts,14);
 	   break;
    case 1:
 	   //create_a_account();

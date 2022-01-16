@@ -19,7 +19,7 @@ public:
 	{
 		int date1 = 10012022;
 		int date2 = 15012022;
-		Assert::AreEqual(6, substractDates(date1, date2));
+		Assert::AreEqual(5, substractDates(date1, date2));
 	}
 	TEST_METHOD(BasicTest1)
 	{

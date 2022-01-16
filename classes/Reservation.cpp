@@ -11,7 +11,9 @@ using namespace std;
 
 Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus)
 {
-	
+	startingDate = newStartingDate;
+	endingDate = newEndingDate;
+	paymentStatus = newPaymentStatus;
 }
 
 void Reservation::pay(bool paymentMethod) {

@@ -23,11 +23,27 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	rooms[1] = Room(1, 3, 4, 20);
 }
 
+void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts)
+{
+	int numberOfAllAccounts = 14;
+	int numberOfCustomersAccounts = 10;
+	int numberOfReceptionistsAccounts = 2;
+	int numberOfAdminsAccounts = 2;
 
-
-
-
-
-
-
-
+	int counterAllAccounts = 0;
+	for (int i = 0; i < numberOfCustomersAccounts; i++)
+	{
+		allAccounts[counterAllAccounts] = customersAccounts[i];
+		counterAllAccounts++;
+	}
+	for (int i = 0; i < numberOfReceptionistsAccounts; i++)
+	{
+		allAccounts[counterAllAccounts] = receptionistsAccounts[i];
+		counterAllAccounts++;
+	}
+	for (int i = 0; i < numberOfAdminsAccounts; i++)
+	{
+		allAccounts[counterAllAccounts] = adminsAccounts[i];
+		counterAllAccounts++;
+	}
+}

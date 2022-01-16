@@ -19,6 +19,7 @@ void menu_customer();
 extern Room* rooms;
 extern Person currentlyLoggedIn;
 extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*, Room*);
+extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
 
 using namespace std;
 namespace menu_gui

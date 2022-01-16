@@ -17,6 +17,7 @@ Room::Room(int newNumberOfPeople, int newFloor, int newRoomQuality, int newSurfa
 }
 
 int Room::calculatePrice(int roomArea) {
+	return 0;
 	throw "Not yet implemented";
 }
 

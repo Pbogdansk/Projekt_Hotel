@@ -2,14 +2,15 @@
 
 int main()
 {
+   Person allAccounts[15];
    Customer customersAccounts[10];
    Receptionist receptionistsAccounts[2];
    Admin adminsAccounts[2];
    Person currentlyLoggedIn;
 
-   //Room rooms[50];
-
-   //initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
+   Room rooms[50];
+   initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts, rooms);
+   assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
 
    //main menu
    menu_gui::reset();

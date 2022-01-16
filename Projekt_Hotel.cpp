@@ -43,15 +43,15 @@ int main()
    switch (currentlyLoggedIn.getPermissions())
    {
    case permCustomer:	//customer
-	   menu_customer();
+	   menu_customer(customersAccounts[currentlyLoggedIn.getIndex()]);
 	   break;
 
    case permReceptionist:	//receptionist
-	   menu_receptionist();
+	   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()]);
 	   break;
 
    case permAdmin:	//admin
-	   menu_admin();
+	   menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()]);
 	   break;
    }
 

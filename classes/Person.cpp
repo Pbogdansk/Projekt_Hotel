@@ -35,6 +35,10 @@ int Person::getPermissions()
 	return static_cast <int> (this->permissions);
 }
 
+void Person::setIndex(int aIndex) {
+	index = aIndex;
+}
+
 
 void Person::setName(string aName, string bName) {
 	this->name[0] = aName;
@@ -52,6 +56,10 @@ void Person::setEmail(string aEmail) {
 bool Person::getIsLogged()
 {
 	return isLogged;
+}
+int Person::getIndex()
+{
+	return index;
 }
 
 bool Person::changePassword(string newPassword, string NewerPassword) {

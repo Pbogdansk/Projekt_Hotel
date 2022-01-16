@@ -12,9 +12,9 @@
 #include "classes/Reservation.h"
 #include "classes/Room.h"
 
-void menu_admin();
-void menu_receptionist();
-void menu_customer();
+void menu_admin(Admin account);
+void menu_receptionist(Receptionist account);
+void menu_customer(Customer account);
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
 enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };

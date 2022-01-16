@@ -28,7 +28,9 @@ int main()
    switch (menu_gui::display())
    {
    case 0:
-	   logInAccount(allAccounts,14);
+	   if (logInAccount(allAccounts, 14) == true)
+			cout << "(TYMCZASOWE!)\nudalo sie zalogowac, poziom konta: " << currentlyLoggedIn.getPermissions() << endl;
+	   system("pause");
 	   break;
    case 1:
 	   //create_a_account();
@@ -38,31 +40,17 @@ int main()
 	   break;
    }
 
-
-   // po zalogowaniu siê na odpowiednie konto
-   /*
-   menu_gui::reset();
-   menu_gui::add_top_text("zaloguj sie na wybrane konto (tymczasowe rozwiazanie pomijajace logowanie)");
-   menu_gui::add_top_text("");
-   menu_gui::add_option("customersAccounts[0]");
-   menu_gui::add_option("receptionistsAccounts[0]");
-   menu_gui::add_option("adminsAccounts[0]");
-   */
    switch (currentlyLoggedIn.getPermissions())
-   //switch (menu_gui::display())
    {
-   case 0:	//customer
-	   //currentlyLoggedIn = customersAccounts[0];
+   case permCustomer:	//customer
 	   menu_customer();
 	   break;
 
-   case 1:	//receptionist
-	   //currentlyLoggedIn = receptionistsAccounts[0];
+   case permReceptionist:	//receptionist
 	   menu_receptionist();
 	   break;
 
-   case 2:	//admin
-	   //currentlyLoggedIn = adminsAccounts[0];
+   case permAdmin:	//admin
 	   menu_admin();
 	   break;
    }

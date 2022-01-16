@@ -1,11 +1,14 @@
 #include <exception>
+
 using namespace std;
 
 #include "Receptionist.h"
 #include "Room.h"
 #include "Reservation.h"
 #include "Person.h"
+#include <iostream>
 extern int substractDates(int date1, int date2);
+extern string roomToString(Room room);
 
 Receptionist::Receptionist(){}
 Receptionist::Receptionist(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) {
@@ -19,13 +22,25 @@ Receptionist::Receptionist(string newName, string newSurname, int newDateOfBirth
 
 Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* rooms, int numberOfRooms) {	//returns pokoj do rezerwacji
 	
-	substractDates(startingDate, endingDate);
+	int daysFromNewYear = substractDates(01012022, startingDate);
+	int numberOfDays = substractDates(startingDate, endingDate);
+	if (numberOfDays == -1)
+		throw "zla data";
+	//cout << "from " << startingDate << " to " << endingDate << " is " << numberOfDays << " days" << endl;
 
 	for (int i = 0; i < numberOfRooms; i++)
 	{
-		//if (rooms[i].ge)
-
-
+		bool isThisRoomFree = true;
+		for (int j = 0; j < numberOfDays; j++)
+		{
+			if (rooms[i].getIsOccupied(daysFromNewYear + j) == true)
+				isThisRoomFree = false;
+		}
+		if (isThisRoomFree == true)
+		{
+			roomToString(rooms[i]);
+			cout << "pokoj nr." << i+1 << " jest wolny" << endl;
+		}
 	}
 	return Room();
 }

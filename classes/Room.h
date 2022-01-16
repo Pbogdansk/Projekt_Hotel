@@ -33,7 +33,7 @@ public:
 	int getRoomQuality();
 	double getPrice();
 	int getSurfaceArea();
-	bool getIsOccupied();
+	bool getIsOccupied(int dateToCheck);
 };
 
 #endif

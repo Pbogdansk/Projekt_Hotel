@@ -77,3 +77,44 @@ int substractDates(int date1, int date2)
 		return -1;
 	return totalDays2 - totalDays1;
 }
+
+string roomToString(Room room)
+{
+	/*
+	int numberOfPeople;
+	int floor;
+	int roomQuality;
+	double price;
+	int surfaceArea;
+	//bool isOccupied = false;
+	bool isOccupied[365] = { false };
+	*/
+	//cout << "ilosc osob | pietro | standard | powierzchnia || cena za dobe" << endl;
+
+	string result = "        ";
+	if (room.getNumberOfPeople() < 10)	//taktyczna spacja jeœli mniejsze ni¿ 10
+		result += " ";
+	result += to_string(room.getNumberOfPeople());
+	result += " |     ";
+	if (room.getFloor() < 10)	//taktyczna spacja jeœli mniejsze ni¿ 10
+		result += " ";
+	result += to_string(room.getFloor());
+	result += " |        ";
+	result += to_string(room.getRoomQuality());
+	result += " |          ";
+	if (room.getSurfaceArea() < 100)	//taktyczna spacja jeœli mniejsze ni¿ 100
+		result += " ";
+	if (room.getSurfaceArea() < 10)	//taktyczna spacja jeœli mniejsze ni¿ 10
+		result += " ";
+	result += to_string(room.getSurfaceArea());
+	result += " ||        ";
+	if (room.getPrice() < 1000)	//taktyczna spacja jeœli mniejsze ni¿ 1000
+		result += " ";
+	if (room.getPrice() < 100)	//taktyczna spacja jeœli mniejsze ni¿ 100
+		result += " ";
+	if (room.getPrice() < 10)	//taktyczna spacja jeœli mniejsze ni¿ 10
+		result += " ";
+	result += to_string(static_cast <int> (room.getPrice()));
+
+	return result;
+}

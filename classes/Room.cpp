@@ -56,6 +56,6 @@ double Room::getPrice() {
 int Room::getSurfaceArea() {
 	return surfaceArea;
 }
-bool Room::getIsOccupied() {
-	return isOccupied;
+bool Room::getIsOccupied(int dateToCheck) {
+	return isOccupied[dateToCheck];
 }

@@ -1,6 +1,6 @@
 #include "include.h"
 
-void menu_customer(){
+void menu_customer(Customer account){
 	menu_gui::reset();
 	menu_gui::add_top_text("Witamy w hotelu Smakus");
 	menu_gui::add_option("Dodaj rezerwacje");

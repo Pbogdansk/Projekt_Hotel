@@ -1,6 +1,6 @@
 #include "include.h"
 
-void menu_receptionist(){
+void menu_receptionist(Receptionist account){
 	menu_gui::reset();
 	menu_gui::add_top_text("Witaj recepcjonistko jaki pasjans dzisiaj?");
 	menu_gui::add_option("Dodaj rezerwacje");

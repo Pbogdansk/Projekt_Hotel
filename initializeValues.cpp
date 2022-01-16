@@ -34,16 +34,19 @@ void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAcco
 	for (int i = 0; i < numberOfCustomersAccounts; i++)
 	{
 		allAccounts[counterAllAccounts] = customersAccounts[i];
+		allAccounts[counterAllAccounts].setIndex(i);
 		counterAllAccounts++;
 	}
 	for (int i = 0; i < numberOfReceptionistsAccounts; i++)
 	{
 		allAccounts[counterAllAccounts] = receptionistsAccounts[i];
+		allAccounts[counterAllAccounts].setIndex(i);
 		counterAllAccounts++;
 	}
 	for (int i = 0; i < numberOfAdminsAccounts; i++)
 	{
 		allAccounts[counterAllAccounts] = adminsAccounts[i];
+		allAccounts[counterAllAccounts].setIndex(i);
 		counterAllAccounts++;
 	}
 }

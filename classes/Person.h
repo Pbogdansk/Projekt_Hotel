@@ -14,6 +14,7 @@ protected:
 	string email;
 	string password;
 	bool isLogged;
+	int index;
 
 	enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
 	typeOfAccount permissions;
@@ -29,11 +30,13 @@ public:
 	string getEmail();
 	int getPermissions();
 	bool getIsLogged();
+	int getIndex();
 
 	void setName(string aName, string bName );
 	void setSurename(string aSurename);
 	void setDateOfBirth(int aDateOfBirth);
 	void setEmail(string aEmail);
+	void setIndex(int aIndex);
 
 	bool changePassword(string aString_password, string aString_newPassword);
 

@@ -16,8 +16,8 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	receptionistsAccounts[0] = Receptionist("Tobiasz", "Tomaszewski", 24081965, "TobiaszTomaszewski@rhyta.com" , "ut1xvbqCtRrz72E9");
 	receptionistsAccounts[1] = Receptionist("Gertruda", "Dudek", 3091951, "GertrudaDudek@jourrapide.com" , "ZrlcrtNwf49rM9NZ");
 
-	adminsAccounts[0] = Admin("Klara", "Walczak", 26061970, "testtest@test.pl" , "p4ssw0rd123");
-	adminsAccounts[1] = Admin("Eligiusz", "Kaczmarek", 24091987, "EligiuszKaczmarek@teleworm.us" , "t5JbHo7JrMgia1wY");
+	adminsAccounts[0] = Admin("Wojciech", "Sum", 26061970, "test@test.pl" , "123");
+	adminsAccounts[1] = Admin("Adam", "Szczupak", 24091987, "EligiuszKaczmarek@teleworm.us" , "t5JbHo7JrMgia1wY");
 
 	rooms[0] = Room(2, 2, 5, 50);
 	rooms[1] = Room(1, 3, 4, 20);

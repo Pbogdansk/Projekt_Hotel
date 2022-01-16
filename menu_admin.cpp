@@ -1,5 +1,13 @@
 #include "include.h"
 
+int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
+bool sure;
+void howManyPeople();
+void menu_addRoom(Admin account);
+void whatSurfaceArea();
+int whatFloor();
+void areYouSure(Admin account);
+
 void menu_admin(Admin account) {
 
 	//test
@@ -15,7 +23,7 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		void menu_addRoom();
+		 menu_addRoom(account);
 		break;
 	case 1:
 		//menu_usun_pokoj();
@@ -24,7 +32,8 @@ void menu_admin(Admin account) {
 		break;
 	}
 
-}void menu_addRoom() {
+}void menu_addRoom(Admin account) {
+	
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
 	menu_gui::add_option("belweder");
@@ -36,14 +45,108 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		
+		roomQualityMenu = 3;
+		howManyPeople();
+		floorMenu = whatFloor();
+		whatSurfaceArea();
+		areYouSure(account);
 		break;
 	case 1:
+		roomQualityMenu = 2;
+		howManyPeople();
+		floorMenu = whatFloor();
+		whatSurfaceArea();
+		areYouSure(account);
 		break;
 	case 2:
+		roomQualityMenu = 1;
+		howManyPeople();
+		floorMenu = whatFloor();
+		whatSurfaceArea();
+		areYouSure(account);
 		break;
 	case 3:
 
 		break;
+	}
+}
+void howManyPeople() {
+	std::cout << "ilu ludzi bêdzie w nowym pokoju?\n";
+	std::cin >> numberOfPeopleMenu;
+}
+int whatFloor() {
+	menu_gui::reset();
+	menu_gui::add_top_text("Wybierz pietro pokoju do dodania:");
+	
+	menu_gui::add_option("1");	
+	menu_gui::add_option("2");	
+	menu_gui::add_option("3");	
+	menu_gui::add_option("4");	
+	menu_gui::add_option("5");	
+	menu_gui::add_option("6");
+	menu_gui::add_option("7");
+	menu_gui::add_option("8");
+	menu_gui::add_option("9");
+	menu_gui::add_option("10");
+	menu_gui::add_option("11");
+	menu_gui::add_option("12");
+
+	switch (menu_gui::display())
+	{
+
+	case 0:
+		return 1;
+		break;
+	case 1:
+		return 2;
+		break;
+	case 2:
+		return 3;
+		break;
+	case 3:
+		return 4;
+		break;
+	case 4:
+		return 5;
+		break;
+	case 5:
+		return 6;
+		break;
+	case 6:
+		return 7;
+		break;
+
+	case 7:
+		return 8;
+		break;
+
+	case 8:
+		return 9;
+		break;
+
+	case 9:
+		return 10;
+		break;
+
+	case 10:
+		return 11;
+		break;
+
+	case 11:
+		return 12;
+		break;
+
+	}
+}
+void whatSurfaceArea() {
+	std::cout << "\nJaka bedzie powierzchnia nowego pokoju? [m^2]\n";
+	std::cin >> surfaceAreaMenu;
+}
+
+void areYouSure(Admin account) {
+	std::cout << "czy jesteœ pewien ¿e chcesz utworzyc pokoj z nastepujacymi parametrami?\n";
+	std::cout << "standard: " << roomQualityMenu << "\n liczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
+	std::cin >> sure;
+	if (sure == true) {
 	}
 }

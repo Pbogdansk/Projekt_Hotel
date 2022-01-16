@@ -54,4 +54,40 @@ public:
 		Assert::AreEqual(indexInArrayOfGivenEmail, -1);
 	}
 	};
+	TEST_CLASS(methodLogInPerson) {
+public:
+
+	TEST_METHOD(BasicTest0)
+	{
+		Person account = Person("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com","ad7oFahR");
+		string emailToLogIn = "BazyliKucharski@dayrep.com";
+		string passwordToLogIn = "ad7oFahR";
+
+		Assert::AreEqual(account.logIn(emailToLogIn,passwordToLogIn),true);
+	}
+	TEST_METHOD(BasicTest1)
+	{
+		Person account = Person("Dominik ", "Olszewski", 20071963, "DominikOlszewski@jourrapide.com","sathah9M");
+		string emailToLogIn = "DominikOlszewski@jourrapide.com";
+		string passwordToLogIn = "sathah9M";
+
+		Assert::AreEqual(account.logIn(emailToLogIn, passwordToLogIn), true);
+	}
+	TEST_METHOD(WrongEmail0)
+	{
+		Person account = Person("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com", "ad7oFahR");
+		string emailToLogIn = "KlementynaZawadzka@dayrep.com";
+		string passwordToLogIn = "ad7oFahR";
+
+		Assert::AreEqual(account.logIn(emailToLogIn, passwordToLogIn), false);
+	}
+	TEST_METHOD(WrongPassword0)
+	{
+		Person account = Person("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com", "ad7oFahR");
+		string emailToLogIn = "KlementynaZawadzka@dayrep.com";
+		string passwordToLogIn = "uZai9ecae7l";
+
+		Assert::AreEqual(account.logIn(emailToLogIn, passwordToLogIn), false);
+	}
+	};
 }

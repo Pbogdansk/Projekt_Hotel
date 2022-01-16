@@ -10,7 +10,23 @@ void logInAccount(Person* allAccounts, int numberOfAllAccounts)
 	cin >> receivedEmailAdress;
 	cout << "haslo:       ";
 	cin >> receivedPassword;
-	findEmailAdressInGivenArray(allAccounts, numberOfAllAccounts, receivedEmailAdress);
+	int indexOfGivenEmail = findEmailAdressInGivenArray(allAccounts, numberOfAllAccounts, receivedEmailAdress);
+	if (indexOfGivenEmail != -1)	//znaleziono
+	{
+		if (allAccounts[indexOfGivenEmail].logIn(receivedEmailAdress, receivedPassword) == true)
+		{
+			//udalo sie zalogowac
+		}
+		else
+		{
+			//nie udalo sie
+		}
+	}
+	else	//nie znaleziono
+	{
+
+	}
+
 }
 
 int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, string wantedEmail)

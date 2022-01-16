@@ -57,6 +57,9 @@
     <ClCompile Include="LogInAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="findRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="schematy\anulowanie rezerwacji.jpg">

@@ -20,7 +20,8 @@ private:
 	int roomQuality;
 	double price;
 	int surfaceArea;
-	bool isOccupied = 0;
+	//bool isOccupied = false;
+	bool isOccupied[365] = { false };
 
 public:
 	Room(int newNumberOfPeople=0, int newFloor=0, int newRoomQuality=0, int newSurfaceArea=0);

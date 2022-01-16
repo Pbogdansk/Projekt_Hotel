@@ -13,7 +13,7 @@
 #include "classes/Room.h"
 
 void menu_admin(Admin account);
-void menu_receptionist(Receptionist account);
+void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms);
 void menu_customer(Customer account);
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 

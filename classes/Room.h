@@ -18,19 +18,19 @@ private:
 	int numberOfPeople;
 	int floor;
 	int roomQuality;
-	int price;
+	double price;
 	int surfaceArea;
 	bool isOccupied = 0;
 
 public:
 	Room(int newNumberOfPeople=0, int newFloor=0, int newRoomQuality=0, int newSurfaceArea=0);
 
-	int calculatePrice(int roomArea);
+	void calculatePrice();
 	
 	int getNumberOfPeople();
 	int getFloor();
 	int getRoomQuality();
-	int getPrice();
+	double getPrice();
 	int getSurfaceArea();
 	bool getIsOccupied();
 };

@@ -10,7 +10,7 @@ void menu_admin() {
 	switch (menu_gui::display())
 	{
 	case 0:
-		void menu_addRoom();
+		
 		break;
 	case 1:
 		//menu_usun_pokoj();
@@ -41,4 +41,5 @@ void menu_admin() {
 
 		break;
 	}
+
 }

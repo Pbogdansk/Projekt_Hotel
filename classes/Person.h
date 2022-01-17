@@ -38,7 +38,7 @@ public:
 	void setEmail(string aEmail);
 	void setIndex(int aIndex);
 
-	bool changePassword(string aString_password, string aString_newPassword);
+	bool changePassword(string currentPassword, string newPassword);
 
 	bool logIn(string aString_email, string aString_password);
 	void logOut();

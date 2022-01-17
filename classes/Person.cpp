@@ -45,7 +45,7 @@ void Person::setName(string aName, string bName) {
 	this->name[1] = bName;
 }
 void Person::setSurename(string aSurename) {
-	throw "Not yet implemented";
+	surname = aSurename;
 }
 void Person::setDateOfBirth(int aDateOfBirth) {
 	this->dateOfBirth = aDateOfBirth;
@@ -62,7 +62,7 @@ int Person::getIndex()
 	return index;
 }
 
-bool Person::changePassword(string newPassword, string NewerPassword) {
+bool Person::changePassword(string currentPassword, string newPassword) {
 	throw "Not yet implemented";
 }
 

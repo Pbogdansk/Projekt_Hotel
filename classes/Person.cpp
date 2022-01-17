@@ -57,6 +57,9 @@ void Person::setDateOfBirth(int newDateOfBirth) {
 void Person::setEmail(string newEmail) {
 	this->email = newEmail;
 }
+void Person::setPassword(string newPassword) {
+	password = newPassword;
+}
 void Person::setIndex(int aIndex) {
 	index = aIndex;
 }
@@ -72,9 +75,9 @@ bool Person::changePassword(string currentPassword, string newPassword) {
 	}
 }
 
-bool Person::logIn(string newEmail, string newPassword) {
+bool Person::logIn(string givenEmail, string givenPassword) {
 	
-	if (newEmail == email && newPassword == password)
+	if (givenEmail == email && givenPassword == password)
 	{
 		isLogged = true;
 		return true;

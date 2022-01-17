@@ -63,7 +63,14 @@ int Person::getIndex()
 }
 
 bool Person::changePassword(string currentPassword, string newPassword) {
-	throw "Not yet implemented";
+	if (password == currentPassword) {
+		password = newPassword;
+
+		return 1;
+	}
+	else {
+		return 1;
+	}
 }
 
 

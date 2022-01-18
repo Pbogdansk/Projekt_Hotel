@@ -1,5 +1,7 @@
 #include "include.h"
-
+//do dodania:
+// - melodowanie / wymeldowanie
+// - przypisywanie rezerwacji do konkretnej osoby
 void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
 	
 	Customer newCustomer = Customer();
@@ -10,11 +12,14 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 	while (1)
 	{
 		menu_gui::reset();
+		menu_gui::add_top_text("Konto: " + account.getEmail());
+		menu_gui::add_top_text("");
 		menu_gui::add_top_text("Menu Recepcjonisty");
 		menu_gui::add_option("Sprawdz dostepnosc pokoi");
 		menu_gui::add_option("Dodaj rezerwacje");
 		menu_gui::add_option("Usun rezerwacje");
 		menu_gui::add_option("Dokonaj platnosci");
+		menu_gui::add_option("Meldowanie/wymeldowanie");
 		menu_gui::add_option("Pasjans");
 		menu_gui::add_option("Wroc do menu");
 
@@ -98,13 +103,18 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 		case 3:	//dokonaj platnosci
 			makePayment(reservations, pointerCurrentNumberOfReservations);
 			break;
-		case 4:
+		case 4:	//melodowanie / wymelodwanie
+			//
+			// 
+			//
+			break;
+		case 5:
 			menu_gui::reset();
 			menu_gui::add_top_text("Skup sie!");
 			menu_gui::add_option("juz juz");
 			menu_gui::display();
 			break;
-		case 5:	//wyjdz
+		case 6:	//wyjdz
 			return;	//wyjscie z tego menu
 		}
 	}

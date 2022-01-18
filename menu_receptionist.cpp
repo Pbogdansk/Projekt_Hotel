@@ -43,6 +43,8 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 					if (tempChoice == 0)
 						break;
 				}
+				else
+					break;
 				}
 			break;
 		case 1:	//dodaj rezerwacje

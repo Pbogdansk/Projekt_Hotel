@@ -69,7 +69,7 @@ Room* Receptionist::checkAvailability(int startingDate, int endingDate, Room* ro
 	}
 
 	int choosenRoom = menu_gui::display();
-	if (choosenRoom == availaibleRoomscounter + 1)	//wybrano opcjê wróæ
+	if (choosenRoom == availaibleRoomscounter)	//wybrano opcjê wróæ
 	{
 		return NULL;
 	}

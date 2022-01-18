@@ -1,4 +1,11 @@
 #include "include.h"
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+#include <iostream>
+#include <cstdlib>
 
 void createAccount(Customer customersAccounts[]) {
 	string newName;
@@ -17,14 +24,16 @@ void createAccount(Customer customersAccounts[]) {
 	cin >> newEmail;
 	cout << endl << "Prosze podac panskie haslo ";
 	cin >> newPassword;
-	cout << "Porsze powtorzyc haslo: ";
+	cout << endl << "Porsze powtorzyc haslo: ";
 	cin >> newPassword2;
 	
 	if (newPassword == newPassword2) {
 		customersAccounts[9] = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
-		cout << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
+		cout << endl << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
+		Sleep(2000);
 	}
 	else {
-		cout << "Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta" << endl;
+		cout << endl << "Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta" << endl;
+		Sleep(2000);
 	}
 }

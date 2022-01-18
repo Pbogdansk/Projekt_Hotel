@@ -79,6 +79,6 @@ Room* Receptionist::checkAvailability(int startingDate, int endingDate, Room* ro
 	}
 }
 
-Reservation Receptionist::reservation(Room p, int startingDate, int endingDate) {
-	throw "Not yet implemented";
+Reservation Receptionist::reservation(Room* pointerRoomToReserve, int startingDate, int endingDate, Customer* newCustomer) {
+	return Reservation(startingDate, endingDate, false, pointerRoomToReserve, newCustomer);
 }

@@ -59,3 +59,7 @@ int Room::getSurfaceArea() {
 bool Room::getIsOccupied(int dateToCheck) {
 	return isOccupied[dateToCheck];
 }
+
+void Room::setIsOccupied(int dateToSet, bool logicState) {
+	isOccupied[dateToSet] = logicState;
+}

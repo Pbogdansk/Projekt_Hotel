@@ -165,9 +165,11 @@
     </ClCompile>
     <ClCompile Include="testAdmin.cpp" />
     <ClCompile Include="testClassRoom.cpp" />
+    <ClCompile Include="testFindRoom.cpp" />
     <ClCompile Include="testLogInAccount.cpp" />
     <ClCompile Include="testReceptionist.cpp" />
     <ClCompile Include="testReservation.cpp" />
+    <ClCompile Include="testRoom.cpp" />
     <ClCompile Include="Tests_Projekt_Hotel.cpp" />
   </ItemGroup>
   <ItemGroup>

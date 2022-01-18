@@ -25,7 +25,7 @@ public:
 
 	string* getName();
 	string get2Name();
-	string getSurename();
+	string getSurname();
 	int getDateOfBirth();
 	string getEmail();
 	int getPermissions();
@@ -33,14 +33,15 @@ public:
 	int getIndex();
 
 	void setName(string aName, string bName );
-	void setSurename(string aSurename);
-	void setDateOfBirth(int aDateOfBirth);
-	void setEmail(string aEmail);
+	void setSurname(string newSurname);
+	void setDateOfBirth(int newDateOfBirth);
+	void setEmail(string newEmail);
+	void setPassword(string newPassword);
 	void setIndex(int aIndex);
 
-	bool changePassword(string aString_password, string aString_newPassword);
+	bool changePassword(string currentPassword, string newPassword);
 
-	bool logIn(string aString_email, string aString_password);
+	bool logIn(string givenEmail, string givenPassword);
 	void logOut();
 };
 

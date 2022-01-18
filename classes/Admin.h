@@ -19,6 +19,12 @@ public:
 
 	void addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceArea);
 	void removeRoom(Room p);
+
+	void changeSomeonesPassword(Person someone, string newPassword);
+	void changeSomeonesName(Person someone, string newName, string newName2);
+	void changeSomeonesSurname(Person someone, string newSurname);
+	void changeSomeonesDateOfBirth(Person someone, int newDateOfBirth);
+	void changeSomeonesEmail(Person someone, string newEmail);
 };
 
 #endif

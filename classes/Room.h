@@ -20,19 +20,23 @@ private:
 	int roomQuality;
 	int price;
 	int surfaceArea;
-	bool isOccupied = 0;
+	//bool isOccupied = false;
+	bool isOccupied[365] = { false };
 
 public:
 	Room(int newNumberOfPeople=0, int newFloor=0, int newRoomQuality=0, int newSurfaceArea=0);
 
-	int calculatePrice(int roomArea);
+	void calculatePrice();
 	
 	int getNumberOfPeople();
 	int getFloor();
 	int getRoomQuality();
 	int getPrice();
 	int getSurfaceArea();
-	bool getIsOccupied();
+	bool getIsOccupied(int dateToCheck);
+	void setIsOccupied(int dateToSet, bool logicState);
+
+	friend class Reservation;
 };
 
 #endif

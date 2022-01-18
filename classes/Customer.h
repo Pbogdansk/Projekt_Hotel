@@ -11,12 +11,20 @@ using namespace std;
 
 class Customer: public Person
 {
+	Reservation customersReservation;
+	Reservation* pointerCustomersReservation = NULL;
+	bool alreadyHaveReservation = false;
 public:
 	Customer();
 	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 
-	Room* checkAvailability(int startingDate, int endingDate);
-	Reservation reservation(Room p, int startingDate, int endingDate);
+	Room* checkAvailability(int startingDate, int endingDate, Room* rooms, int numberOfRooms);
+	void reservation(Room* pointerRoomToReserve, int startingDate, int endingDate);
+
+	Reservation* getCustomersReservation();
+
+	bool getAlreadyHaveReservation();
+	void setAlreadyHaveReservation(bool state);
 };
 
 #endif

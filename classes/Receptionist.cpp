@@ -19,9 +19,9 @@ Receptionist::Receptionist(string newName, string newSurname, int newDateOfBirth
 	permissions = permReceptionist;
 }
 
-Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* rooms, int numberOfRooms) {	//returns pokoj do rezerwacji
+Room* Receptionist::checkAvailability(int startingDate, int endingDate, Room* rooms, int numberOfRooms) {	//returns pokoj do rezerwacji
 	
-	int daysFromNewYear = substractDates(01012022, startingDate);
+	int daysFromNewYear = substractDates(1012022, startingDate);
 	int numberOfDays = substractDates(startingDate, endingDate);
 	if (numberOfDays == -1)	//zla data
 	{
@@ -29,11 +29,11 @@ Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* roo
 		menu_gui::add_top_text("Podany zakres dat jest nieprawidlowy");
 		menu_gui::add_option("Wroc");
 		menu_gui::display();
-		return Room(-1, -1, -1, -1);
+		return NULL;
 	}
 	//cout << "from " << startingDate << " to " << endingDate << " is " << numberOfDays << " days" << endl;
 
-	Room* availaibleRooms = new Room[numberOfRooms];
+	Room** availaibleRooms = new Room*[numberOfRooms];
 	int availaibleRoomscounter = 0;
 
 	menu_gui::reset();
@@ -52,7 +52,7 @@ Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* roo
 		if (isThisRoomFree == true)
 		{
 			menu_gui::add_option(roomToString(rooms[i]));
-			availaibleRooms[availaibleRoomscounter] = rooms[i];
+			availaibleRooms[availaibleRoomscounter] = &rooms[i];
 			availaibleRoomscounter++;
 		}
 	}
@@ -65,13 +65,13 @@ Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* roo
 		menu_gui::add_top_text("Niestety nie ma wolnych pokoi w podanym terminie");
 		menu_gui::add_option("Wroc");
 		menu_gui::display();
-		return Room(-1, -1, -1, -1);
+		return NULL;
 	}
 
 	int choosenRoom = menu_gui::display();
-	if (choosenRoom == availaibleRoomscounter + 1)	//wybrano opcjê wróæ
+	if (choosenRoom == availaibleRoomscounter)	//wybrano opcjê wróæ
 	{
-		return Room(-1, -1, -1, -1);
+		return NULL;
 	}
 	else
 	{
@@ -79,6 +79,6 @@ Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* roo
 	}
 }
 
-Reservation Receptionist::reservation(Room p, int startingDate, int endingDate) {
-	throw "Not yet implemented";
+Reservation Receptionist::reservation(Room* pointerRoomToReserve, int startingDate, int endingDate, Customer* newCustomer) {
+	return Reservation(startingDate, endingDate, false, pointerRoomToReserve, newCustomer);
 }

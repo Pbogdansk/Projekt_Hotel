@@ -21,7 +21,7 @@ string* Person::getName() {
 string Person::get2Name() {
 	return name[1];
 }
-string Person::getSurename() {
+string Person::getSurname() {
 	return surname;
 }
 int Person::getDateOfBirth() {
@@ -34,9 +34,13 @@ int Person::getPermissions()
 {
 	return static_cast <int> (this->permissions);
 }
-
-void Person::setIndex(int aIndex) {
-	index = aIndex;
+int Person::getIndex()
+{
+	return index;
+}
+bool Person::getIsLogged()
+{
+	return isLogged;
 }
 
 
@@ -44,32 +48,36 @@ void Person::setName(string aName, string bName) {
 	this->name[0] = aName;
 	this->name[1] = bName;
 }
-void Person::setSurename(string aSurename) {
-	throw "Not yet implemented";
+void Person::setSurname(string newSurname) {
+	surname = newSurname;
 }
-void Person::setDateOfBirth(int aDateOfBirth) {
-	this->dateOfBirth = aDateOfBirth;
+void Person::setDateOfBirth(int newDateOfBirth) {
+	this->dateOfBirth = newDateOfBirth;
 }
-void Person::setEmail(string aEmail) {
-	this->email = aEmail;
+void Person::setEmail(string newEmail) {
+	this->email = newEmail;
 }
-bool Person::getIsLogged()
-{
-	return isLogged;
+void Person::setPassword(string newPassword) {
+	password = newPassword;
 }
-int Person::getIndex()
-{
-	return index;
+void Person::setIndex(int aIndex) {
+	index = aIndex;
 }
 
-bool Person::changePassword(string newPassword, string NewerPassword) {
-	throw "Not yet implemented";
+bool Person::changePassword(string currentPassword, string newPassword) {
+	if (password == currentPassword) {
+		password = newPassword;
+
+		return 1;
+	}
+	else {
+		return 1;
+	}
 }
 
-
-bool Person::logIn(string newEmail, string newPassword) {
+bool Person::logIn(string givenEmail, string givenPassword) {
 	
-	if (newEmail == email && newPassword == password)
+	if (givenEmail == email && givenPassword == password)
 	{
 		isLogged = true;
 		return true;

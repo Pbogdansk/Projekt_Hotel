@@ -11,10 +11,20 @@ namespace reservation
 	{
 	public:
 
-		TEST_METHOD(RandomTest0)
+		TEST_METHOD(startingDateTest)
 		{
 			Reservation newReservation(01012022, 31042022, 1);
-			Assert::AreEqual(newReservation.getStartingDate(), 01012022);
+			Assert::AreEqual(01012022, newReservation.getStartingDate());
+		}
+		TEST_METHOD(endingDateTest)
+		{
+			Reservation newReservation(01012022, 31042022, 1);
+			Assert::AreEqual(31042022, newReservation.getEndingDate());
+		}
+		TEST_METHOD(paymentStatusTest)
+		{
+			Reservation newReservation(01012022, 31042022, 1);
+			Assert::AreEqual(1, int(newReservation.getPaymentStatus()));
 		}
 	};
 }

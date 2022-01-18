@@ -54,7 +54,14 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 			}
 			break;
 		case 1: //dodaj rezerwacje
-			if (pointerRoomToReserve->getNumberOfPeople() == 0)	//nie wybrano jeszcze pokoju
+			if (account.getAlreadyHaveReservation() == true)
+			{
+				menu_gui::reset();
+				menu_gui::add_top_text("Mozna miec tylko jedna rezerwacje na raz!");
+				menu_gui::add_option("Ok");
+				menu_gui::display();
+			}
+			else if (pointerRoomToReserve->getNumberOfPeople() == 0)	//nie wybrano jeszcze pokoju
 			{
 				menu_gui::reset();
 				menu_gui::add_top_text("Przed rozpoczeciem rezerwacji prosze wybrac pokoj (po wczesniejszym wyszukaniu w 'sprawdz dostepnosc pokoi')");
@@ -100,7 +107,10 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 			account.setAlreadyHaveReservation(false);
 			break;
 		case 3: //dokonaj platnosci
-			makePayment(*reservations, pointerCurrentNumberOfReservations);
+			customersReservation = account.getCustomersReservation();
+			if (account.getAlreadyHaveReservation() == false)
+				customersReservation = NULL;
+			makePaymentCustomer(*reservations, pointerCurrentNumberOfReservations, customersReservation);
 			break;
 		case 4: //melodowanie / wymeldowanie
 			//

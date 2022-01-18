@@ -27,6 +27,7 @@ extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
 void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
+void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 //options:
 //0 (default):  01.01.2022
 //1			 :	01 stycznia 2022

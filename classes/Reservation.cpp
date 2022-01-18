@@ -2,18 +2,23 @@
 #include <vector>
 using namespace std;
 
+#include "Room.h"
 #include "Reservation.h"
 #include "Customer.h"
 #include "BookIn.h"
 #include "Receptionist.h"
 #include "Admin.h"
-#include "Room.h"
 
-Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus)
+
+Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer)
 {
 	startingDate = newStartingDate;
 	endingDate = newEndingDate;
 	paymentStatus = newPaymentStatus;
+	reservatedRoom = newReservatedRoom;
+	customer = newCustomer;
+}
+Reservation::Reservation() {
 }
 
 void Reservation::pay(bool paymentMethod) {

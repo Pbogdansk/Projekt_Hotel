@@ -8,7 +8,7 @@ int main()
    Customer customersAccounts[10];
    Receptionist receptionistsAccounts[2];
    Admin adminsAccounts[2];
-   Reservation* reservations = NULL;
+   Reservation* reservations = new Reservation[0];
    int currentNumberOfReservations = 0;
    int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
 

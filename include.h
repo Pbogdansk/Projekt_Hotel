@@ -9,8 +9,9 @@
 #include "classes/Customer.h"
 #include "classes/Person.h"
 #include "classes/Receptionist.h"
-#include "classes/Reservation.h"
 #include "classes/Room.h"
+#include "classes/Reservation.h"
+
 
 void menu_admin(Admin account);
 void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations);

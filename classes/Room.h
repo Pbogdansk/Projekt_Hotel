@@ -34,6 +34,8 @@ public:
 	int getPrice();
 	int getSurfaceArea();
 	bool getIsOccupied(int dateToCheck);
+
+	friend class Reservation;
 };
 
 #endif

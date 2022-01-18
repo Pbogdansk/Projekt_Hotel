@@ -56,7 +56,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 				menu_gui::reset();
 				menu_gui::add_top_text("ilosc osob | pietro | standard | powierzchnia || cena za dobe");
 				menu_gui::add_top_text(roomToString(roomToReserve));
-				menu_gui::add_top_text("Termin: od: " + dateToString(fromDate) + " do: " + dateToString(toDate));
+				menu_gui::add_top_text("Termin: od: " + dateToString(fromDate,1) + " do: " + dateToString(toDate,1));
 				menu_gui::add_top_text("Liczba dni: " + to_string(numberOfDays));
 				menu_gui::add_top_text("Calkowita kwota: " + to_string(numberOfDays * roomToReserve.getPrice()));
 				menu_gui::add_top_text("");
@@ -64,8 +64,15 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 				menu_gui::add_option("Anuluj");
 				if (menu_gui::display() == 0)	//dodaj rezerwacjê
 				{
-					Reservation newReservation = Reservation(fromDate, toDate, false);
+					//dokonaj platnosci  \/
+					bool paymentStatus = false;
+					//dokonaj platnosci  /\
+					//wybierz konto albo utworz nowe dla klienta  \/
+					Customer newCustomer = Customer();
+					//wybierz konto albo utworz nowe dla klienta  /\
 
+					Reservation newReservation = Reservation(fromDate, toDate, paymentStatus, &roomToReserve, &newCustomer);
+					//reservations
 				}
 			}
 			break;

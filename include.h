@@ -32,7 +32,7 @@ extern string roomToString(Room room);
 string dateToString(int date, int option = 0);
 int inputInDateSystem();
 
-void cancelReservation(Reservation* reservations, int* pointerCurrentNumberOfReservations);
+void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 
 using namespace std;
 namespace menu_gui

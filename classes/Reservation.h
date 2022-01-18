@@ -38,6 +38,7 @@ public:
 	int getEndingDate();
 	bool getPaymentStatus();
 	string getCustomerEmail();
+	int getRoomPrice();
 };
 
 #endif

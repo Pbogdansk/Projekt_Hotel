@@ -43,3 +43,7 @@ string Reservation::getCustomerEmail() {
 	return customer->getEmail();
 }
 
+int Reservation::getRoomPrice() {
+	return reservatedRoom->getPrice();
+}
+

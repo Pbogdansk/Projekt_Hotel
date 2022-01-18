@@ -96,8 +96,8 @@ void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservat
 	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono | kwota do zaplacenia");
 	for (int i = 0; i < *pointerCurrentNumberOfReservations; i++)
 	{
-		//menu_gui::add_option(reservationToString(reservations[i]) + "           | " + );
+		menu_gui::add_option(reservationToString(reservations[i]) + "           | " + to_string(reservations[i].getAmountRemainingToPay()));
 	}
 	menu_gui::add_option("Anuluj");
-
+	menu_gui::display();
 }

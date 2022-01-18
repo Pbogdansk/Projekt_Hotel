@@ -96,6 +96,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 			cancelReservation(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 3:	//dokonaj platnosci
+			makePayment(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 4:
 			menu_gui::reset();

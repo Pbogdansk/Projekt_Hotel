@@ -34,9 +34,9 @@ namespace reservation
 			price *= (1 + 2 * 0.8);
 			price *= (3 * 35);
 			price *= 1;
-			int totalDays = substractDates(01012022, 31042022);
+			int totalDays = substractDates(1012022, 31042022);
 
-			Reservation newReservation(01012022, 31042022, 1, &r1, &c1);
+			Reservation newReservation(1012022, 31042022, 1, &r1, &c1);
 			newReservation.makeReservation();
 
 			Assert::AreEqual(totalDays * static_cast <int> (price), newReservation.getAmountRemainingToPay());
@@ -49,9 +49,9 @@ namespace reservation
 			price *= (1 + 1 * 0.8);
 			price *= (3 * 24);
 			price *= 2;
-			int totalDays = substractDates(01012022, 31042022);
+			int totalDays = substractDates(1012022, 31042022);
 
-			Reservation newReservation(01012022, 31042022, 1, &r1, &c1);
+			Reservation newReservation(1012022, 31042022, 1, &r1, &c1);
 			newReservation.makeReservation();
 
 			Assert::AreEqual(totalDays * static_cast <int> (price), newReservation.getAmountRemainingToPay());
@@ -64,9 +64,9 @@ namespace reservation
 			price *= (1 + 2 * 0.8);
 			price *= (3 * 35);
 			price *= 1;
-			int totalDays = substractDates(01012022, 31042022);
+			int totalDays = substractDates(1012022, 31042022);
 
-			Reservation newReservation(01012022, 31042022, 1, &r1, &c1);
+			Reservation newReservation(1012022, 31042022, 1, &r1, &c1);
 			newReservation.makeReservation();
 
 			newReservation.pay(1000);
@@ -81,9 +81,9 @@ namespace reservation
 			price *= (1 + 1 * 0.8);
 			price *= (3 * 24);
 			price *= 2;
-			int totalDays = substractDates(01012022, 31042022);
+			int totalDays = substractDates(1012022, 31042022);
 
-			Reservation newReservation(01012022, 31042022, 1, &r1, &c1);
+			Reservation newReservation(1012022, 31042022, 1, &r1, &c1);
 			newReservation.makeReservation();
 
 			newReservation.pay(1000);

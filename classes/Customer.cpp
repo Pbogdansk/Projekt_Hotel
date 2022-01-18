@@ -86,3 +86,9 @@ Reservation* Customer::getCustomersReservation() {
 	return pointerCustomersReservation;
 }
 
+bool Customer::getAlreadyHaveReservation() {
+	return alreadyHaveReservation;
+}
+void Customer::setAlreadyHaveReservation(bool state) {
+	alreadyHaveReservation = state;
+}

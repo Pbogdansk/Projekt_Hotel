@@ -93,6 +93,7 @@ void cancelReservationCustomer(Reservation*& reservations, int* pointerCurrentNu
 	menu_gui::add_top_text("Wybierz rezerwacje do usuniecia");
 	menu_gui::add_top_text("");
 	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono");
+	if (customersReservation.)
 	menu_gui::add_option(reservationToString(*customersReservation));
 	menu_gui::add_option("Anuluj");
 

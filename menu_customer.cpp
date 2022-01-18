@@ -92,10 +92,8 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 			}
 			break;
 		case 2: //usun rezerwacje
-			if (*reservations != NULL) {
-				customersReservation = account.getCustomersReservation();
-				cancelReservationCustomer(*reservations, pointerCurrentNumberOfReservations, customersReservation);
-			}
+			customersReservation = account.getCustomersReservation();
+			cancelReservationCustomer(*reservations, pointerCurrentNumberOfReservations, customersReservation);
 			break;
 		case 3: //dokonaj platnosci
 			makePayment(*reservations, pointerCurrentNumberOfReservations);

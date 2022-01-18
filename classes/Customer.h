@@ -13,6 +13,7 @@ class Customer: public Person
 {
 	Reservation customersReservation;
 	Reservation* pointerCustomersReservation = NULL;
+	bool alreadyHaveReservation = false;
 public:
 	Customer();
 	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
@@ -21,6 +22,9 @@ public:
 	void reservation(Room* pointerRoomToReserve, int startingDate, int endingDate);
 
 	Reservation* getCustomersReservation();
+
+	bool getAlreadyHaveReservation();
+	void setAlreadyHaveReservation(bool state);
 };
 
 #endif

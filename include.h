@@ -29,6 +29,7 @@ extern string roomToString(Room room);
 
 void createAccount(Customer customersAccounts[]);
 
+void createAccount(Customer customersAccounts[]);
 void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 //options:
@@ -36,10 +37,8 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 //1			 :	01 stycznia 2022
 string dateToString(int date, int option = 0);
 int inputInDateSystem();
-
 void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void cancelReservationCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
-
 
 using namespace std;
 namespace menu_gui

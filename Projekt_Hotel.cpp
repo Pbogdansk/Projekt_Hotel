@@ -55,3 +55,12 @@ int main()
 	   }
 	   return 0;
    }
+	   case 1: //zakladanie konta		
+		      createAccount(customersAccounts);
+	   break;
+	   case 2://wyjdz z programu
+		   return 0x0;
+	   }
+   }
+   return 0x0;
+}

@@ -118,3 +118,70 @@ string roomToString(Room room)
 
 	return result;
 }
+
+//options:
+//0 (default):  01.01.2022
+//1			 :	01 stycznia 2022
+string dateToString(int date, int option = 0)
+{
+	int year = date % 10000;
+	date /= 10000;
+	int month = date % 100;
+	date /= 100;
+	int day = date;
+
+	string output = "";
+	switch (option)
+	{
+	case 1:
+		output += to_string(day) + " ";
+		switch (month)
+		{
+		case 1:
+			output += "stycznia";
+			break;
+		case 2:
+			output += "lutego";
+			break;
+		case 3:
+			output += "marca";
+			break;
+		case 4:
+			output += "kwietnia";
+			break;
+		case 5:
+			output += "maja";
+			break;
+		case 6:
+			output += "czerwca";
+			break;
+		case 7:
+			output += "lipca";
+			break;
+		case 8:
+			output += "sierpnia";
+			break;
+		case 9:
+			output += "wrzesnia";
+			break;
+		case 10:
+			output += "pazdziernika";
+			break;
+		case 11:
+			output += "listopada";
+			break;
+		case 12:
+			output += "grudnia";
+			break;
+		}
+		output += " " + to_string(year);
+		break;
+
+	default:
+		output += to_string(day) + ".";
+		output += to_string(month) + ".";
+		output += to_string(year);
+		break;
+	}
+	return output;
+}

@@ -50,9 +50,8 @@ void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfRe
 		return;	//opcja Anuluj
 
 	//zwrot kasy
-	int moneyToReturn = 0;
-	if (reservationToCancel.getPaymentStatus())
-		moneyToReturn = reservationToCancel.getRoomPrice() * substractDates(reservationToCancel.getStartingDate(), reservationToCancel.getEndingDate());
+	int moneyToReturn = reservationToCancel.getAmountRemainingToPay();
+		moneyToReturn = reservationToCancel.getRoomPrice() * substractDates(reservationToCancel.getStartingDate(), reservationToCancel.getEndingDate()) - moneyToReturn;
 	//zwrot kasy
 
 	Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) - 1];
@@ -80,6 +79,70 @@ void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfRe
 	{
 		menu_gui::add_top_text("Kwota do zwrotu klienowi: " + to_string(moneyToReturn));
 		menu_gui::add_option("Potwierdz dokonanie zwrotu pieniedzy");
+	}
+	else
+	{
+		menu_gui::add_option("Ok");
+	}
+	menu_gui::display();
+}
+
+void cancelReservationCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation) {
+	menu_gui::reset();
+	menu_gui::add_top_text("Usuwanie rezerwacji");
+	menu_gui::add_top_text("Wybierz rezerwacje do usuniecia");
+	menu_gui::add_top_text("");
+	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono");
+	menu_gui::add_option(reservationToString(*customersReservation));
+	menu_gui::add_option("Anuluj");
+
+	int indexOfReseravtionToCancel = menu_gui::display();
+	if (indexOfReseravtionToCancel == 1)
+		return;	//opcja Anuluj
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Usuwanie rezerwacji");
+	menu_gui::add_top_text("Jestes pewnien, ze chcesz usunac nastepujaca rezerwacje?");
+	menu_gui::add_top_text("");
+	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono");
+	menu_gui::add_top_text(reservationToString(*customersReservation));
+	menu_gui::add_option("Tak");
+	menu_gui::add_option("Anuluj");
+
+	if (menu_gui::display() == 1)
+		return;	//opcja Anuluj
+
+	//zwrot kasy
+	int moneyToReturn = customersReservation->getAmountRemainingToPay();
+	moneyToReturn = customersReservation->getRoomPrice() * substractDates(customersReservation->getStartingDate(), customersReservation->getEndingDate()) - moneyToReturn;
+
+	//zwrot kasy
+
+	Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) - 1];
+	for (int i = 0, j = 0; i < (*pointerCurrentNumberOfReservations); i++) //copy bez tego usuwanego
+	{
+		if (reservations[i].getCustomerEmail() != customersReservation->getCustomerEmail())
+		{
+			temp[j] = reservations[i];
+			j++;
+		}
+	}
+	delete[] reservations;
+	reservations = temp;
+	*pointerCurrentNumberOfReservations -= 1;
+
+	customersReservation->annulReservation();
+
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie anulowano rezerwacje");
+	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono");
+	menu_gui::add_top_text(reservationToString(*customersReservation));
+	menu_gui::add_top_text("");
+	if (moneyToReturn > 0)
+	{
+		menu_gui::add_top_text("Kwota, ktora zostanie zwrocona: " + to_string(moneyToReturn));
+		menu_gui::add_option("Ok");
 	}
 	else
 	{

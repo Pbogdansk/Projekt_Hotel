@@ -14,8 +14,8 @@
 
 
 void menu_admin(Admin account);
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations);
-void menu_customer(Customer account);
+void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations);
+void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations);
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
 enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
@@ -34,6 +34,7 @@ string dateToString(int date, int option = 0);
 int inputInDateSystem();
 
 void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
+void cancelReservationCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 
 using namespace std;
 namespace menu_gui

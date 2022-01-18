@@ -1,7 +1,7 @@
 #include "include.h"
 
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
-bool sure;
+std::string sure;
 void howManyPeople();
 void menu_addRoom(Admin account);
 void whatSurfaceArea();
@@ -144,9 +144,14 @@ void whatSurfaceArea() {
 }
 
 void areYouSure(Admin account) {
-	std::cout << "czy jesteœ pewien ¿e chcesz utworzyc pokoj z nastepujacymi parametrami?\n";
-	std::cout << "standard: " << roomQualityMenu << "\n liczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
+	std::cout << "czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami? [tak/nie]\n";
+	std::cout << "standard: " << roomQualityMenu << "\nliczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
 	std::cin >> sure;
-	if (sure == true) {
+	if (sure == "tak") {
+	}
+	else if (sure == "nie") {
+	}
+	else {
+		std::cin >> sure;
 	}
 }

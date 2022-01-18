@@ -17,7 +17,7 @@ void createAccount(Customer customersAccounts[]) {
 	cin >> newEmail;
 	cout << endl << "Prosze podac panskie haslo ";
 	cin >> newPassword;
-	cout << "Porsze powtorzyc haslo: ";
+	cout << endl << "Porsze powtorzyc haslo: ";
 	cin >> newPassword2;
 	
 	if (newPassword == newPassword2) {

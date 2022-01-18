@@ -9,11 +9,12 @@
 #include "classes/Customer.h"
 #include "classes/Person.h"
 #include "classes/Receptionist.h"
-#include "classes/Reservation.h"
 #include "classes/Room.h"
+#include "classes/Reservation.h"
+
 
 void menu_admin(Admin account);
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms);
+void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations);
 void menu_customer(Customer account);
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
@@ -25,6 +26,13 @@ extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* custom
 extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
+//options:
+//0 (default):  01.01.2022
+//1			 :	01 stycznia 2022
+string dateToString(int date, int option = 0);
+int inputInDateSystem();
+
+void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 
 using namespace std;
 namespace menu_gui

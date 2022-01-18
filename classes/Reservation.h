@@ -9,32 +9,37 @@ using namespace std;
 // #include "BookIn.h"
 #include "Receptionist.h"
 #include "Admin.h"
-// #include "Room.h"
+#include "Room.h"
 
-class Customer;
 class BookIn;
 class Receptionist;
 class Admin;
 class Room;
+class Customer;
 class Reservation;
 
 class Reservation
 {
 private:
+	Room* reservatedRoom;
+	Customer* customer;
 	int startingDate;
 	int endingDate;
 	bool paymentStatus;
 
 public:
-	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus);
+	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL);
+	Reservation();
 
 	void pay(bool paymentMethod);
 	void annulReservation();
+	void makeReservation();
 
 	int getStartingDate();
 	int getEndingDate();
 	bool getPaymentStatus();
-
+	string getCustomerEmail();
+	int getRoomPrice();
 };
 
 #endif

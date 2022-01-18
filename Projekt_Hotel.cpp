@@ -8,6 +8,10 @@ int main()
    Customer customersAccounts[10];
    Receptionist receptionistsAccounts[2];
    Admin adminsAccounts[2];
+   Reservation* reservations = new Reservation[0];
+   int currentNumberOfReservations = 0;
+   int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
+
 
    Room rooms[50];
    initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts);
@@ -35,7 +39,7 @@ int main()
 		   menu_customer(customersAccounts[currentlyLoggedIn.getIndex()]);
 		   break;
 	   case 1:
-		   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()],rooms,50);
+		   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, 50, reservations, pointerCurrentNumberOfReservations);
 		   break;
 	   case 2:
 		   menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()]);
@@ -58,7 +62,7 @@ int main()
 	   break;
 
    case permReceptionist:	//receptionist
-	   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()],rooms,50);
+	   //menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()],rooms,50);
 	   break;
 
    case permAdmin:	//admin

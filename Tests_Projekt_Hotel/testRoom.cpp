@@ -74,7 +74,7 @@ namespace room
 			price *= (1 + 16 * 0.8);
 			price *= (3 * 37);
 			price *= 2;
-			Assert::AreEqual(price, r1.getPrice());
+			Assert::AreEqual(static_cast <int> (price), r1.getPrice());
 			/*
 			price:
 			numberofpeople	n = 1 => 1 (n-1)times +0,8
@@ -99,7 +99,7 @@ namespace room
 			price *= (1 + 1 * 0.8);
 			price *= (3 * 24);
 			price *= 2;
-			Assert::AreEqual(price, r1.getPrice());
+			Assert::AreEqual(static_cast <int> (price), r1.getPrice());
 		}
 		TEST_METHOD(Price2)
 		{
@@ -108,7 +108,7 @@ namespace room
 			price *= (1 + 2 * 0.8);
 			price *= (3 * 35);
 			price *= 1;
-			Assert::AreEqual(price, r1.getPrice());
+			Assert::AreEqual(static_cast <int> (price), r1.getPrice());
 		}
 	};
 }

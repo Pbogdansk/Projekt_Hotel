@@ -2,18 +2,24 @@
 #include <vector>
 using namespace std;
 
+#include "Room.h"
 #include "Reservation.h"
 #include "Customer.h"
 #include "BookIn.h"
 #include "Receptionist.h"
 #include "Admin.h"
-#include "Room.h"
+#include "../include.h"
 
-Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus)
+
+Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer)
 {
 	startingDate = newStartingDate;
 	endingDate = newEndingDate;
 	paymentStatus = newPaymentStatus;
+	reservatedRoom = newReservatedRoom;
+	customer = newCustomer;
+}
+Reservation::Reservation() {
 }
 
 void Reservation::pay(bool paymentMethod) {
@@ -21,7 +27,21 @@ void Reservation::pay(bool paymentMethod) {
 }
 
 void Reservation::annulReservation() {
-	throw "Not yet implemented";
+	int daysFromNewYear = substractDates(1012022, startingDate);
+	int numberOfDays = substractDates(startingDate, endingDate);
+	for (int j = 0; j < numberOfDays; j++)
+	{
+		reservatedRoom->setIsOccupied(daysFromNewYear + j, false);
+	}
+}
+
+void Reservation::makeReservation() {
+	int daysFromNewYear = substractDates(1012022, startingDate);
+	int numberOfDays = substractDates(startingDate, endingDate);
+	for (int j = 0; j < numberOfDays; j++)
+	{
+		reservatedRoom->setIsOccupied(daysFromNewYear + j, true);
+	}
 }
 
 int Reservation::getStartingDate() {
@@ -32,5 +52,13 @@ int Reservation::getEndingDate() {
 }
 bool Reservation::getPaymentStatus() {
 	return paymentStatus;
+}
+
+string Reservation::getCustomerEmail() {
+	return customer->getEmail();
+}
+
+int Reservation::getRoomPrice() {
+	return reservatedRoom->getPrice();
 }
 

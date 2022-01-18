@@ -47,11 +47,9 @@ int main()
 				   break;
 			   }
 		   break;
-	   case 1: //zakladanie konta
-		//
-		//
-		//
-		   break;
+	   case 1: //zakladanie konta		
+		      createAccount(customersAccounts);
+	   break;
 	   case 2://wyjdz z programu
 		   return 0x0;
 	   }

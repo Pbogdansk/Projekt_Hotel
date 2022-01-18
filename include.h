@@ -26,6 +26,7 @@ extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* custom
 extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
+void createAccount(Customer customersAccounts[]);
 void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 //options:
@@ -33,7 +34,6 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 //1			 :	01 stycznia 2022
 string dateToString(int date, int option = 0);
 int inputInDateSystem();
-
 void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void cancelReservationCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 

@@ -12,7 +12,7 @@ void createAccount(Customer customersAccounts[]) {
 	cout << endl << "Prosze podac panskie nazwisko: ";
 	cin >> newSurname;
 	cout << endl << "Prosze podac panska date urodzenia w formacie (ddnnrrrr): ";
-	cin >> newDateOfBirth;
+	cin >> newDateOfBirth;								//Crush, gdy przyjmie s³owo
 	cout << endl << "Prosze podac panski adres e-mail: ";
 	cin >> newEmail;
 	cout << endl << "Prosze podac panskie haslo ";
@@ -21,7 +21,7 @@ void createAccount(Customer customersAccounts[]) {
 	cin >> newPassword2;
 	
 	if (newPassword == newPassword2) {
-		customersAccounts[10] = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
+		customersAccounts[9] = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
 		cout << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
 	}
 	else {

@@ -8,11 +8,14 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 	while (1)
 	{
 		menu_gui::reset();
-		menu_gui::add_top_text("Witaj recepcjonistko jaki pasjans dzisiaj?");
+		menu_gui::add_top_text("Menu Recepcjonisty");
 		menu_gui::add_option("Sprawdz dostepnosc pokoi");
 		menu_gui::add_option("Dodaj rezerwacje");
 		menu_gui::add_option("Usun rezerwacje");
+		menu_gui::add_option("Dokonaj platnosci");
+		menu_gui::add_option("Pasjans");
 		menu_gui::add_option("Wroc do menu");
+
 
 		switch (menu_gui::display())
 		{
@@ -92,7 +95,15 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 		case 2:	//usun rezerwacje
 			cancelReservation(reservations, pointerCurrentNumberOfReservations);
 			break;
-		case 3:	//wyjdz
+		case 3:	//dokonaj platnosci
+			break;
+		case 4:
+			menu_gui::reset();
+			menu_gui::add_top_text("Skup sie!");
+			menu_gui::add_option("juz juz");
+			menu_gui::display();
+			break;
+		case 5:	//wyjdz
 			return;	//wyjscie z tego menu
 		}
 	}

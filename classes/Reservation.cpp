@@ -22,8 +22,11 @@ Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPayment
 Reservation::Reservation() {
 }
 
-void Reservation::pay(bool paymentMethod) {
+void Reservation::pay(int paymentAmount) {
 	throw "Not yet implemented";
+}
+int Reservation::getAmountRemainingToPay() {
+	return amountRemainingToPay;
 }
 
 void Reservation::annulReservation() {

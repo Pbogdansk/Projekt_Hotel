@@ -19,8 +19,7 @@ string reservationToString(Reservation reservation)
 }
 
 
-void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations)
-{
+void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations) {
 	menu_gui::reset();
 	menu_gui::add_top_text("Usuwanie rezerwacji");
 	menu_gui::add_top_text("Wybierz rezerwacje do usuniecia");
@@ -87,4 +86,18 @@ void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfRe
 		menu_gui::add_option("Ok");
 	}
 	menu_gui::display();
+}
+
+void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations) {
+	menu_gui::reset();
+	menu_gui::add_top_text("Dokonywanie platnosci naleznych za rezerwacje");
+	menu_gui::add_top_text("Wybierz rezerwacje");
+	menu_gui::add_top_text("");
+	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono | kwota do zaplacenia");
+	for (int i = 0; i < *pointerCurrentNumberOfReservations; i++)
+	{
+		//menu_gui::add_option(reservationToString(reservations[i]) + "           | " + );
+	}
+	menu_gui::add_option("Anuluj");
+
 }

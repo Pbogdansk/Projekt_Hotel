@@ -26,12 +26,13 @@ private:
 	int startingDate;
 	int endingDate;
 	bool paymentStatus;
+	int amountRemainingToPay;
 
 public:
 	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL);
 	Reservation();
 
-	void pay(bool paymentMethod);
+	void pay(int paymentAmount);
 	void annulReservation();
 	void makeReservation();
 
@@ -40,6 +41,7 @@ public:
 	bool getPaymentStatus();
 	string getCustomerEmail();
 	int getRoomPrice();
+	int getAmountRemainingToPay();
 };
 
 #endif

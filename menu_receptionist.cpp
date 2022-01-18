@@ -74,9 +74,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 				menu_gui::add_option("Anuluj");
 				if (menu_gui::display() == 0)	//dodaj rezerwacjê
 				{
-					//dokonaj platnosci  \/
 					bool paymentStatus = false;
-					//dokonaj platnosci  /\
 					//wybierz konto albo utworz nowe dla klienta  \/
 					newCustomer = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com", "aaSDWTJevGfZ3Wp0");
 					//wybierz konto albo utworz nowe dla klienta  /\

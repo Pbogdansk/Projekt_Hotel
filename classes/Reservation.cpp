@@ -24,6 +24,8 @@ Reservation::Reservation() {
 
 void Reservation::pay(int paymentAmount) {
 	amountRemainingToPay -= paymentAmount;
+	if (amountRemainingToPay <= 0)
+		paymentStatus = true;
 }
 int Reservation::getAmountRemainingToPay() {
 	return amountRemainingToPay;

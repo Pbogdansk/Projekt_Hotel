@@ -141,8 +141,6 @@ void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservat
 		}
 	}
 
-	reservations[indexOfChoosenReservation].pay(amountOfMoneyToPay); //placenie
-
 	menu_gui::reset();
 	menu_gui::add_top_text("email klienta                  | data od    | do         | czy zaplacono | kwota do zaplacenia");
 	menu_gui::add_top_text(reservationToString(reservations[indexOfChoosenReservation]) + "           | " + to_string(reservations[indexOfChoosenReservation].getAmountRemainingToPay()));
@@ -156,6 +154,8 @@ void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservat
 	int CashOrCard = menu_gui::display();
 	if (CashOrCard == 2)
 		return;
+
+	reservations[indexOfChoosenReservation].pay(amountOfMoneyToPay); //placenie
 
 	menu_gui::reset();
 	menu_gui::add_top_text("Pomyslinie dokonano platnosci");

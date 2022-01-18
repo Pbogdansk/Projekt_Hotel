@@ -88,12 +88,16 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 					//dodanie nowej rezerwacji
 					*reservations[*pointerCurrentNumberOfReservations] = *account.getCustomersReservation();
 					*pointerCurrentNumberOfReservations += 1;
+					account.setAlreadyHaveReservation(true);
 				}
 			}
 			break;
-		case 2: //usun rezerwacje
+		case 2: //usun rezerwacje		
 			customersReservation = account.getCustomersReservation();
+			if (account.getAlreadyHaveReservation() == false)
+				customersReservation = NULL;
 			cancelReservationCustomer(*reservations, pointerCurrentNumberOfReservations, customersReservation);
+			account.setAlreadyHaveReservation(false);
 			break;
 		case 3: //dokonaj platnosci
 			makePayment(*reservations, pointerCurrentNumberOfReservations);

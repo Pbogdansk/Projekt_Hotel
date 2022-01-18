@@ -154,6 +154,7 @@
     <ClCompile Include="menu_gui.cpp" />
     <ClCompile Include="menu_receptionist.cpp" />
     <ClCompile Include="Projekt_Hotel.cpp" />
+    <ClCompile Include="ReservationLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="schematy\anulowanie rezerwacji.jpg" />

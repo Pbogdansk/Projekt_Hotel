@@ -11,11 +11,11 @@ using namespace std;
 #include "Admin.h"
 #include "Room.h"
 
-class Customer;
 class BookIn;
 class Receptionist;
 class Admin;
 class Room;
+class Customer;
 class Reservation;
 
 class Reservation
@@ -37,7 +37,7 @@ public:
 	int getStartingDate();
 	int getEndingDate();
 	bool getPaymentStatus();
-
+	string getCustomerEmail();
 };
 
 #endif

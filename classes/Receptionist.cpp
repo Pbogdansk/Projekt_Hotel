@@ -21,7 +21,7 @@ Receptionist::Receptionist(string newName, string newSurname, int newDateOfBirth
 
 Room Receptionist::checkAvailability(int startingDate, int endingDate, Room* rooms, int numberOfRooms) {	//returns pokoj do rezerwacji
 	
-	int daysFromNewYear = substractDates(01012022, startingDate);
+	int daysFromNewYear = substractDates(1012022, startingDate);
 	int numberOfDays = substractDates(startingDate, endingDate);
 	if (numberOfDays == -1)	//zla data
 	{

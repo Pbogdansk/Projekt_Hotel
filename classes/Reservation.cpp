@@ -39,3 +39,7 @@ bool Reservation::getPaymentStatus() {
 	return paymentStatus;
 }
 
+string Reservation::getCustomerEmail() {
+	return customer->getEmail();
+}
+

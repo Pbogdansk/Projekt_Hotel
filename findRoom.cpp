@@ -73,7 +73,7 @@ int substractDates(int date1, int date2)
 	for (int i = 0; i < year2 - 2022;i++)
 		totalDays2 += 365;
 
-	if (totalDays2 - totalDays1 < 1)
+	if (totalDays2 - totalDays1 < 0)
 		return -1;
 	return totalDays2 - totalDays1;
 }

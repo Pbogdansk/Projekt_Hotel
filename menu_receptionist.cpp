@@ -62,28 +62,30 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 				menu_gui::add_top_text("");
 				menu_gui::add_option("Dodaj rezerwacje");
 				menu_gui::add_option("Anuluj");
+				Customer newCustomer = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com", "aaSDWTJevGfZ3Wp0");
 				if (menu_gui::display() == 0)	//dodaj rezerwacjê
 				{
 					//dokonaj platnosci  \/
 					bool paymentStatus = false;
 					//dokonaj platnosci  /\
 					//wybierz konto albo utworz nowe dla klienta  \/
-					Customer newCustomer = Customer();
+
 					//wybierz konto albo utworz nowe dla klienta  /\
 
 					Reservation newReservation = Reservation(fromDate, toDate, paymentStatus, &roomToReserve, &newCustomer);
 					//powiêkszenie tablicy reservations o jeden
-					Reservation* temp = new Reservation[*pointerCurrentNumberOfReservations + 1];
-					std::copy(reservations, reservations + *pointerCurrentNumberOfReservations, temp);
+					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];
+					std::copy(reservations, reservations + (*pointerCurrentNumberOfReservations), temp);
 					delete[] reservations;
 					reservations = temp;
 					//dodanie nowej rezerwacji
-					*pointerCurrentNumberOfReservations += 1;
 					reservations[*pointerCurrentNumberOfReservations] = newReservation;
+					*pointerCurrentNumberOfReservations += 1;
 				}
 			}
 			break;
 		case 2:	//usun rezerwacje
+			cancelReservation(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 3:	//wyjdz
 			return;	//wyjscie z tego menu

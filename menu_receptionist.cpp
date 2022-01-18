@@ -72,7 +72,14 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 					//wybierz konto albo utworz nowe dla klienta  /\
 
 					Reservation newReservation = Reservation(fromDate, toDate, paymentStatus, &roomToReserve, &newCustomer);
-					//reservations
+					//powiêkszenie tablicy reservations o jeden
+					Reservation* temp = new Reservation[*pointerCurrentNumberOfReservations + 1];
+					std::copy(reservations, reservations + *pointerCurrentNumberOfReservations, temp);
+					delete[] reservations;
+					reservations = temp;
+					//dodanie nowej rezerwacji
+					*pointerCurrentNumberOfReservations += 1;
+					reservations[*pointerCurrentNumberOfReservations] = newReservation;
 				}
 			}
 			break;

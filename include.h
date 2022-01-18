@@ -25,6 +25,7 @@ extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* custom
 extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
+void createAccount(Customer customersAccounts[]);
 
 using namespace std;
 namespace menu_gui

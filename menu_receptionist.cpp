@@ -1,8 +1,10 @@
 #include "include.h"
 
 void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
+	
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = NULL;
+	Reservation newReservation;
 	int fromDate = -1;
 	int toDate = -1;
 	while (1)
@@ -79,7 +81,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 					newCustomer = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com", "aaSDWTJevGfZ3Wp0");
 					//wybierz konto albo utworz nowe dla klienta  /\
 
-					Reservation newReservation(fromDate, toDate, paymentStatus, pointerRoomToReserve, &newCustomer);
+					newReservation = Reservation(fromDate, toDate, paymentStatus, pointerRoomToReserve, &newCustomer);
 					newReservation.makeReservation();
 					//powiêkszenie tablicy reservations o jeden
 					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];

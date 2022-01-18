@@ -26,7 +26,7 @@ private:
 	int startingDate;
 	int endingDate;
 	bool paymentStatus;
-	int amountRemainingToPay;
+	int amountRemainingToPay = 0;
 
 public:
 	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL);

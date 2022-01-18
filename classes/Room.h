@@ -18,7 +18,7 @@ private:
 	int numberOfPeople;
 	int floor;
 	int roomQuality;
-	double price;
+	int price;
 	int surfaceArea;
 	//bool isOccupied = false;
 	bool isOccupied[365] = { false };
@@ -31,9 +31,12 @@ public:
 	int getNumberOfPeople();
 	int getFloor();
 	int getRoomQuality();
-	double getPrice();
+	int getPrice();
 	int getSurfaceArea();
 	bool getIsOccupied(int dateToCheck);
+	void setIsOccupied(int dateToSet, bool logicState);
+
+	friend class Reservation;
 };
 
 #endif

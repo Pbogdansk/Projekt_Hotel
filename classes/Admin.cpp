@@ -22,3 +22,19 @@ void Admin::addRoom(int numberOfPeople, int floor, int roomQuality, int surfaceA
 void Admin::removeRoom(Room p) {
 	throw "Not yet implemented";
 }
+
+void Admin::changeSomeonesPassword(Person someone, string newPassword) {
+	someone.setPassword(newPassword);
+}
+void Admin::changeSomeonesName(Person someone, string newName, string newName2) {
+	someone.setName(newName, newName2);
+}
+void Admin::changeSomeonesSurname(Person someone, string newSurname) {
+	someone.setSurname(newSurname);
+}
+void Admin::changeSomeonesDateOfBirth(Person someone, int newDateOfBirth) {
+	someone.setDateOfBirth(newDateOfBirth);
+}
+void Admin::changeSomeonesEmail(Person someone, string newEmail) {
+	someone.setEmail(newEmail);
+}

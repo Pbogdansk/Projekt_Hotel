@@ -20,7 +20,7 @@ namespace customer
         TEST_METHOD(RandomTest1) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
             string theName2 = "Kucharski";
-            Assert::AreEqual(theName2, newCustomer.getSurename());
+            Assert::AreEqual(theName2, newCustomer.getSurname());
         }
         TEST_METHOD(RandomTest2) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");

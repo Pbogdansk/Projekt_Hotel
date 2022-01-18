@@ -8,6 +8,7 @@ using namespace std;
 #include "BookIn.h"
 #include "Receptionist.h"
 #include "Admin.h"
+#include "../include.h"
 
 
 Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer)
@@ -26,7 +27,21 @@ void Reservation::pay(bool paymentMethod) {
 }
 
 void Reservation::annulReservation() {
-	throw "Not yet implemented";
+	int daysFromNewYear = substractDates(1012022, startingDate);
+	int numberOfDays = substractDates(startingDate, endingDate);
+	for (int j = 0; j < numberOfDays; j++)
+	{
+		reservatedRoom->setIsOccupied(daysFromNewYear + j, false);
+	}
+}
+
+void Reservation::makeReservation() {
+	int daysFromNewYear = substractDates(1012022, startingDate);
+	int numberOfDays = substractDates(startingDate, endingDate);
+	for (int j = 0; j < numberOfDays; j++)
+	{
+		reservatedRoom->setIsOccupied(daysFromNewYear + j, true);
+	}
 }
 
 int Reservation::getStartingDate() {

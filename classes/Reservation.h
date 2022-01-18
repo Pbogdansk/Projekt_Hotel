@@ -33,6 +33,7 @@ public:
 
 	void pay(bool paymentMethod);
 	void annulReservation();
+	void makeReservation();
 
 	int getStartingDate();
 	int getEndingDate();

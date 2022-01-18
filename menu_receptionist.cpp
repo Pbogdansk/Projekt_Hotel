@@ -15,11 +15,32 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms){
 	{
 	case 0:
 		system("cls");	//czyszczenie ekranu
-		cout << "Podaj date poczatkowa: ";
-		cin >> fromDate;
-		cout << "Podaj date koncowa:    ";
-		cin >> toDate;
+		cout << "Podaj date poczatkowa:\n";
+		fromDate = inputInDateSystem();
+		cout << "\nPodaj date koncowa:\n";
+		toDate = inputInDateSystem();
 		roomToReserve = account.checkAvailability(fromDate,toDate,rooms,50);
+		menu_gui::reset();
+		menu_gui::add_top_text("Wybrano ponizszy pokoj");
+		menu_gui::add_top_text("ilosc osob | pietro | standard | powierzchnia || cena za dobe");
+		menu_gui::add_top_text(roomToString(roomToReserve));
+		menu_gui::add_top_text("Czy chcesz dokonac rezerwacji w terminie");
+		menu_gui::add_top_text("od: " + dateToString(fromDate,1));
+		menu_gui::add_top_text("do: " + dateToString(toDate,1));
+		menu_gui::add_top_text("");
+		menu_gui::add_option("Tak, kontynuuj");
+		menu_gui::add_option("Nie, wroc do menu");
+
+		switch (menu_gui::display())
+		{
+		case 0:
+			cout << "takkkkkk\n";
+			break;
+		case 1:
+			cout << "nieeeeeeee\n";
+			break;
+		}
+		system("pause");
 		break;
 	case 1:
 		break;

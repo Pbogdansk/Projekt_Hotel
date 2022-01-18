@@ -122,7 +122,7 @@ string roomToString(Room room)
 //options:
 //0 (default):  01.01.2022
 //1			 :	01 stycznia 2022
-string dateToString(int date, int option = 0)
+string dateToString(int date, int option)
 {
 	int year = date % 10000;
 	date /= 10000;
@@ -134,6 +134,8 @@ string dateToString(int date, int option = 0)
 	switch (option)
 	{
 	case 1:
+		if (day < 10)
+			output += "0";
 		output += to_string(day) + " ";
 		switch (month)
 		{
@@ -178,10 +180,30 @@ string dateToString(int date, int option = 0)
 		break;
 
 	default:
+		if (day < 10)
+			output += "0";
 		output += to_string(day) + ".";
+		if (month < 10)
+			output += "0";
 		output += to_string(month) + ".";
 		output += to_string(year);
 		break;
 	}
+	return output;
+}
+
+int inputInDateSystem()
+{
+	int day, month, year, output;
+	cout << "dzien:   ";
+	cin >> day;
+	cout << "miesiac: ";
+	cin >> month;
+	cout << "rok:     ";
+	cin >> year;
+	output = year;
+	output += month * 10000;
+	output += day * 1000000;
+	
 	return output;
 }

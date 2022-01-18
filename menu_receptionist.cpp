@@ -1,6 +1,6 @@
 #include "include.h"
 
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms){
+void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
 	
 	Room roomToReserve = NULL;
 	int fromDate = -1;
@@ -16,7 +16,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms){
 
 		switch (menu_gui::display())
 		{
-		case 0:
+		case 0:	//sprawdz dostepnosc
 			system("cls");	//czyszczenie ekranu
 			cout << "Podaj date poczatkowa:\n";
 			fromDate = inputInDateSystem();
@@ -42,7 +42,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms){
 					break;
 				}
 			break;
-		case 1:
+		case 1:	//dodaj rezerwacje
 			if (roomToReserve.getNumberOfPeople() == 0)	//nie wybrano jeszcze pokoju
 			{
 				menu_gui::reset();
@@ -52,24 +52,27 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms){
 			}
 			else
 			{
+				int numberOfDays = substractDates(fromDate, toDate);
 				menu_gui::reset();
 				menu_gui::add_top_text("ilosc osob | pietro | standard | powierzchnia || cena za dobe");
 				menu_gui::add_top_text(roomToString(roomToReserve));
+				menu_gui::add_top_text("Termin: od: " + dateToString(fromDate) + " do: " + dateToString(toDate));
+				menu_gui::add_top_text("Liczba dni: " + to_string(numberOfDays));
+				menu_gui::add_top_text("Calkowita kwota: " + to_string(numberOfDays * roomToReserve.getPrice()));
 				menu_gui::add_top_text("");
-				menu_gui::add_option("no ok");
-				menu_gui::display();
+				menu_gui::add_option("Dodaj rezerwacje");
+				menu_gui::add_option("Anuluj");
+				if (menu_gui::display() == 0)	//dodaj rezerwacjê
+				{
+					Reservation newReservation = Reservation(fromDate, toDate, false);
+
+				}
 			}
 			break;
-		case 2:
+		case 2:	//usun rezerwacje
 			break;
-		case 3:
-			break;
+		case 3:	//wyjdz
+			return;	//wyjscie z tego menu
 		}
-		/*
-		cout << "(TYMCZASOWE!) Wybrano pokoj:" << endl;
-		cout << "ilosc osob | pietro | standard | powierzchnia || cena za dobe" << endl;
-		cout << roomToString(roomToReserve);
-		system("pause");
-		*/
 	}
 }

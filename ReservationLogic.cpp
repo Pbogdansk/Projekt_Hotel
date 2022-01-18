@@ -42,7 +42,7 @@ void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfRe
 	menu_gui::add_top_text("Usuwanie rezerwacji");
 	menu_gui::add_top_text("Jestes pewnien, ze chcesz usunac nastepujaca rezerwacje?");
 	menu_gui::add_top_text("");
-	menu_gui::add_top_text("email klienta          | data od    | do         | czy zaplacono");
+	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono");
 	menu_gui::add_top_text(reservationToString(reservationToCancel));
 	menu_gui::add_option("Tak");
 	menu_gui::add_option("Anuluj");
@@ -68,17 +68,23 @@ void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfRe
 	delete[] reservations;
 	reservations = temp;
 	*pointerCurrentNumberOfReservations -= 1;
-	/*
-	int* p;
-	p = new int[5];
-	for (int i = 0;i < 5;i++)
-		*(p + i) = i;
 
-	// realloc
-	int* temp = new int[6];
-	std::copy(p, p + 5, temp); // Suggested by comments from Nick and Bojan
-	delete[] p;
-	p = temp;
-	*/
+	reservationToCancel.annulReservation();
 
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie anulowano rezerwacje");
+	menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono");
+	menu_gui::add_top_text(reservationToString(reservationToCancel));
+	menu_gui::add_top_text("");
+	if (moneyToReturn > 0)
+	{
+		menu_gui::add_top_text("Kwota do zwrotu klienowi: " + to_string(moneyToReturn));
+		menu_gui::add_option("Potwierdz dokonanie zwrotu pieniedzy");
+	}
+	else
+	{
+		menu_gui::add_option("Ok");
+	}
+	menu_gui::display();
 }

@@ -22,8 +22,13 @@ Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPayment
 Reservation::Reservation() {
 }
 
-void Reservation::pay(bool paymentMethod) {
-	throw "Not yet implemented";
+void Reservation::pay(int paymentAmount) {
+	amountRemainingToPay -= paymentAmount;
+	if (amountRemainingToPay <= 0)
+		paymentStatus = true;
+}
+int Reservation::getAmountRemainingToPay() {
+	return amountRemainingToPay;
 }
 
 void Reservation::annulReservation() {
@@ -38,6 +43,7 @@ void Reservation::annulReservation() {
 void Reservation::makeReservation() {
 	int daysFromNewYear = substractDates(1012022, startingDate);
 	int numberOfDays = substractDates(startingDate, endingDate);
+	amountRemainingToPay += numberOfDays * reservatedRoom->getPrice();
 	for (int j = 0; j < numberOfDays; j++)
 	{
 		reservatedRoom->setIsOccupied(daysFromNewYear + j, true);

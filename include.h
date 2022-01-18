@@ -26,6 +26,7 @@ extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* custom
 extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
+void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 //options:
 //0 (default):  01.01.2022
 //1			 :	01 stycznia 2022

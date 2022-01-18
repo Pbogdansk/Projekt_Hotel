@@ -38,7 +38,7 @@ void Room::calculatePrice() {
 	//surfaceArea		1 -> 3*
 	outputPrice *= (3 * surfaceArea);
 
-	price = outputPrice;
+	price = static_cast <int> (outputPrice);
 }
 
 int Room::getNumberOfPeople() {
@@ -50,7 +50,7 @@ int Room::getFloor() {
 int Room::getRoomQuality() {
 	return roomQuality;
 }
-double Room::getPrice() {
+int Room::getPrice() {
 	return price;
 }
 int Room::getSurfaceArea() {

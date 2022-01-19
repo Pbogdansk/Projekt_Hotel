@@ -8,6 +8,7 @@ void whatSurfaceArea();
 int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
 Room newRoom;
+void menu_usun_pokoj();
 void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 
 	//test
@@ -26,7 +27,7 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 		menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
 		break;
 	case 1:
-		//menu_usun_pokoj();
+		menu_usun_pokoj();
 		break;
 	case 2:
 		break;
@@ -144,25 +145,32 @@ void whatSurfaceArea() {
 }
 
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
-	label:
-	std::cout << "czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami? [tak/nie]\n";
-	std::cout << "standard: " << roomQualityMenu << "\nliczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
-	std::cin >> sure;
-	newRoom = Room(numberOfPeopleMenu, floorMenu, roomQualityMenu, surfaceAreaMenu);
-	if (sure == "tak") {
-		Room* temp = new Room[(*pointerCurrentNumberOfRooms) + 1];
-		std::copy(rooms, rooms + (*pointerCurrentNumberOfRooms), temp);
-		delete[] rooms;
-		rooms = temp;
-		//dodanie nowego pokoju
-		rooms[*pointerCurrentNumberOfRooms] = newRoom;
-		*pointerCurrentNumberOfRooms += 1;
+
+	while (1)
+	{
+		menu_gui::reset();
+		menu_gui::add_top_text("czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami ?");
+		menu_gui::add_top_text("standard: " + to_string(roomQualityMenu) + "\nliczba miejsc: " + to_string(numberOfPeopleMenu) + "\npowierzchnia: " + to_string(surfaceAreaMenu) + "\nna pietrze: " + to_string(floorMenu));
+		menu_gui::add_option("Tak");
+		menu_gui::add_option("Nie");
+		newRoom = Room(numberOfPeopleMenu, floorMenu, roomQualityMenu, surfaceAreaMenu);
+		if (menu_gui::display() == 0) {
+			Room* temp = new Room[(*pointerCurrentNumberOfRooms) + 1];
+			std::copy(rooms, rooms + (*pointerCurrentNumberOfRooms), temp);
+			delete[] rooms;
+			rooms = temp;
+			//dodanie nowego pokoju
+			rooms[*pointerCurrentNumberOfRooms] = newRoom;
+			*pointerCurrentNumberOfRooms += 1;
+			return;
+		}
+		else{
+			return;
+		}
+	}
+}
 
 
-	}
-	else if (sure == "nie") {
-	}
-	else {
-		goto label;
-	}
+void menu_usun_pokoj() {
+
 }

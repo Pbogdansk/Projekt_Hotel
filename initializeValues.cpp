@@ -19,13 +19,8 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	adminsAccounts[0] = Admin("Wojciech", "Sum", 26061970, "test@test.pl" , "123");
 	adminsAccounts[1] = Admin("Adam", "Szczupak", 24091987, "EligiuszKaczmarek@teleworm.us" , "t5JbHo7JrMgia1wY");
 }
-void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts)
+void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts, int numberOfAllAccounts, int numberOfCustomersAccounts, int numberOfReceptionistsAccounts, int numberOfAdminsAccounts)
 {
-	int numberOfAllAccounts = 14;
-	int numberOfCustomersAccounts = 10;
-	int numberOfReceptionistsAccounts = 2;
-	int numberOfAdminsAccounts = 2;
-
 	int counterAllAccounts = 0;
 	for (int i = 0; i < numberOfCustomersAccounts; i++)
 	{

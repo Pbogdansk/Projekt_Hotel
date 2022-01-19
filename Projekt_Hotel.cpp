@@ -45,10 +45,10 @@ int main()
 			if (logInAccount(allAccounts, 14))
 				switch (currentlyLoggedIn.getPermissions()) {
 				case 0:
-					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, &reservations, pointerCurrentNumberOfReservations);
+					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 1:
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, &reservations, pointerCurrentNumberOfReservations);
+					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 2:
 					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms);

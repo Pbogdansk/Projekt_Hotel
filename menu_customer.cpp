@@ -1,6 +1,6 @@
 #include "include.h"
 
-void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations) {
+void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations) {
 	Room* pointerRoomToReserve = new Room[1];
 	Reservation newReservation;
 	Reservation* customersReservation = new Reservation[1];
@@ -30,7 +30,7 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 			toDate = inputInDateSystem();
 			while (1)
 			{
-				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, 50);
+				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, numberOfRooms);
 				if (pointerRoomToReserve != NULL)
 				{
 					menu_gui::reset();
@@ -89,11 +89,11 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 					sth->makeReservation();
 					//powiêkszenie tablicy reservations o jeden
 					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];
-					std::copy(*reservations, *reservations + (*pointerCurrentNumberOfReservations), temp);
-					delete[] *reservations;
-					*reservations = temp;
+					std::copy(reservations, reservations + (*pointerCurrentNumberOfReservations), temp);
+					delete[] reservations;
+					reservations = temp;
 					//dodanie nowej rezerwacji
-					*reservations[*pointerCurrentNumberOfReservations] = *account.getCustomersReservation();
+					reservations[*pointerCurrentNumberOfReservations] = *account.getCustomersReservation();
 					*pointerCurrentNumberOfReservations += 1;
 					account.setAlreadyHaveReservation(true);
 				}
@@ -103,14 +103,14 @@ void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation
 			customersReservation = account.getCustomersReservation();
 			if (account.getAlreadyHaveReservation() == false)
 				customersReservation = NULL;
-			cancelReservationCustomer(*reservations, pointerCurrentNumberOfReservations, customersReservation);
+			cancelReservationCustomer(reservations, pointerCurrentNumberOfReservations, customersReservation);
 			account.setAlreadyHaveReservation(false);
 			break;
 		case 3: //dokonaj platnosci
 			customersReservation = account.getCustomersReservation();
 			if (account.getAlreadyHaveReservation() == false)
 				customersReservation = NULL;
-			makePaymentCustomer(*reservations, pointerCurrentNumberOfReservations, customersReservation);
+			makePaymentCustomer(reservations, pointerCurrentNumberOfReservations, customersReservation);
 			break;
 		case 4: //melodowanie / wymeldowanie
 			//

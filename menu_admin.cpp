@@ -148,6 +148,7 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 	std::cout << "czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami? [tak/nie]\n";
 	std::cout << "standard: " << roomQualityMenu << "\nliczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
 	std::cin >> sure;
+	newRoom = Room(numberOfPeopleMenu, floorMenu, roomQualityMenu, surfaceAreaMenu);
 	if (sure == "tak") {
 		Room* temp = new Room[(*pointerCurrentNumberOfRooms) + 1];
 		std::copy(rooms, rooms + (*pointerCurrentNumberOfRooms), temp);

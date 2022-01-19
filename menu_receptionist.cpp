@@ -2,7 +2,7 @@
 //do dodania:
 // - melodowanie / wymeldowanie
 // - przypisywanie rezerwacji do konkretnej osoby
-void menu_receptionist(Receptionist account, Room* rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
+void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations){
 	
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];
@@ -34,7 +34,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int* pointerCurrentNum
 			toDate = inputInDateSystem();
 			while (1)
 			{
-				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, 50);
+				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, numberOfRooms);
 				if (pointerRoomToReserve != NULL)
 				{
 					menu_gui::reset();
@@ -88,20 +88,20 @@ void menu_receptionist(Receptionist account, Room* rooms, int* pointerCurrentNum
 					newReservation.makeReservation();
 					//powiêkszenie tablicy reservations o jeden
 					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];
-					std::copy(*reservations, *reservations + (*pointerCurrentNumberOfReservations), temp);
-					delete[] *reservations;
-					*reservations = temp;
+					std::copy(reservations, reservations + (*pointerCurrentNumberOfReservations), temp);
+					delete[] reservations;
+					reservations = temp;
 					//dodanie nowej rezerwacji
-					*reservations[*pointerCurrentNumberOfReservations] = newReservation;
+					reservations[*pointerCurrentNumberOfReservations] = newReservation;
 					*pointerCurrentNumberOfReservations += 1;
 				}
 			}
 			break;
 		case 2:	//usun rezerwacje
-			cancelReservation(*reservations, pointerCurrentNumberOfReservations);
+			cancelReservation(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 3:	//dokonaj platnosci
-			makePayment(*reservations, pointerCurrentNumberOfReservations);
+			makePayment(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 4:	//melodowanie / wymelodwanie
 			//

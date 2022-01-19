@@ -13,8 +13,8 @@
 #include "classes/Reservation.h"
 
 void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
-void menu_receptionist(Receptionist account, Room* rooms, int* pointerCurrentNumberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations);
-void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations);
+void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations);
+void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 

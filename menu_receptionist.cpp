@@ -2,7 +2,7 @@
 //do dodania:
 // - melodowanie / wymeldowanie
 // - przypisywanie rezerwacji do konkretnej osoby
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
+void menu_receptionist(Receptionist account, Room* rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
 	
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = NULL;

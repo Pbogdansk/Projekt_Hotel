@@ -3,12 +3,12 @@
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
 std::string sure;
 void howManyPeople();
-void menu_addRoom(Admin account);
+void menu_addRoom(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms);
 void whatSurfaceArea();
 int whatFloor();
-void areYouSure(Admin account);
-
-void menu_admin(Admin account) {
+void areYouSure(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms);
+Room newRoom;
+void menu_admin(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
 
 	//test
 	account.addRoom(0,1,2,3);
@@ -23,7 +23,7 @@ void menu_admin(Admin account) {
 	switch (menu_gui::display())
 	{
 	case 0:
-		 menu_addRoom(account);
+		menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
 		break;
 	case 1:
 		//menu_usun_pokoj();
@@ -32,7 +32,7 @@ void menu_admin(Admin account) {
 		break;
 	}
 
-}void menu_addRoom(Admin account) {
+}void menu_addRoom(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
 	
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
@@ -49,21 +49,21 @@ void menu_admin(Admin account) {
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
-		areYouSure(account);
+		areYouSure(account, rooms, pointerCurrentNumberOfRooms);
 		break;
 	case 1:
 		roomQualityMenu = 2;
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
-		areYouSure(account);
+		areYouSure(account, rooms, pointerCurrentNumberOfRooms);
 		break;
 	case 2:
 		roomQualityMenu = 1;
 		howManyPeople();
 		floorMenu = whatFloor();
 		whatSurfaceArea();
-		areYouSure(account);
+		areYouSure(account, rooms, pointerCurrentNumberOfRooms);
 		break;
 	case 3:
 
@@ -143,15 +143,25 @@ void whatSurfaceArea() {
 	std::cin >> surfaceAreaMenu;
 }
 
-void areYouSure(Admin account) {
+void areYouSure(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
+	label:
 	std::cout << "czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami? [tak/nie]\n";
 	std::cout << "standard: " << roomQualityMenu << "\nliczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
 	std::cin >> sure;
 	if (sure == "tak") {
+		Room* temp = new Room[(*pointerCurrentNumberOfRooms) + 1];
+		std::copy(rooms, rooms + (*pointerCurrentNumberOfRooms), temp);
+		delete[] rooms;
+		rooms = temp;
+		//dodanie nowego pokoju
+		rooms[*pointerCurrentNumberOfRooms] = newRoom;
+		*pointerCurrentNumberOfRooms += 1;
+
+
 	}
 	else if (sure == "nie") {
 	}
 	else {
-		std::cin >> sure;
+		goto label;
 	}
 }

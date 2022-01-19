@@ -21,7 +21,6 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
 		else
 		{
 			//nie udalo sie
-			return false;
 		}
 	}
 	else	//nie znaleziono

@@ -13,10 +13,13 @@ int main()
    int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
 
 
-   Room rooms[50];
+   Room* rooms = new Room[50];
+   int currentNumberOfRooms = 50;
+   int* pointerCurrentNumberOfRooms = &currentNumberOfRooms;
+
    initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts);
    assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
-   initializeRoomsWithDefaultValues(rooms, 50);
+   initializeRoomsWithDefaultValues(rooms, *pointerCurrentNumberOfRooms);
 
    while (1)
    {
@@ -43,7 +46,7 @@ int main()
 			   menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, 50, reservations, pointerCurrentNumberOfReservations);
 			   break;
 		   case 2:
-			   menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()]);
+			   menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms);
 			   break;
 		   }
 	   case 1: //zakladanie konta

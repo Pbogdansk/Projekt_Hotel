@@ -10,6 +10,11 @@
 void addingAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts, int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts,
 	string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) 
 {
+	Person* temporaryAllAccounts = new Person[(*pointerCurrentNumberOfAccounts) + 1];
+	std::copy(allAccounts, allAccounts + (*pointerCurrentNumberOfAccounts), temporaryAllAccounts);
+	delete[] allAccounts;
+	allAccounts = temporaryAllAccounts;
+
 	Customer newCustomer = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
 	Customer* temporaryCustomer = new Customer[(*pointerCurrentNumberOfCustomers) + 1];
 	std::copy(customersAccounts, customersAccounts + (*pointerCurrentNumberOfCustomers), temporaryCustomer);
@@ -18,6 +23,7 @@ void addingAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts, in
 	//dodanie nowego konta klienta
 	customersAccounts[*pointerCurrentNumberOfCustomers] = newCustomer;
 	*pointerCurrentNumberOfCustomers += 1;
+	*pointerCurrentNumberOfAccounts += 1;
 }
 
 void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts,
@@ -48,10 +54,10 @@ void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts,
 		addingAccount(pointerCurrentNumberOfAccounts, allAccounts, pointerCurrentNumberOfCustomers, customersAccounts,
 			newName, newSurname, newDateOfBirth, newEmail, newPassword);
 		cout << endl << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
-		Sleep(2000);
+		//Sleep(2000); koniec ze spaniem :)
 	}
 	else {
 		cout << endl << "Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta" << endl;
-		Sleep(4000);
+		//Sleep(4000); koniec ze spaniem :)
 	}
 }

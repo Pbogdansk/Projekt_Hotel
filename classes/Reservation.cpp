@@ -67,4 +67,3 @@ string Reservation::getCustomerEmail() {
 int Reservation::getRoomPrice() {
 	return reservatedRoom->getPrice();
 }
-

@@ -1,7 +1,7 @@
 #include <exception>
 #include <string>
-#include <Windows.h>
-#include <iostream>
+#include "../include.h"
+
 using namespace std;
 
 #include "Person.h"
@@ -66,17 +66,6 @@ void Person::setIndex(int aIndex) {
 	index = aIndex;
 }
 
-bool Person::changePassword(string currentPassword, string newPassword) {
-	if (password == currentPassword) {
-		password = newPassword;
-
-		return 1;
-	}
-	else {
-		return 1;
-	}
-}
-
 bool Person::logIn(string givenEmail, string givenPassword) {
 	
 	if (givenEmail == email && givenPassword == password)
@@ -84,10 +73,65 @@ bool Person::logIn(string givenEmail, string givenPassword) {
 		isLogged = true;
 		return true;
 	}
-	cout << endl << "Niestety podane haslo jest niepoprawne";
-	Sleep(4000);
+	menu_gui::reset();
+	menu_gui::add_top_text("Niestety podane haslo jest niepoprawne");
+	menu_gui::add_option("Wroc do menu");
+	menu_gui::display();
 	return false;
 }
 void Person::logOut() {
 	isLogged = false;
+}
+
+void Person::changeName() {
+	string newName;
+	cout << endl << "Prosze podac nowe imie: ";
+	cin >> newName;
+
+	setName(newName, getName()[1]);
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie zmieniono imie");
+	menu_gui::add_option("Wroc do menu");
+	menu_gui::display();
+}
+void Person::changeSurname(string newSurname) {
+	surname = newSurname;
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie zmieniono nazwisko");
+	menu_gui::add_option("Wroc do menu");
+	menu_gui::display();
+}
+void Person::changeDateOfBirth(int newDateOfBirth) {
+	this->dateOfBirth = newDateOfBirth;
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie zmieniono date urodzenia");
+	menu_gui::add_option("Wroc do menu");
+	menu_gui::display();
+}
+void Person::changeEmail(string newEmail) {
+	this->email = newEmail;
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie zmieniono e-mail");
+	menu_gui::add_option("Wroc do menu");
+	menu_gui::display();
+}
+
+bool Person::changePassword(string currentPassword, string newPassword) {
+	if (password == currentPassword) {
+		password = newPassword;
+		menu_gui::reset();
+		menu_gui::add_top_text("Pomyslnie zmieniono haslo");
+		menu_gui::add_option("Wroc do menu");
+		menu_gui::display();
+
+		return 1;
+	}
+	else {
+		menu_gui::reset();
+		menu_gui::add_top_text("Podane haslo jest niepoprawne");
+		menu_gui::add_option("Wroc do menu");
+		menu_gui::display();
+		return 1;
+	}
 }

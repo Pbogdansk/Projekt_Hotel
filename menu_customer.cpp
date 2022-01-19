@@ -18,6 +18,7 @@ void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservatio
 		menu_gui::add_option("Usun rezerwacje");
 		menu_gui::add_option("Dokonaj platnosci");
 		menu_gui::add_option("Meldowanie/wymeldowanie");
+		menu_gui::add_option("Zmiana danych klienta");
 		menu_gui::add_option("Wroc do menu");
 
 		switch (menu_gui::display())
@@ -117,7 +118,40 @@ void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservatio
 			// 
 			//
 			break;
-		case 5: //wroc do menu / wyloguj
+		case 5: //zmiana danych klienta
+			menu_gui::reset();
+			menu_gui::add_top_text("Prosze wybraæ ktora informacje chce pan/pani zmienic");
+			menu_gui::add_option("Imie");
+			menu_gui::add_option("Nazwisko");
+			menu_gui::add_option("Data urodzenia");
+			menu_gui::add_option("E-mail");
+			menu_gui::add_option("Haslo");
+			menu_gui::add_option("Wroc do menu");
+			menu_gui::display();
+		 
+			switch (menu_gui::display()) {
+			case 0:		//zmiana imienia
+				currentlyLoggedIn.changeName();
+				break;
+			case 1:		//zmiena nazwiska
+				//currentlyLoggedIn.changeSurname();
+				break;
+			case 2:		//zmiana daty urodzenia
+				//currentlyLoggedIn.changeDateOfBirth();
+				break;
+			case 3:		//zmiana e-mailu
+				//currentlyLoggedIn.changeEmail();
+				break;
+			case 4:		//zmiana has³a
+				//currentlyLoggedIn.changePassword();
+				break;
+			case 5:		//powrót do menu
+				return;
+			}
+
+		
+			break;
+		case 6: //wroc do menu / wyloguj
 			return;
 		}
 	}

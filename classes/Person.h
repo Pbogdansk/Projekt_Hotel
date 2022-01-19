@@ -1,5 +1,6 @@
 #include <exception>
 #include <string>
+
 using namespace std;
 
 #ifndef __Person_h__
@@ -39,6 +40,10 @@ public:
 	void setPassword(string newPassword);
 	void setIndex(int aIndex);
 
+	void changeName();
+	void changeSurname(string newSurname);
+	void changeDateOfBirth(int newDateOfBirth);
+	void changeEmail(string newEmail);
 	bool changePassword(string currentPassword, string newPassword);
 
 	bool logIn(string givenEmail, string givenPassword);

@@ -41,10 +41,10 @@ public:
 	void setIndex(int aIndex);
 
 	void changeName();
-	void changeSurname(string newSurname);
-	void changeDateOfBirth(int newDateOfBirth);
-	void changeEmail(string newEmail);
-	bool changePassword(string currentPassword, string newPassword);
+	void changeSurname();
+	void changeDateOfBirth();
+	void changeEmail();
+	bool changePassword();
 
 	bool logIn(string givenEmail, string givenPassword);
 	void logOut();

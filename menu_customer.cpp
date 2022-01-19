@@ -126,29 +126,27 @@ void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservatio
 			menu_gui::add_option("Data urodzenia");
 			menu_gui::add_option("E-mail");
 			menu_gui::add_option("Haslo");
-			menu_gui::add_option("Wroc do menu");
-			menu_gui::display();
+			menu_gui::add_option("Powrot");
 		 
 			switch (menu_gui::display()) {
-			case 0:		//zmiana imienia
+			case 0:			//zmiana imienia
 				currentlyLoggedIn.changeName();
 				break;
-			case 1:		//zmiena nazwiska
-				//currentlyLoggedIn.changeSurname();
+			case 1:			//zmiena nazwiska
+				currentlyLoggedIn.changeSurname();
 				break;
-			case 2:		//zmiana daty urodzenia
-				//currentlyLoggedIn.changeDateOfBirth();
+			case 2:			//zmiana daty urodzenia
+				currentlyLoggedIn.changeDateOfBirth();
 				break;
-			case 3:		//zmiana e-mailu
-				//currentlyLoggedIn.changeEmail();
+			case 3:			//zmiana e-mailu
+				currentlyLoggedIn.changeEmail();
 				break;
-			case 4:		//zmiana has³a
-				//currentlyLoggedIn.changePassword();
+			case 4:			//zmiana has³a
+				currentlyLoggedIn.changePassword();
 				break;
-			case 5:		//powrót do menu
-				return;
+			default:		//powrót
+				break;
 			}
-
 		
 			break;
 		case 6: //wroc do menu / wyloguj

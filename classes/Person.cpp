@@ -84,6 +84,7 @@ void Person::logOut() {
 }
 
 void Person::changeName() {
+	menu_gui::reset();
 	string newName;
 	cout << endl << "Prosze podac nowe imie: ";
 	cin >> newName;
@@ -95,29 +96,54 @@ void Person::changeName() {
 	menu_gui::add_option("Wroc do menu");
 	menu_gui::display();
 }
-void Person::changeSurname(string newSurname) {
-	surname = newSurname;
+void Person::changeSurname() {
+	menu_gui::reset();
+	string newSurmame;
+	cout << endl << "Prosze podac nowe nazwisko: ";
+	cin >> newSurmame;
+
+	setSurname(newSurmame);
+
 	menu_gui::reset();
 	menu_gui::add_top_text("Pomyslnie zmieniono nazwisko");
 	menu_gui::add_option("Wroc do menu");
 	menu_gui::display();
 }
-void Person::changeDateOfBirth(int newDateOfBirth) {
-	this->dateOfBirth = newDateOfBirth;
+void Person::changeDateOfBirth() {
+	menu_gui::reset();
+	int dateOfBirth;
+	cout << endl << "Prosze podac nowa date urodzenia: ";
+	cin >> dateOfBirth;
+
+	setDateOfBirth(dateOfBirth);
+
 	menu_gui::reset();
 	menu_gui::add_top_text("Pomyslnie zmieniono date urodzenia");
 	menu_gui::add_option("Wroc do menu");
 	menu_gui::display();
 }
-void Person::changeEmail(string newEmail) {
-	this->email = newEmail;
+void Person::changeEmail() {
 	menu_gui::reset();
-	menu_gui::add_top_text("Pomyslnie zmieniono e-mail");
+	string newEmail;
+	cout << endl << "Prosze podac nowy adres E-mail: ";
+	cin >> newEmail;
+
+	setEmail(newEmail);
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie zmieniono adres E-mail");
 	menu_gui::add_option("Wroc do menu");
 	menu_gui::display();
 }
 
-bool Person::changePassword(string currentPassword, string newPassword) {
+bool Person::changePassword() {
+	menu_gui::reset();
+	string currentPassword, newPassword;
+	cout << endl << "Prosze podac obecne haslo: ";
+	cin >> currentPassword;
+	cout << endl << "Prosze podac nowe haslo: ";
+	cin >> newPassword;
+
 	if (password == currentPassword) {
 		password = newPassword;
 		menu_gui::reset();

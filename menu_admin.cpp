@@ -8,9 +8,10 @@ void whatSurfaceArea();
 int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
 Room newRoom;
-void menu_usun_pokoj();
-void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
-
+void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availaibleRooms[]);
+	void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
+Room* availaibleRooms = new Room[*pointerCurrentNumberOfRooms];
+int availaibleRoomscounter = 0;
 	//test
 	//account.addRoom(0,1,2,3);
 	//test
@@ -27,7 +28,7 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 		menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
 		break;
 	case 1:
-		menu_usun_pokoj();
+		menu_usun_pokoj(rooms, pointerCurrentNumberOfRooms, availaibleRooms);
 		break;
 	case 2:
 		break;
@@ -179,6 +180,38 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 }
 
 
-void menu_usun_pokoj() {
+void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availaibleRooms[]) {
+	int availaibleRoomscounter = 0;
+	menu_gui::reset();
+	menu_gui::add_top_text("Usuwanie pokoju");
+	menu_gui::add_top_text("Wybierz pokoj do usuniecia");
+	for (int i = 0; i < *pointerCurrentNumberOfRooms; i++)
+	{
+		bool isThisRoomFree = true;
+		for (int j = 0; j < 365; j++)
+		{
+			if (rooms[i].getIsOccupied(21 + j) == true)
+				isThisRoomFree = false;
+		}
+		if (isThisRoomFree == true)
+		{
+			menu_gui::add_option(roomToString(rooms[i]));
+			availaibleRooms[availaibleRoomscounter] = rooms[i];
+			availaibleRoomscounter++;
+		}
+	}
 
-}
+	//Room* temp = new Room[(*pointerCurrentNumberOfRooms) - 1];
+	//for (int i = 0, j = 0; i < (*pointerCurrentNumberOfRooms); i++) //copy bez tego usuwanego
+	//{
+	//	 (i != indexOfRoomToDelete)
+	//	{
+	//		temp[j] = rooms[i];
+	//		j++;
+	//	}
+	//}
+	//delete[] rooms;
+	//rooms = temp;
+	//*pointerCurrentNumberOfRooms -= 1;
+
+	}

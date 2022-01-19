@@ -6,11 +6,17 @@ int main()
 	srand(time(NULL));
 	Person allAccounts[15];
 	Customer customersAccounts[10];
-	Receptionist receptionistsAccounts[2];
+	Receptionist receptionistsAccounts[2]; 
 	Admin adminsAccounts[2];
 	Reservation* reservations = new Reservation[0];
 	int currentNumberOfReservations = 0;
 	int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
+
+	int currentNumberOfAccounts = 0;
+	int* pointerCurrentNumberOfAccounts = &currentNumberOfAccounts;
+
+	int currentNumberOfCustomers = 0;
+	int* pointerCurrentNumberOfCustomers = &currentNumberOfCustomers;
 
 
 	Room rooms[50];

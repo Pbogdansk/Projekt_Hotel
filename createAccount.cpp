@@ -30,7 +30,9 @@ void addingAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[], i
 	*pointerCurrentNumberOfCustomers += 1;
 }
 
-void createAccount(Customer customersAccounts[]) {
+void createAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[],
+	int* pointerCurrentNumberOfCustomers, Customer* customersAccounts[])
+{
 	string newName;
 	string newSurname;
 	int newDateOfBirth;
@@ -53,8 +55,8 @@ void createAccount(Customer customersAccounts[]) {
 	cin >> newPassword2;
 	
 	if (newPassword == newPassword2) {
-		customersAccounts[9] = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
-
+		addingAccount(pointerCurrentNumberOfAccounts, allAccounts, pointerCurrentNumberOfCustomers, customersAccounts,
+			newName, newSurname, newDateOfBirth, newEmail, newPassword);
 		cout << endl << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
 		Sleep(2000);
 	}

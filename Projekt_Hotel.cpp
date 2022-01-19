@@ -4,13 +4,19 @@ Person currentlyLoggedIn;
 int main()
 {
 	srand(time(NULL));
-	Person allAccounts[15];
-	Customer customersAccounts[10];
+	Person* allAccounts = new Person[15];					//Person allAccounts[15];
+	Customer* customersAccounts = new Customer[10];			//Customer customersAccounts[10];
 	Receptionist receptionistsAccounts[2];
 	Admin adminsAccounts[2];
 	Reservation* reservations = new Reservation[0];
 	int currentNumberOfReservations = 0;
 	int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
+
+	int currentNumberOfAccounts = 0;
+	int* pointerCurrentNumberOfAccounts = &currentNumberOfAccounts;
+
+	int currentNumberOfCustomers = 0;
+	int* pointerCurrentNumberOfCustomers = &currentNumberOfCustomers;
 
 
 	Room rooms[50];
@@ -48,7 +54,7 @@ int main()
 				}
 			break;
 		case 1: //zakladanie konta		
-			createAccount(customersAccounts);
+			createAccount(pointerCurrentNumberOfAccounts, &allAccounts, pointerCurrentNumberOfCustomers, &customersAccounts);
 			break;
 		case 2://wyjdz z programu
 			return 0x0;

@@ -21,9 +21,6 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 		menu_gui::add_option("Dokonaj platnosci");
 		menu_gui::add_option("Meldowanie/wymeldowanie");
 		menu_gui::add_option("Pasjans");
-		menu_gui::add_option("Zamelduj Klienta");
-		menu_gui::add_option("Wymelduj Klienta");
-
 		menu_gui::add_option("Wroc do menu");
 
 

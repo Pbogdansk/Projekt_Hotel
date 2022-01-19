@@ -162,7 +162,15 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 			//dodanie nowego pokoju
 			rooms[*pointerCurrentNumberOfRooms] = newRoom;
 			*pointerCurrentNumberOfRooms += 1;
-			return;
+			menu_gui::reset();
+			menu_gui::add_top_text("Utworzyles pokoj o parametrach: ");
+			menu_gui::add_top_text("standard: " + to_string(roomQualityMenu) + "\nliczba miejsc: " + to_string(numberOfPeopleMenu) + "\npowierzchnia: " + to_string(surfaceAreaMenu) + "\nna pietrze: " + to_string(floorMenu));
+			menu_gui::add_option("OK");
+			switch (menu_gui::display())
+			{
+			case 0:
+				return;
+			}
 		}
 		else{
 			return;

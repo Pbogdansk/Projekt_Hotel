@@ -2,7 +2,7 @@
 //do dodania:
 // - melodowanie / wymeldowanie
 // - przypisywanie rezerwacji do konkretnej osoby
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations){
+void menu_receptionist(Receptionist account, Room* rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations){
 	
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];
@@ -77,7 +77,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 				menu_gui::add_top_text("");
 				menu_gui::add_option("Dodaj rezerwacje");
 				menu_gui::add_option("Anuluj");
-				if (menu_gui::display() == 0)	//dodaj rezerwacjê
+				if (menu_gui::display() == 0)	//dodaj rezerwacjÃª
 				{
 					bool paymentStatus = false;
 					//wybierz konto albo utworz nowe dla klienta  \/
@@ -86,7 +86,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 
 					newReservation = account.reservation(pointerRoomToReserve, fromDate, toDate, &newCustomer);
 					newReservation.makeReservation();
-					//powiêkszenie tablicy reservations o jeden
+					//powiÃªkszenie tablicy reservations o jeden
 					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];
 					std::copy(*reservations, *reservations + (*pointerCurrentNumberOfReservations), temp);
 					delete[] *reservations;

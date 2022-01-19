@@ -18,11 +18,13 @@ int main()
 	int currentNumberOfCustomers = 0;
 	int* pointerCurrentNumberOfCustomers = &currentNumberOfCustomers;
 
+	Room* rooms = new Room[50];
+   int currentNumberOfRooms = 50;
+   int* pointerCurrentNumberOfRooms = &currentNumberOfRooms;
 
-	Room rooms[50];
 	initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts);
 	assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
-	initializeRoomsWithDefaultValues(rooms, 50);
+	initializeRoomsWithDefaultValues(rooms, *pointerCurrentNumberOfRooms);
 
 	while (1)
 	{
@@ -43,13 +45,13 @@ int main()
 			if (logInAccount(allAccounts, 14))
 				switch (currentlyLoggedIn.getPermissions()) {
 				case 0:
-					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, 50, &reservations, pointerCurrentNumberOfReservations);
+					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, &reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 1:
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, 50, &reservations, pointerCurrentNumberOfReservations);
+					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, &reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 2:
-					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()]);
+					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms);
 					break;
 				}
 			break;

@@ -11,7 +11,7 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	customersAccounts[6] = Customer("Aureliusz", "Rutkowski", 26071947, "AureliuszRutkowski@teleworm.us","KMEm1xTW2aPRvY0I");
 	customersAccounts[7] = Customer("Tekla", "Czarnecka", 30041949, "TeklaCzarnecka@teleworm.us" , "KCkrShkgg70Pn4VS");
 	customersAccounts[8] = Customer("Lidia", "Czerwinska", 8111982, "LidiaCzerwinska@teleworm.us" , "Szra563zEd3cNyFM");
-	customersAccounts[9] = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com" , "aaSDWTJevGfZ3Wp0");
+	customersAccounts[9] = Customer("Klara", "Walczak", 26061970, "klient@gmail.com" , "jestekliente");
 
 	receptionistsAccounts[0] = Receptionist("Tobiasz", "Tomaszewski", 24081965, "recepcja@pl.pl" , "lol123");
 	receptionistsAccounts[1] = Receptionist("Gertruda", "Dudek", 3091951, "GertrudaDudek@jourrapide.com" , "ZrlcrtNwf49rM9NZ");

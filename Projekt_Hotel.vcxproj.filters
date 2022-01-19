@@ -60,6 +60,7 @@
     <ClCompile Include="findRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="createAccount.cpp">
     <ClCompile Include="ReservationLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

@@ -12,10 +12,10 @@ int main()
 	int currentNumberOfReservations = 0;
 	int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
 
-	int currentNumberOfAccounts = 0;
+	int currentNumberOfAccounts = 15;
 	int* pointerCurrentNumberOfAccounts = &currentNumberOfAccounts;
 
-	int currentNumberOfCustomers = 0;
+	int currentNumberOfCustomers = 10;
 	int* pointerCurrentNumberOfCustomers = &currentNumberOfCustomers;
 
 

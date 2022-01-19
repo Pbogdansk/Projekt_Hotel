@@ -15,7 +15,7 @@ void addingAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[], i
 	std::copy(*allAccounts, *allAccounts + (*pointerCurrentNumberOfAccounts), temp);
 	delete[] *allAccounts;
 	*allAccounts = temp;
-	//dodanie nowej rezerwacji
+	//dodanie nowego konta
 	*allAccounts[*pointerCurrentNumberOfAccounts] = newAccount;
 	*pointerCurrentNumberOfAccounts += 1;
 
@@ -25,7 +25,7 @@ void addingAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[], i
 	std::copy(*customersAccounts, *customersAccounts + (*pointerCurrentNumberOfCustomers), temp);
 	delete[] * customersAccounts;
 	*customersAccounts = temporaryCustomer;
-	//dodanie nowej rezerwacji
+	//dodanie nowego konta klienta
 	*customersAccounts[*pointerCurrentNumberOfCustomers] = newCustomer;
 	*pointerCurrentNumberOfCustomers += 1;
 }

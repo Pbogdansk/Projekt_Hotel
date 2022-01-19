@@ -17,8 +17,8 @@ Person::Person() {
 }
 
 
-string* Person::getName() {
-	return this->name;
+string Person::getName() {
+	return name[0];
 }
 string Person::get2Name() {
 	return name[1];
@@ -89,7 +89,7 @@ void Person::changeName() {
 	cout << endl << "Prosze podac nowe imie: ";
 	cin >> newName;
 
-	setName(newName, getName()[1]);
+	setName(newName, getName());
 
 	menu_gui::reset();
 	menu_gui::add_top_text("Pomyslnie zmieniono imie");

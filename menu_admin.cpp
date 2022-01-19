@@ -7,32 +7,36 @@ void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms)
 void whatSurfaceArea();
 int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
+void changeClientsData(Customer*& customersAccounts);
 Room newRoom;
-void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 
-	//test
-	//account.addRoom(0,1,2,3);
-	//test
+void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, Customer*& customersAccounts) {
+	while (1) {
+		menu_gui::reset();
+		menu_gui::add_top_text("Witaj admin kogo zbanujesz dzisiaj?");
+		menu_gui::add_option("Dodaj pokoj");
+		menu_gui::add_option("Usun istniejacy pokoj");
+		menu_gui::add_option("Zmien dane klienta");
+		menu_gui::add_option("Wroc do menu");
 
-	menu_gui::reset();
-	menu_gui::add_top_text("Witaj admin kogo zbanujesz dzisiaj?");
-	menu_gui::add_option("Dodaj pokoj");
-	menu_gui::add_option("Usun istniejacy pokoj");
-	menu_gui::add_option("Wroc do menu");
-	
-	switch (menu_gui::display())
-	{
-	case 0:
-		menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
-		break;
-	case 1:
-		//menu_usun_pokoj();
-		break;
-	case 2:
-		break;
+		switch (menu_gui::display())
+		{
+		case 0:
+			menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
+			break;
+		case 1:
+			//menu_usun_pokoj();
+			break;
+		case 2:
+			changeClientsData(customersAccounts);
+			break;
+		default:
+			break;
+		}
 	}
+}
 
-}void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
+void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 	
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
@@ -165,4 +169,19 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 	else {
 		goto label;
 	}
+}
+
+void changeClientsData(Customer*& customersAccounts) {
+	menu_gui::reset();
+	menu_gui::add_top_text("Proszê wybrac uzytkownika ktoremu zostana zmienione dane");
+	
+	for (int i = 0; i < sizeof(customersAccounts); i++)
+	{
+		menu_gui::add_option(customersAccounts[i].getName() + " " + customersAccounts[i].getSurname());
+	}
+	
+
+	cout<< menu_gui::display();
+
+	menu_gui::display();
 }

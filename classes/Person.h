@@ -24,7 +24,7 @@ public:
 	Person(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 	Person();
 
-	string* getName();
+	string getName();
 	string get2Name();
 	string getSurname();
 	int getDateOfBirth();

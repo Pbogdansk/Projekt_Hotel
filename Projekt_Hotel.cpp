@@ -4,7 +4,7 @@ Person currentlyLoggedIn;
 int main()
 {
 	srand(time(NULL));
-	Person* allAccounts = new Person[15];					//Person allAccounts[15];
+	Person* allAccounts = new Person[14];					//Person allAccounts[15];
 	Customer* customersAccounts = new Customer[10];			//Customer customersAccounts[10];
 	Receptionist receptionistsAccounts[2];
 	Admin adminsAccounts[2];
@@ -12,7 +12,7 @@ int main()
 	int currentNumberOfReservations = 0;
 	int* pointerCurrentNumberOfReservations = &currentNumberOfReservations;
 
-	int currentNumberOfAccounts = 15;
+	int currentNumberOfAccounts = 14;
 	int* pointerCurrentNumberOfAccounts = &currentNumberOfAccounts;
 
 	int currentNumberOfCustomers = 10;
@@ -23,7 +23,7 @@ int main()
    int* pointerCurrentNumberOfRooms = &currentNumberOfRooms;
 
 	initializeWithDefaultValues(customersAccounts, receptionistsAccounts, adminsAccounts);
-	assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts);
+	assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, currentNumberOfCustomers,2,2);
 	initializeRoomsWithDefaultValues(rooms, *pointerCurrentNumberOfRooms);
 
 	while (1)
@@ -56,7 +56,8 @@ int main()
 				}
 			break;
 		case 1: //zakladanie konta		
-			createAccount(pointerCurrentNumberOfAccounts, &allAccounts, pointerCurrentNumberOfCustomers, &customersAccounts);
+			createAccount(pointerCurrentNumberOfAccounts, allAccounts, pointerCurrentNumberOfCustomers, customersAccounts);
+			assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, currentNumberOfCustomers, 2, 2);
 			break;
 		case 2://wyjdz z programu
 			return 0x0;

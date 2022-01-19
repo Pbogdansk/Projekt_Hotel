@@ -7,31 +7,27 @@
 #include <iostream>
 #include <cstdlib>
 
-void addingAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[], int* pointerCurrentNumberOfCustomers, Customer* customersAccounts[],
+void addingAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts, int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts,
 	string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) 
 {
-	Person newAccount = Person(newName, newSurname, newDateOfBirth, newEmail, newPassword);
-	Person* temp = new Person[(*pointerCurrentNumberOfAccounts) + 1];
-	std::copy(*allAccounts, *allAccounts + (*pointerCurrentNumberOfAccounts), temp);
-	delete[] *allAccounts;
-	*allAccounts = temp;
-	//dodanie nowego konta
-	*allAccounts[*pointerCurrentNumberOfAccounts] = newAccount;
-	*pointerCurrentNumberOfAccounts += 1;
-
+	Person* temporaryAllAccounts = new Person[(*pointerCurrentNumberOfAccounts) + 1];
+	std::copy(allAccounts, allAccounts + (*pointerCurrentNumberOfAccounts), temporaryAllAccounts);
+	delete[] allAccounts;
+	allAccounts = temporaryAllAccounts;
 
 	Customer newCustomer = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
 	Customer* temporaryCustomer = new Customer[(*pointerCurrentNumberOfCustomers) + 1];
-	std::copy(*customersAccounts, *customersAccounts + (*pointerCurrentNumberOfCustomers), temp);
-	delete[] * customersAccounts;
-	*customersAccounts = temporaryCustomer;
+	std::copy(customersAccounts, customersAccounts + (*pointerCurrentNumberOfCustomers), temporaryCustomer);
+	delete[] customersAccounts;
+	customersAccounts = temporaryCustomer;
 	//dodanie nowego konta klienta
-	*customersAccounts[*pointerCurrentNumberOfCustomers] = newCustomer;
+	customersAccounts[*pointerCurrentNumberOfCustomers] = newCustomer;
 	*pointerCurrentNumberOfCustomers += 1;
+	*pointerCurrentNumberOfAccounts += 1;
 }
 
-void createAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[],
-	int* pointerCurrentNumberOfCustomers, Customer* customersAccounts[])
+void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts,
+	int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts)
 {
 	string newName;
 	string newSurname;
@@ -58,10 +54,10 @@ void createAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[],
 		addingAccount(pointerCurrentNumberOfAccounts, allAccounts, pointerCurrentNumberOfCustomers, customersAccounts,
 			newName, newSurname, newDateOfBirth, newEmail, newPassword);
 		cout << endl << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
-		Sleep(2000);
+		//Sleep(2000); koniec ze spaniem :)
 	}
 	else {
 		cout << endl << "Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta" << endl;
-		Sleep(4000);
+		//Sleep(4000); koniec ze spaniem :)
 	}
 }

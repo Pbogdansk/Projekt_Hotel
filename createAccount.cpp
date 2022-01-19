@@ -13,13 +13,15 @@ void createAccount(Customer customersAccounts[]) {
 	int newDateOfBirth;
 	string newEmail;
 	string newPassword, newPassword2;
+
 	system("cls");		// czyszczenie ekranu (wed³ug Rafa³a przynajmniej)
+
 	cout << "Prosze podac panskie imie: ";
 	cin >> newName;
 	cout << endl << "Prosze podac panskie nazwisko: ";
 	cin >> newSurname;
-	cout << endl << "Prosze podac panska date urodzenia w formacie (ddnnrrrr): ";
-	cin >> newDateOfBirth;								//Crush, gdy przyjmie s³owo
+	cout << endl << "Prosze podac panska date urodzenia" << endl;
+	newDateOfBirth = inputInDateSystem();
 	cout << endl << "Prosze podac panski adres e-mail: ";
 	cin >> newEmail;
 	cout << endl << "Prosze podac panskie haslo ";
@@ -34,6 +36,6 @@ void createAccount(Customer customersAccounts[]) {
 	}
 	else {
 		cout << endl << "Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta" << endl;
-		Sleep(2000);
+		Sleep(4000);
 	}
 }

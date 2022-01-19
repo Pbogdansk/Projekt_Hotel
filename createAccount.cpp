@@ -53,11 +53,15 @@ void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts,
 	if (newPassword == newPassword2) {
 		addingAccount(pointerCurrentNumberOfAccounts, allAccounts, pointerCurrentNumberOfCustomers, customersAccounts,
 			newName, newSurname, newDateOfBirth, newEmail, newPassword);
-		cout << endl << "Dziekujemy za stworzenie konta w naszym hotelu" << endl;
-		//Sleep(2000); koniec ze spaniem :)
+		menu_gui::reset();
+		menu_gui::add_top_text("Dziekujemy za stworzenie konta w naszym hotelu");
+		menu_gui::add_option("Przejdz do menu");
+		menu_gui::display();
 	}
 	else {
-		cout << endl << "Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta" << endl;
-		//Sleep(4000); koniec ze spaniem :)
+		menu_gui::reset();
+		menu_gui::add_top_text("Podane hasla nie pokrywaja sie, prosze powtorzyc probe tworzenia konta");
+		menu_gui::add_option("Przejdz do menu");
+		menu_gui::display();
 	}
 }

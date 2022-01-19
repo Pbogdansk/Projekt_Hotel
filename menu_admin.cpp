@@ -3,15 +3,15 @@
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
 std::string sure;
 void howManyPeople();
-void menu_addRoom(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms);
+void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
 void whatSurfaceArea();
 int whatFloor();
-void areYouSure(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms);
+void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
 Room newRoom;
-void menu_admin(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
+void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 
 	//test
-	account.addRoom(0,1,2,3);
+	//account.addRoom(0,1,2,3);
 	//test
 
 	menu_gui::reset();
@@ -32,7 +32,7 @@ void menu_admin(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
 		break;
 	}
 
-}void menu_addRoom(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
+}void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 	
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
@@ -143,7 +143,7 @@ void whatSurfaceArea() {
 	std::cin >> surfaceAreaMenu;
 }
 
-void areYouSure(Admin account, Room* rooms, int* pointerCurrentNumberOfRooms) {
+void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 	label:
 	std::cout << "czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami? [tak/nie]\n";
 	std::cout << "standard: " << roomQualityMenu << "\nliczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;

@@ -40,7 +40,7 @@ int main()
 		switch (menu_gui::display())
 		{
 		case 0:
-			if (logInAccount(allAccounts, 14))
+			if (logInAccount(allAccounts, currentNumberOfAccounts))
 				switch (currentlyLoggedIn.getPermissions()) {
 				case 0:
 					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, 50, &reservations, pointerCurrentNumberOfReservations);

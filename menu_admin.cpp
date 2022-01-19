@@ -1,4 +1,4 @@
-#include "include.h"
+ï»¿#include "include.h"
 
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
 std::string sure;
@@ -9,7 +9,7 @@ int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
 void changeClientsData(Customer*& customersAccounts);
 Room newRoom;
-
+void menu_usun_pokoj();
 void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, Customer*& customersAccounts) {
 	while (1) {
 		menu_gui::reset();
@@ -25,7 +25,7 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, C
 			menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
 			break;
 		case 1:
-			//menu_usun_pokoj();
+			menu_usun_pokoj();
 			break;
 		case 2:
 			changeClientsData(customersAccounts);
@@ -37,7 +37,7 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, C
 }
 
 void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
-	
+
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz standard pokoju do dodania:");
 	menu_gui::add_option("belweder");
@@ -45,7 +45,7 @@ void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms)
 	menu_gui::add_option("ekonomiczny ");
 	menu_gui::add_option("Wroc do menu");
 
-	
+
 	switch (menu_gui::display())
 	{
 	case 0:
@@ -75,18 +75,18 @@ void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms)
 	}
 }
 void howManyPeople() {
-	std::cout << "ilu ludzi bêdzie w nowym pokoju?\n";
+	std::cout << "ilu ludzi bÃªdzie w nowym pokoju?\n";
 	std::cin >> numberOfPeopleMenu;
 }
 int whatFloor() {
 	menu_gui::reset();
 	menu_gui::add_top_text("Wybierz pietro pokoju do dodania:");
-	
-	menu_gui::add_option("1");	
-	menu_gui::add_option("2");	
-	menu_gui::add_option("3");	
-	menu_gui::add_option("4");	
-	menu_gui::add_option("5");	
+
+	menu_gui::add_option("1");
+	menu_gui::add_option("2");
+	menu_gui::add_option("3");
+	menu_gui::add_option("4");
+	menu_gui::add_option("5");
 	menu_gui::add_option("6");
 	menu_gui::add_option("7");
 	menu_gui::add_option("8");
@@ -148,40 +148,44 @@ void whatSurfaceArea() {
 }
 
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
-	label:
-	std::cout << "czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami? [tak/nie]\n";
-	std::cout << "standard: " << roomQualityMenu << "\nliczba miejsc: " << numberOfPeopleMenu << "\npowierzchnia: " << surfaceAreaMenu << "\nna pietrze: " << floorMenu << std::endl;
-	std::cin >> sure;
-	newRoom = Room(numberOfPeopleMenu, floorMenu, roomQualityMenu, surfaceAreaMenu);
-	if (sure == "tak") {
-		Room* temp = new Room[(*pointerCurrentNumberOfRooms) + 1];
-		std::copy(rooms, rooms + (*pointerCurrentNumberOfRooms), temp);
-		delete[] rooms;
-		rooms = temp;
-		//dodanie nowego pokoju
-		rooms[*pointerCurrentNumberOfRooms] = newRoom;
-		*pointerCurrentNumberOfRooms += 1;
 
-
-	}
-	else if (sure == "nie") {
-	}
-	else {
-		goto label;
+	while (1)
+	{
+		menu_gui::reset();
+		menu_gui::add_top_text("czy jestes pewien ze chcesz utworzyc pokoj z nastepujacymi parametrami ?");
+		menu_gui::add_top_text("standard: " + to_string(roomQualityMenu) + "\nliczba miejsc: " + to_string(numberOfPeopleMenu) + "\npowierzchnia: " + to_string(surfaceAreaMenu) + "\nna pietrze: " + to_string(floorMenu));
+		menu_gui::add_option("Tak");
+		menu_gui::add_option("Nie");
+		newRoom = Room(numberOfPeopleMenu, floorMenu, roomQualityMenu, surfaceAreaMenu);
+		if (menu_gui::display() == 0) {
+			Room* temp = new Room[(*pointerCurrentNumberOfRooms) + 1];
+			std::copy(rooms, rooms + (*pointerCurrentNumberOfRooms), temp);
+			delete[] rooms;
+			rooms = temp;
+			//dodanie nowego pokoju
+			rooms[*pointerCurrentNumberOfRooms] = newRoom;
+			*pointerCurrentNumberOfRooms += 1;
+			return;
+		}
+		else {
+			return;
+		}
 	}
 }
 
 void changeClientsData(Customer*& customersAccounts) {
 	menu_gui::reset();
-	menu_gui::add_top_text("Proszê wybrac uzytkownika ktoremu zostana zmienione dane");
-	
+	menu_gui::add_top_text("ProszÃª wybrac uzytkownika ktoremu zostana zmienione dane");
+
 	for (int i = 0; i < sizeof(customersAccounts); i++)
 	{
 		menu_gui::add_option(customersAccounts[i].getName() + " " + customersAccounts[i].getSurname());
 	}
-	
 
-	cout<< menu_gui::display();
+
+	cout << menu_gui::display();
 
 	menu_gui::display();
+}
+void menu_usun_pokoj() {
 }

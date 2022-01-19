@@ -1,4 +1,5 @@
 #include "include.h"
+#include <Windows.h>
 int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, string wantedEmail);
 
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
@@ -36,5 +37,7 @@ int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, strin
 		if (allAccounts[i].getEmail() == wantedEmail)
 			return i;
 	}
+	cout << endl << "Niestety nie ma w naszej bazie konta o podanym adresie e-mail";
+	Sleep(4000);
 	return -1;	//nie znaleziono ¿adnego pasuj¹cego adresu email
 }

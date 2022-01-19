@@ -1,5 +1,7 @@
 #include <exception>
 #include <string>
+#include <Windows.h>
+#include <iostream>
 using namespace std;
 
 #include "Person.h"
@@ -82,6 +84,8 @@ bool Person::logIn(string givenEmail, string givenPassword) {
 		isLogged = true;
 		return true;
 	}
+	cout << endl << "Niestety podane haslo jest niepoprawne";
+	Sleep(4000);
 	return false;
 }
 void Person::logOut() {

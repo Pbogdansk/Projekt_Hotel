@@ -7,31 +7,31 @@
 #include <iostream>
 #include <cstdlib>
 
-void addingAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[], int* pointerCurrentNumberOfCustomers, Customer* customersAccounts[],
+void addingAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts, int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts,
 	string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword) 
 {
 	Person newAccount = Person(newName, newSurname, newDateOfBirth, newEmail, newPassword);
 	Person* temp = new Person[(*pointerCurrentNumberOfAccounts) + 1];
-	std::copy(*allAccounts, *allAccounts + (*pointerCurrentNumberOfAccounts), temp);
-	delete[] *allAccounts;
-	*allAccounts = temp;
+	std::copy(allAccounts, allAccounts + (*pointerCurrentNumberOfAccounts), temp);
+	delete[] allAccounts;
+	allAccounts = temp;
 	//dodanie nowego konta
-	*allAccounts[*pointerCurrentNumberOfAccounts] = newAccount;
+	allAccounts[*pointerCurrentNumberOfAccounts] = newAccount;
 	*pointerCurrentNumberOfAccounts += 1;
 
 
 	Customer newCustomer = Customer(newName, newSurname, newDateOfBirth, newEmail, newPassword);
 	Customer* temporaryCustomer = new Customer[(*pointerCurrentNumberOfCustomers) + 1];
-	std::copy(*customersAccounts, *customersAccounts + (*pointerCurrentNumberOfCustomers), temp);
-	delete[] * customersAccounts;
-	*customersAccounts = temporaryCustomer;
+	std::copy(customersAccounts, customersAccounts + (*pointerCurrentNumberOfCustomers), temp);
+	delete[] customersAccounts;
+	customersAccounts = temporaryCustomer;
 	//dodanie nowego konta klienta
-	*customersAccounts[*pointerCurrentNumberOfCustomers] = newCustomer;
+	customersAccounts[*pointerCurrentNumberOfCustomers] = newCustomer;
 	*pointerCurrentNumberOfCustomers += 1;
 }
 
-void createAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[],
-	int* pointerCurrentNumberOfCustomers, Customer* customersAccounts[])
+void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts,
+	int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts)
 {
 	string newName;
 	string newSurname;

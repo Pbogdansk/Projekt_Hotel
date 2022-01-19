@@ -27,7 +27,7 @@ extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
 
-void createAccount(int* pointerCurrentNumberOfAccounts, Person* allAccounts[], int* pointerCurrentNumberOfCustomers, Customer* customersAccounts[]);
+void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts, int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts);
 
 void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);

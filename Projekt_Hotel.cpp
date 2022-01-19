@@ -56,7 +56,7 @@ int main()
 				}
 			break;
 		case 1: //zakladanie konta		
-			createAccount(pointerCurrentNumberOfAccounts, &allAccounts, pointerCurrentNumberOfCustomers, &customersAccounts);
+			createAccount(pointerCurrentNumberOfAccounts, allAccounts, pointerCurrentNumberOfCustomers, customersAccounts);
 			break;
 		case 2://wyjdz z programu
 			return 0x0;

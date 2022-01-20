@@ -11,9 +11,11 @@ using namespace std;
 
 class Customer: public Person
 {
+private:
 	Reservation customersReservation;
 	Reservation* pointerCustomersReservation = NULL;
 	bool alreadyHaveReservation = false;
+
 public:
 	Customer();
 	Customer(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");

@@ -37,8 +37,8 @@ int main()
 
 		//main menu
 		menu_gui::reset();
-		menu_gui::add_top_text("Witamy w aplikacji hotelu, bla bla bla");
-		menu_gui::add_top_text("Co chcesz zrobic wasci panie?");
+		menu_gui::add_top_text("Witamy w aplikacji hotelu Smakus");
+		menu_gui::add_top_text("Co chcesz zrobic dzisiaj?");
 		menu_gui::add_top_text("");
 		menu_gui::add_option("zaloguj sie na istniejace konto");
 		menu_gui::add_option("zaloz konto");

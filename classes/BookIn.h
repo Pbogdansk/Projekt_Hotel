@@ -14,11 +14,12 @@ class BookIn {
 private:
 	int startingDate;
 	int endingDate;
-	bool isBooked;
 
 public:
-	void bookIn(int startingDate, int EndingDate);
-	void bookOutj();
+	void bookIn(int startingDate, int endingDate);
+	void bookOut();
+	int getStartingDate();
+	int getEndingDate();
 };
 
 #endif

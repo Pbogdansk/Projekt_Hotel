@@ -11,13 +11,14 @@ using namespace std;
 #include "../include.h"
 
 
-Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer)
+Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer, BookIn* newBookIn)
 {
 	startingDate = newStartingDate;
 	endingDate = newEndingDate;
 	paymentStatus = newPaymentStatus;
 	reservatedRoom = newReservatedRoom;
 	customer = newCustomer;
+	bookIn = newBookIn;
 }
 Reservation::Reservation() {
 }
@@ -86,10 +87,16 @@ int Reservation::getRoomPrice() {
 	return reservatedRoom->getPrice();
 }
 
-bool Reservation::getisBooked() {
-	return isBooked;
-};
+bool Reservation::getIsAnyoneBookedIn() {
+	return bookIn->getIsAnyoneBookedIn();
+}
 
-void Reservation::setisBooked(bool a) {
-	isBooked = a;
-};
+void Reservation::setBookIn(int dateFrom, int dateTo){
+
+	bookIn->bookIn(dateFrom, dateTo);
+}
+
+void Reservation::setBookOut() {
+	if (bookIn->getIsAnyoneBookedIn() == true)
+		bookIn->bookOut();
+}

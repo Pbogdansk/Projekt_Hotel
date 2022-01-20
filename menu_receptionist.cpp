@@ -7,7 +7,7 @@
 
 
 
-void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn) {
+void menu_receptionist(Receptionist receptionistsAccounts[currentlyLoggedIn->getIndex()],Room * &rooms,int *pointerCurrentNumberOfRooms,Reservation * reservations,int* pointerCurrentNumberOfReservations,int* pointerCurrentNumberOfBookedIn) {
 
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];

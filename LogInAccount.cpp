@@ -16,7 +16,7 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
 	{
 		if (allAccounts[indexOfGivenEmail].logIn(receivedEmailAdress, receivedPassword) == true)
 		{
-			currentlyLoggedIn = allAccounts[indexOfGivenEmail];
+			currentlyLoggedIn = &allAccounts[indexOfGivenEmail];
 			return true;
 		}
 		else
@@ -26,6 +26,7 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
 			menu_gui::add_option("Wroc do menu");
 			menu_gui::display();
 			//nie udalo sie
+			return false;
 		}
 	}
 	else	//nie znaleziono

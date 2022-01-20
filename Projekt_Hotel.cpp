@@ -1,6 +1,6 @@
 #include "include.h"
 
-Person currentlyLoggedIn;
+Person* currentlyLoggedIn;
 int main()
 {
 	srand(time(NULL));
@@ -30,7 +30,6 @@ int main()
 	{
 		assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, 
 			currentNumberOfCustomers, 2, 2);		//Synchronizacja tablic posczególnych typów u¿ytkowników z tablic¹ Osób
-		currentlyLoggedIn = allAccounts[0];
 
 		//main menu
 		menu_gui::reset();
@@ -45,16 +44,17 @@ int main()
 		{
 		case 0:
 			if (logInAccount(allAccounts, currentNumberOfAccounts))
-				switch (currentlyLoggedIn.getPermissions()) {
+				switch (currentlyLoggedIn->getPermissions()) {
 				case 0:
-					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
+					menu_customer(customersAccounts[currentlyLoggedIn->getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 1:
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
+					menu_receptionist(receptionistsAccounts[currentlyLoggedIn->getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 2:
-					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms, customersAccounts, *pointerCurrentNumberOfCustomers);
+					menu_admin(adminsAccounts[currentlyLoggedIn->getIndex()], rooms, pointerCurrentNumberOfRooms, customersAccounts, *pointerCurrentNumberOfCustomers);
 					break;
+
 				}
 			break;
 		case 1: //zakladanie konta		

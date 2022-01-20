@@ -88,9 +88,9 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 					bool paymentStatus = false;
 					//wybierz konto albo utworz nowe dla klienta  \/
 					string newEmail;
-					menu_gui::reset();
-					menu_gui::add_top_text("Szczegoly dotyczace rezerwacji:");
-					menu_gui::add_top_text("Podaj adres email, ktory bedzie identyfikowal rezerwacje");
+					system("cls");
+					cout << "Szczegoly dotyczace rezerwacji:" << endl;
+					cout << "Podaj adres email, ktory bedzie identyfikowal rezerwacje" << endl;
 					cin >> newEmail;
 					newCustomer = Customer("RECEPTIONIST", "RESERVATION", 26061970, newEmail, "aaSDWTJevGfZ3Wp0");
 					//wybierz konto albo utworz nowe dla klienta  /\

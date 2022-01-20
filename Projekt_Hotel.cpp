@@ -28,6 +28,7 @@ int main()
 
 	while (1)
 	{
+		assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, currentNumberOfCustomers, 2, 2);
 		currentlyLoggedIn = allAccounts[0];
 
 		//main menu

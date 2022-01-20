@@ -21,6 +21,10 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
 		}
 		else
 		{
+			menu_gui::reset();
+			menu_gui::add_top_text("Niestety podane haslo jest niepoprawne");
+			menu_gui::add_option("Wroc do menu");
+			menu_gui::display();
 			//nie udalo sie
 		}
 	}

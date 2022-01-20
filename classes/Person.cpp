@@ -73,10 +73,6 @@ bool Person::logIn(string givenEmail, string givenPassword) {
 		isLogged = true;
 		return true;
 	}
-	menu_gui::reset();
-	menu_gui::add_top_text("Niestety podane haslo jest niepoprawne");
-	menu_gui::add_option("Wroc do menu");
-	menu_gui::display();
 	return false;
 }
 void Person::logOut() {

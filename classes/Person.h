@@ -1,5 +1,6 @@
 #include <exception>
 #include <string>
+
 using namespace std;
 
 #ifndef __Person_h__
@@ -23,7 +24,7 @@ public:
 	Person(string newName, string newSurname, int newDateOfBirth, string newEmail, string newPassword = "");
 	Person();
 
-	string* getName();
+	string getName();
 	string get2Name();
 	string getSurname();
 	int getDateOfBirth();
@@ -39,7 +40,15 @@ public:
 	void setPassword(string newPassword);
 	void setIndex(int aIndex);
 
-	bool changePassword(string currentPassword, string newPassword);
+	void forceChangePassword();
+
+	void changeName();
+	void changeSurname();
+	void changeDateOfBirth();
+	void changeEmail();
+	bool changePassword();
+
+	
 
 	bool logIn(string givenEmail, string givenPassword);
 	void logOut();

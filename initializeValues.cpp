@@ -16,7 +16,7 @@ void initializeWithDefaultValues(Customer* customersAccounts, Receptionist* rece
 	receptionistsAccounts[0] = Receptionist("Tobiasz", "Tomaszewski", 24081965, "recepcja@pl.pl" , "lol123");
 	receptionistsAccounts[1] = Receptionist("Gertruda", "Dudek", 3091951, "GertrudaDudek@jourrapide.com" , "ZrlcrtNwf49rM9NZ");
 
-	adminsAccounts[0] = Admin("Wojciech", "Sum", 26061970, "test@test.pl" , "123");
+	adminsAccounts[0] = Admin("Wojciech", "Sum", 26061970, "admin" , "123");
 	adminsAccounts[1] = Admin("Adam", "Szczupak", 24091987, "EligiuszKaczmarek@teleworm.us" , "t5JbHo7JrMgia1wY");
 }
 void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts, int numberOfAllAccounts, int numberOfCustomersAccounts, int numberOfReceptionistsAccounts, int numberOfAdminsAccounts)

@@ -18,6 +18,7 @@ Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPayment
 	paymentStatus = newPaymentStatus;
 	reservatedRoom = newReservatedRoom;
 	customer = newCustomer;
+	bookIn = BookIn();
 }
 Reservation::Reservation() {
 }
@@ -93,3 +94,15 @@ bool Reservation::getisBooked() {
 void Reservation::setisBooked(bool a) {
 	isBooked = a;
 };
+
+bool Reservation::getIsAnyoneBookedIn() {
+	return bookIn.getIsAnyoneBookedIn();
+}
+
+void Reservation::setBookIn(int startingDate, int endingDate){
+	bookIn = BookIn(startingDate, endingDate);
+}
+
+void Reservation::setBookOut() {
+	bookIn = BookIn();
+}

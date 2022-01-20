@@ -14,12 +14,13 @@ class BookIn {
 private:
 	int startingDate;
 	int endingDate;
-
+	bool isAnyoneBookedIn = false;
 public:
 	void bookIn(int startingDate, int endingDate);
 	void bookOut();
 	int getStartingDate();
 	int getEndingDate();
+	bool getIsAnyoneBookedIn();
 };
 
 #endif

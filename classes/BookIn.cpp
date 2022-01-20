@@ -16,7 +16,11 @@ void BookIn::bookOut() {
 int BookIn::getStartingDate() {
 	return startingDate;
 }
+
 int BookIn::getEndingDate() {
 	return endingDate;
 }
 
+bool BookIn::getIsAnyoneBookedIn() {
+	return isAnyoneBookedIn;
+}

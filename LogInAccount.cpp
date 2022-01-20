@@ -21,11 +21,19 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts)
 		}
 		else
 		{
+			menu_gui::reset();
+			menu_gui::add_top_text("Niestety podane haslo jest niepoprawne");
+			menu_gui::add_option("Wroc do menu");
+			menu_gui::display();
 			//nie udalo sie
 		}
 	}
 	else	//nie znaleziono
 	{
+		menu_gui::reset();
+		menu_gui::add_top_text("Niestety nie ma w naszej bazie konta o podanym adresie e-mail");
+		menu_gui::add_option("Przejdz do menu");
+		menu_gui::display();
 		return false;
 	}
 }
@@ -37,9 +45,5 @@ int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, strin
 		if (allAccounts[i].getEmail() == wantedEmail)
 			return i;
 	}
-	menu_gui::reset();
-	menu_gui::add_top_text("Niestety nie ma w naszej bazie konta o podanym adresie e-mail");
-	menu_gui::add_option("Przejdz do menu");
-	menu_gui::display();
 	return -1;	//nie znaleziono ¿adnego pasuj¹cego adresu email
 }

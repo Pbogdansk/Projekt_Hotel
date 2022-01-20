@@ -8,7 +8,6 @@ void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms)
 void whatSurfaceArea();
 int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
-Room newRoom;
 void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomers);
 void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availaibleRooms[]);
 

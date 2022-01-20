@@ -23,6 +23,7 @@ class Reservation
 private:
 	Room* reservatedRoom;
 	Customer* customer;
+	BookIn* bookIn;
 	int startingDate;
 	int endingDate;
 	bool paymentStatus;
@@ -30,14 +31,12 @@ private:
 	bool isBooked;
 
 public:
-	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL);
+	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL, BookIn* newBookIn = NULL);
 	Reservation();
 	void pay(int paymentAmount);
 	void annulReservation();
 	void makeReservation();
 
-	bool getisBooked();
-	void setisBooked(bool a);
 	int getStartingDate();
 	int getEndingDate();
 	bool getPaymentStatus();
@@ -46,6 +45,9 @@ public:
 	int getAmountRemainingToPay();
 	string reservationToString(Reservation reservation);
 
+	bool getIsAnyoneBookedIn();
+	void setBookIn(int startingDate, int endingDate);
+	void setBookOut();
 };
 
 #endif

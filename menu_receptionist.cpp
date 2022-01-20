@@ -87,7 +87,12 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 				{
 					bool paymentStatus = false;
 					//wybierz konto albo utworz nowe dla klienta  \/
-					newCustomer = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com", "aaSDWTJevGfZ3Wp0");
+					string newEmail;
+					menu_gui::reset();
+					menu_gui::add_top_text("Szczegoly dotyczace rezerwacji:");
+					menu_gui::add_top_text("Podaj adres email, ktory bedzie identyfikowal rezerwacje");
+					cin >> newEmail;
+					newCustomer = Customer("RECEPTIONIST", "RESERVATION", 26061970, newEmail, "aaSDWTJevGfZ3Wp0");
 					//wybierz konto albo utworz nowe dla klienta  /\
 
 					newReservation = account.reservation(pointerRoomToReserve, fromDate, toDate, &newCustomer);

@@ -40,11 +40,15 @@ public:
 	void setPassword(string newPassword);
 	void setIndex(int aIndex);
 
+	void forceChangePassword();
+
 	void changeName();
 	void changeSurname();
 	void changeDateOfBirth();
 	void changeEmail();
 	bool changePassword();
+
+	
 
 	bool logIn(string givenEmail, string givenPassword);
 	void logOut();

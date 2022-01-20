@@ -83,6 +83,20 @@ void Person::logOut() {
 	isLogged = false;
 }
 
+void Person::forceChangePassword() {
+	menu_gui::reset();
+	string newPassword;
+	cout << endl << "Prosze podac nowe haslo ";
+	cin >> newPassword;
+
+	password = (newPassword);
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Pomyslnie zmieniono haslo");
+	menu_gui::add_option("Wroc do menu");
+	menu_gui::display();
+}
+
 void Person::changeName() {
 	menu_gui::reset();
 	string newName;
@@ -135,7 +149,6 @@ void Person::changeEmail() {
 	menu_gui::add_option("Wroc do menu");
 	menu_gui::display();
 }
-
 bool Person::changePassword() {
 	menu_gui::reset();
 	string currentPassword, newPassword;

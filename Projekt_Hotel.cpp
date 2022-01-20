@@ -28,7 +28,8 @@ int main()
 
 	while (1)
 	{
-		assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, currentNumberOfCustomers, 2, 2);
+		assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, 
+			currentNumberOfCustomers, 2, 2);		//Synchronizacja tablic posczególnych typów u¿ytkowników z tablic¹ Osób
 		currentlyLoggedIn = allAccounts[0];
 
 		//main menu

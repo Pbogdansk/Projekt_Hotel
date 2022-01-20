@@ -87,14 +87,6 @@ int Reservation::getRoomPrice() {
 	return reservatedRoom->getPrice();
 }
 
-bool Reservation::getisBooked() {
-	return isBooked;
-};
-
-void Reservation::setisBooked(bool a) {
-	isBooked = a;
-};
-
 bool Reservation::getIsAnyoneBookedIn() {
 	return bookIn->getIsAnyoneBookedIn();
 }

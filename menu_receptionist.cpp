@@ -140,8 +140,8 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			int PickedOption = menu_gui::display();
 			if (PickedOption == 0) //tak
 			{
-				newReservation.setisBooked(1);
-				std::cout << newReservation.getisBooked();
+				newReservation.setBookIn(newReservation.getStartingDate(), newReservation.getEndingDate());
+				std::cout << newReservation.getIsAnyoneBookedIn();
 			}
 			else if (PickedOption == 1) // anuluj
 			{
@@ -176,8 +176,8 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			int PickedOption = menu_gui::display();
 			if (PickedOption == 0) //tak
 			{
-				newReservation.setisBooked(0);
-				std::cout << newReservation.getisBooked();
+				newReservation.setBookIn(newReservation.getStartingDate(), newReservation.getEndingDate());
+				std::cout << newReservation.getIsAnyoneBookedIn();
 			}
 			else if (PickedOption == 1) // anuluj
 			{

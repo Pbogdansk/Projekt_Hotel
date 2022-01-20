@@ -37,8 +37,6 @@ public:
 	void annulReservation();
 	void makeReservation();
 
-	bool getisBooked();
-	void setisBooked(bool a);
 	int getStartingDate();
 	int getEndingDate();
 	bool getPaymentStatus();

@@ -15,7 +15,7 @@ namespace customer
         {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");
             string theName = "Bazyli";
-            Assert::AreEqual(theName, newCustomer.getName()[0]);
+            Assert::AreEqual(theName, newCustomer.getName());
         }
         TEST_METHOD(RandomTest1) {
             Customer newCustomer("Bazyli", "Kucharski", 13021954, "BazyliKucharski@dayrep.com");

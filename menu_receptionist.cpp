@@ -87,7 +87,12 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 				{
 					bool paymentStatus = false;
 					//wybierz konto albo utworz nowe dla klienta  \/
-					newCustomer = Customer("Klara", "Walczak", 26061970, "KlaraWalczak@dayrep.com", "aaSDWTJevGfZ3Wp0");
+					string newEmail;
+					system("cls");
+					cout << "Szczegoly dotyczace rezerwacji:" << endl;
+					cout << "Podaj adres email, ktory bedzie identyfikowal rezerwacje" << endl;
+					cin >> newEmail;
+					newCustomer = Customer("RECEPTIONIST", "RESERVATION", 26061970, newEmail, "aaSDWTJevGfZ3Wp0");
 					//wybierz konto albo utworz nowe dla klienta  /\
 
 					newReservation = account.reservation(pointerRoomToReserve, fromDate, toDate, &newCustomer);
@@ -135,8 +140,7 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			int PickedOption = menu_gui::display();
 			if (PickedOption == 0) //tak
 			{
-				newReservation.setisBooked(1);
-				//std::cout << newReservation.getisBooked();
+				newReservation.setBookIn(newReservation.getStartingDate(), newReservation.getEndingDate());
 				(*pointerCurrentNumberOfBookedIn)++;
 				menu_gui::reset();
 				menu_gui::add_top_text("Udalo sie zameldowac klienta");
@@ -178,8 +182,7 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 				int PickedOption = menu_gui::display();
 				if (PickedOption == 0) //tak
 				{
-					newReservation.setisBooked(0);
-					std::cout << newReservation.getisBooked();
+					newReservation.setBookIn(newReservation.getStartingDate(), newReservation.getEndingDate());
 					menu_gui::reset();
 					menu_gui::add_top_text("Udalo sie wymeldowac klienta");
 					menu_gui::add_option("Ok");
@@ -193,6 +196,7 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 				{
 					break;
 				}
+
 			}
 
 

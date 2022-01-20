@@ -17,6 +17,9 @@ int main()
 
 	int currentNumberOfCustomers = 10;
 	int* pointerCurrentNumberOfCustomers = &currentNumberOfCustomers;
+	
+	int currentNumberOfBookedIn = 0;
+	int* pointerCurrentNumberOfBookedIn = &currentNumberOfBookedIn;
 
 	Room* rooms = new Room[50];
    int currentNumberOfRooms = 50;
@@ -34,8 +37,8 @@ int main()
 
 		//main menu
 		menu_gui::reset();
-		menu_gui::add_top_text("Witamy w aplikacji hotelu, bla bla bla");
-		menu_gui::add_top_text("Co chcesz zrobic wasci panie?");
+		menu_gui::add_top_text("Witamy w aplikacji hotelu Smakus");
+		menu_gui::add_top_text("Co chcesz zrobic dzisiaj?");
 		menu_gui::add_top_text("");
 		menu_gui::add_option("zaloguj sie na istniejace konto");
 		menu_gui::add_option("zaloz konto");
@@ -50,7 +53,7 @@ int main()
 					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 1:
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
+					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations, pointerCurrentNumberOfBookedIn);
 					break;
 				case 2:
 					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms, customersAccounts, *pointerCurrentNumberOfCustomers);

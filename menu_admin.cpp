@@ -17,7 +17,7 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms,
   int availaibleRoomscounter = 0;
 	while (1) {
 		menu_gui::reset();
-		menu_gui::add_top_text("Witaj admin kogo zbanujesz dzisiaj?");
+		menu_gui::add_top_text("Witaj admin co chcesz zrobic dzisiaj?");
 		menu_gui::add_option("Dodaj pokoj");
 		menu_gui::add_option("Usun istniejacy pokoj");
 		menu_gui::add_option("Zmien dane klienta");
@@ -79,7 +79,7 @@ void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms)
 	}
 }
 void howManyPeople() {
-	std::cout << "ilu ludzi bêdzie w nowym pokoju?\n";
+	std::cout << "ilu ludzi bedzie w nowym pokoju?\n";
 	std::cin >> numberOfPeopleMenu;
 }
 int whatFloor() {

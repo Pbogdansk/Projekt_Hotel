@@ -8,11 +8,14 @@ void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms)
 void whatSurfaceArea();
 int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
+Room newRoom;
 void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomers);
-void menu_usun_pokoj();
+void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availaibleRooms[]);
+
 void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms,
-	Customer*& customersAccounts, int currentNumberOfCustomers) 
-{
+	Customer*& customersAccounts, int currentNumberOfCustomers) {
+  Room* availaibleRooms = new Room[*pointerCurrentNumberOfRooms];
+  int availaibleRoomscounter = 0;
 	while (1) {
 		menu_gui::reset();
 		menu_gui::add_top_text("Witaj admin kogo zbanujesz dzisiaj?");
@@ -27,7 +30,7 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms,
 			menu_addRoom(account, rooms, pointerCurrentNumberOfRooms);
 			break;
 		case 1:
-			menu_usun_pokoj();
+			menu_usun_pokoj(rooms, pointerCurrentNumberOfRooms, availaibleRooms);
 			break;
 		case 2:
 			changeClientsData(customersAccounts, currentNumberOfCustomers);
@@ -167,7 +170,15 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 			//dodanie nowego pokoju
 			rooms[*pointerCurrentNumberOfRooms] = newRoom;
 			*pointerCurrentNumberOfRooms += 1;
-			return;
+			menu_gui::reset();
+			menu_gui::add_top_text("Utworzyles pokoj o parametrach: ");
+			menu_gui::add_top_text("standard: " + to_string(roomQualityMenu) + "\nliczba miejsc: " + to_string(numberOfPeopleMenu) + "\npowierzchnia: " + to_string(surfaceAreaMenu) + "\nna pietrze: " + to_string(floorMenu));
+			menu_gui::add_option("OK");
+			switch (menu_gui::display())
+			{
+			case 0:
+				return;
+			}
 		}
 		else {
 			return;
@@ -178,7 +189,7 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomers) {
 	menu_gui::reset();
 	menu_gui::add_top_text("Proszê wybrac uzytkownika ktoremu zostana zmienione dane");
-
+  
 	for (int i = 0; i < currentNumberOfCustomers; i++)
 	{
 		menu_gui::add_option(customersAccounts[i].getName() + " " + customersAccounts[i].getSurname());
@@ -219,5 +230,38 @@ void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomer
 		break;
 	}
 }
-void menu_usun_pokoj() {
-}
+void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availaibleRooms[]) {
+	int availaibleRoomscounter = 0;
+	menu_gui::reset();
+	menu_gui::add_top_text("Usuwanie pokoju");
+	menu_gui::add_top_text("Wybierz pokoj do usuniecia");
+	for (int i = 0; i < *pointerCurrentNumberOfRooms; i++)
+	{
+		bool isThisRoomFree = true;
+		for (int j = 0; j < 365; j++)
+		{
+			if (rooms[i].getIsOccupied(21 + j) == true)
+				isThisRoomFree = false;
+		}
+		if (isThisRoomFree == true)
+		{
+			menu_gui::add_option(roomToString(rooms[i]));
+			availaibleRooms[availaibleRoomscounter] = rooms[i];
+			availaibleRoomscounter++;
+		}
+	}
+
+	//Room* temp = new Room[(*pointerCurrentNumberOfRooms) - 1];
+	//for (int i = 0, j = 0; i < (*pointerCurrentNumberOfRooms); i++) //copy bez tego usuwanego
+	//{
+	//	 (i != indexOfRoomToDelete)
+	//	{
+	//		temp[j] = rooms[i];
+	//		j++;
+	//	}
+	//}
+	//delete[] rooms;
+	//rooms = temp;
+	//*pointerCurrentNumberOfRooms -= 1;
+
+	}

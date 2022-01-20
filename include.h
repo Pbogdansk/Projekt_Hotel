@@ -4,7 +4,6 @@
 #include <string>
 #include <exception>
 
-extern Person* currentlyLoggedIn;
 #include "classes/Admin.h"
 #include "classes/BookIn.h"
 #include "classes/Customer.h"
@@ -14,7 +13,7 @@ extern Person* currentlyLoggedIn;
 #include "classes/Reservation.h"
 
 void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, Customer*& customersAccounts, int currentNumberOfCustomers);
-void menu_receptionist(Receptionist receptionistsAccounts[currentlyLoggedIn->getIndex()], Room*& rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn) {
+void menu_receptionist(Receptionist receptionistsAccounts, Room*& rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn);
 void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);

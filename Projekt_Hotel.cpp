@@ -52,8 +52,7 @@ int main()
 					menu_customer(customersAccounts[currentlyLoggedIn->getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 1:
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn->getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations, pointerCurrentNumberOfBookedIn);
+					menu_receptionist(receptionistsAccounts[currentlyLoggedIn->getIndex()], rooms, pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations, pointerCurrentNumberOfBookedIn);
 					break;
 				case 2:
 					menu_admin(adminsAccounts[currentlyLoggedIn->getIndex()], rooms, pointerCurrentNumberOfRooms, customersAccounts, *pointerCurrentNumberOfCustomers);

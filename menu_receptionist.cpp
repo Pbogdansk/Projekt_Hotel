@@ -7,7 +7,7 @@
 
 
 
-void menu_receptionist(Receptionist receptionistsAccounts[currentlyLoggedIn->getIndex()],Room * &rooms,int *pointerCurrentNumberOfRooms,Reservation * reservations,int* pointerCurrentNumberOfReservations,int* pointerCurrentNumberOfBookedIn) {
+void menu_receptionist(Receptionist account, Room*& rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn) {
 
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];
@@ -40,7 +40,7 @@ void menu_receptionist(Receptionist receptionistsAccounts[currentlyLoggedIn->get
 			toDate = inputInDateSystem();
 			while (1)
 			{
-				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, numberOfRooms);
+				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, *pointerCurrentNumberOfRooms);
 				if (pointerRoomToReserve != NULL)
 				{
 					menu_gui::reset();

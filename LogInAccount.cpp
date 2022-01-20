@@ -37,7 +37,9 @@ int findEmailAdressInGivenArray(Person* allAccounts, int numberOfAccounts, strin
 		if (allAccounts[i].getEmail() == wantedEmail)
 			return i;
 	}
-	cout << endl << "Niestety nie ma w naszej bazie konta o podanym adresie e-mail";
-	Sleep(4000);
+	menu_gui::reset();
+	menu_gui::add_top_text("Niestety nie ma w naszej bazie konta o podanym adresie e-mail");
+	menu_gui::add_option("Przejdz do menu");
+	menu_gui::display();
 	return -1;	//nie znaleziono ¿adnego pasuj¹cego adresu email
 }

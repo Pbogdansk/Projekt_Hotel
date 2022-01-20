@@ -28,6 +28,8 @@ int main()
 
 	while (1)
 	{
+		assignAllAccountsToOneVariable(allAccounts, customersAccounts, receptionistsAccounts, adminsAccounts, currentNumberOfAccounts, 
+			currentNumberOfCustomers, 2, 2);		//Synchronizacja tablic posczególnych typów u¿ytkowników z tablic¹ Osób
 		currentlyLoggedIn = allAccounts[0];
 
 		//main menu
@@ -51,7 +53,7 @@ int main()
 					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 2:
-					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms);
+					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms, customersAccounts, *pointerCurrentNumberOfCustomers);
 					break;
 				}
 			break;

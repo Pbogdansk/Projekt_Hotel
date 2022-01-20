@@ -20,7 +20,7 @@ bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
 enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
 extern Room* rooms;
-extern Person currentlyLoggedIn;
+extern Person* currentlyLoggedIn;
 extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*);
 //extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
 void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts, int numberOfAllAccounts, int numberOfCustomersAccounts, int numberOfReceptionistsAccounts, int numberOfAdminsAccounts);

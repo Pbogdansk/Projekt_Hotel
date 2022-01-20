@@ -99,13 +99,12 @@ bool Reservation::getIsAnyoneBookedIn() {
 	return bookIn->getIsAnyoneBookedIn();
 }
 
-void Reservation::setBookIn(int date1, int date2){
-	if (substractDates(date1, date2) != -1)
-		bookIn->bookIn(date1, date2);
-	else
-		throw "error: wrong date's";
+void Reservation::setBookIn(int dateFrom, int dateTo){
+
+	bookIn->bookIn(dateFrom, dateTo);
 }
 
 void Reservation::setBookOut() {
-	bookIn->bookOut();
+	if (bookIn->getIsAnyoneBookedIn() == true)
+		bookIn->bookOut();
 }

@@ -29,21 +29,25 @@ public:
 	{
 		Customer c1 = Customer();
 		Room r1 = Room(2, 2, 2, 24);
-		Reservation newReservation(1012022, 31042022, 1, &r1, &c1);
+		BookIn b1 = BookIn();
+		Reservation newReservation(1012022, 31042022, 1, &r1, &c1, &b1);
 
-
-		Assert::AreEqual(newReservation.getIsAnyoneBookedIn(), false);
+		newReservation.setBookOut();
+		bool check = newReservation.getIsAnyoneBookedIn();
+		Assert::IsFalse(check);
 	}
-	TEST_METHOD(testFromReservation0)
+	TEST_METHOD(testFromReservation1)
 	{
 		Customer c1 = Customer();
 		Room r1 = Room(2, 2, 2, 24);
 		int newStartingDate = 22122022;
 		int newEndingDate = 24122022;
-		Reservation newReservation(1012022, 31042022, 1, &r1, &c1);
+		BookIn b1 = BookIn();
+		Reservation newReservation(1012022, 31042022, 1, &r1, &c1, &b1);
 		newReservation.setBookIn(newStartingDate, newEndingDate);
+		bool check = newReservation.getIsAnyoneBookedIn();
 
-		Assert::AreEqual(newReservation.getIsAnyoneBookedIn(), true);
+		Assert::IsTrue(check);
 	}
 	};
 }

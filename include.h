@@ -12,20 +12,24 @@
 #include "classes/Room.h"
 #include "classes/Reservation.h"
 
+void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, Customer*& customersAccounts, int currentNumberOfCustomers);
+void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations);
+void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 
-void menu_admin(Admin account);
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations);
-void menu_customer(Customer account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations);
 bool logInAccount(Person* allAccounts, int numberOfAllAccounts);
 
 enum typeOfAccount { permCustomer = 0, permReceptionist = 1, permAdmin = 2 };
 extern Room* rooms;
 extern Person currentlyLoggedIn;
 extern void initializeWithDefaultValues(Customer*, Receptionist*, Admin*);
-extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
+//extern void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts);
+void assignAllAccountsToOneVariable(Person* allAccounts, Customer* customersAccounts, Receptionist* receptionistsAccounts, Admin* adminsAccounts, int numberOfAllAccounts, int numberOfCustomersAccounts, int numberOfReceptionistsAccounts, int numberOfAdminsAccounts);
 extern void initializeRoomsWithDefaultValues(Room* rooms, int numberOfRooms);
 extern int substractDates(int date1, int date2);
 extern string roomToString(Room room);
+
+void createAccount(int* pointerCurrentNumberOfAccounts, Person*& allAccounts, int* pointerCurrentNumberOfCustomers, Customer*& customersAccounts);
+
 void makePayment(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 //options:
@@ -33,7 +37,6 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 //1			 :	01 stycznia 2022
 string dateToString(int date, int option = 0);
 int inputInDateSystem();
-
 void cancelReservation(Reservation*& reservations, int* pointerCurrentNumberOfReservations);
 void cancelReservationCustomer(Reservation*& reservations, int* pointerCurrentNumberOfReservations, Reservation*& customersReservation);
 

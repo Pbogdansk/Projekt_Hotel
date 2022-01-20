@@ -31,6 +31,23 @@ int Reservation::getAmountRemainingToPay() {
 	return amountRemainingToPay;
 }
 
+string Reservation::reservationToString(Reservation reservation)
+{
+	string output = reservation.getCustomerEmail();
+	while (output.length() < 30)
+		output += " ";
+	output += " | ";
+	output += dateToString(reservation.getStartingDate());
+	output += " | ";
+	output += dateToString(reservation.getEndingDate());
+	output += " | ";
+	if (reservation.getPaymentStatus() == true)
+		output += "TAK";
+	else
+		output += "NIE";
+	return output;
+}
+
 void Reservation::annulReservation() {
 	int daysFromNewYear = substractDates(1012022, startingDate);
 	int numberOfDays = substractDates(startingDate, endingDate);
@@ -50,6 +67,7 @@ void Reservation::makeReservation() {
 	}
 }
 
+
 int Reservation::getStartingDate() {
 	return startingDate;
 }
@@ -68,3 +86,10 @@ int Reservation::getRoomPrice() {
 	return reservatedRoom->getPrice();
 }
 
+bool Reservation::getisBooked() {
+	return isBooked;
+};
+
+void Reservation::setisBooked(bool a) {
+	isBooked = a;
+};

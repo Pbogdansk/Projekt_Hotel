@@ -1,8 +1,13 @@
 #include "include.h"
+#include "classes/Reservation.h"
+
 //do dodania:
 // - melodowanie / wymeldowanie
 // - przypisywanie rezerwacji do konkretnej osoby
-void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Reservation** reservations, int* pointerCurrentNumberOfReservations){
+
+
+
+void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations){
 	
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];
@@ -19,7 +24,8 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 		menu_gui::add_option("Dodaj rezerwacje");
 		menu_gui::add_option("Usun rezerwacje");
 		menu_gui::add_option("Dokonaj platnosci");
-		menu_gui::add_option("Meldowanie/wymeldowanie");
+		menu_gui::add_option("Zamelduj klienta");
+		menu_gui::add_option("Wymelduj klienta");
 		menu_gui::add_option("Pasjans");
 		menu_gui::add_option("Wroc do menu");
 
@@ -34,7 +40,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 			toDate = inputInDateSystem();
 			while (1)
 			{
-				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, 50);
+				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, numberOfRooms);
 				if (pointerRoomToReserve != NULL)
 				{
 					menu_gui::reset();
@@ -77,7 +83,7 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 				menu_gui::add_top_text("");
 				menu_gui::add_option("Dodaj rezerwacje");
 				menu_gui::add_option("Anuluj");
-				if (menu_gui::display() == 0)	//dodaj rezerwacjê
+				if (menu_gui::display() == 0)	//dodaj rezerwacjÃª
 				{
 					bool paymentStatus = false;
 					//wybierz konto albo utworz nowe dla klienta  \/
@@ -86,35 +92,103 @@ void menu_receptionist(Receptionist account, Room* rooms, int numberOfRooms, Res
 
 					newReservation = account.reservation(pointerRoomToReserve, fromDate, toDate, &newCustomer);
 					newReservation.makeReservation();
-					//powiêkszenie tablicy reservations o jeden
+					//powiÃªkszenie tablicy reservations o jeden
 					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];
-					std::copy(*reservations, *reservations + (*pointerCurrentNumberOfReservations), temp);
-					delete[] *reservations;
-					*reservations = temp;
+					std::copy(reservations, reservations + (*pointerCurrentNumberOfReservations), temp);
+					delete[] reservations;
+					reservations = temp;
 					//dodanie nowej rezerwacji
-					*reservations[*pointerCurrentNumberOfReservations] = newReservation;
+					reservations[*pointerCurrentNumberOfReservations] = newReservation;
 					*pointerCurrentNumberOfReservations += 1;
 				}
 			}
 			break;
 		case 2:	//usun rezerwacje
-			cancelReservation(*reservations, pointerCurrentNumberOfReservations);
+			cancelReservation(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 3:	//dokonaj platnosci
-			makePayment(*reservations, pointerCurrentNumberOfReservations);
+			makePayment(reservations, pointerCurrentNumberOfReservations);
 			break;
 		case 4:	//melodowanie / wymelodwanie
-			//
-			// 
-			//
+		{
+			menu_gui::reset();
+			menu_gui::add_top_text("Meldowanie klienta");
+			menu_gui::add_top_text("Wybierz rezerwacje");
+			menu_gui::add_top_text("");
+			menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono | kwota do zaplacenia");
+			for (int i = 0; i < *pointerCurrentNumberOfReservations; i++)
+			{
+				menu_gui::add_option(newReservation.reservationToString(reservations[i]) + "           | " + to_string(reservations[i].getAmountRemainingToPay()));
+			}
+			menu_gui::add_option("Anuluj");
+			int indexOfChoosenReservation = menu_gui::display();
+
+			if (indexOfChoosenReservation == *pointerCurrentNumberOfReservations)
+			//Reservation reservationToCancel = reservations[indexOfChoosenReservation];
+				return;
+
+			menu_gui::reset();
+			menu_gui::add_top_text("Meldowanie Klienta");
+			menu_gui::add_top_text("Jestes pewnien, ze chcesz zameldowac klienta?");
+			menu_gui::add_option("Tak");
+			menu_gui::add_option("Anuluj");
+			int PickedOption = menu_gui::display();
+			if (PickedOption == 0) //tak
+			{
+				newReservation.setisBooked(1);
+				std::cout << newReservation.getisBooked();
+			}
+			else if (PickedOption == 1) // anuluj
+			{
+				break;
+			}
+		}
+			
 			break;
 		case 5:
+		{
+			menu_gui::reset();
+			menu_gui::add_top_text("Meldowanie klienta");
+			menu_gui::add_top_text("Wybierz rezerwacje");
+			menu_gui::add_top_text("");
+			menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono | kwota do zaplacenia");
+			for (int i = 0; i < *pointerCurrentNumberOfReservations; i++)
+			{
+				menu_gui::add_option(newReservation.reservationToString(reservations[i]) + "           | " + to_string(reservations[i].getAmountRemainingToPay()));
+			}
+			menu_gui::add_option("Anuluj");
+			int indexOfChoosenReservation = menu_gui::display();
+
+			if (indexOfChoosenReservation == *pointerCurrentNumberOfReservations)
+				//Reservation reservationToCancel = reservations[indexOfChoosenReservation];
+				return;
+
+			menu_gui::reset();
+			menu_gui::add_top_text("Wymeldowanie Klienta");
+			menu_gui::add_top_text("Jestes pewnien, ze chcesz wymeldowac klienta?");
+			menu_gui::add_option("Tak");
+			menu_gui::add_option("Anuluj");
+			int PickedOption = menu_gui::display();
+			if (PickedOption == 0) //tak
+			{
+				newReservation.setisBooked(0);
+				std::cout << newReservation.getisBooked();
+			}
+			else if (PickedOption == 1) // anuluj
+			{
+				break;
+			}
+		}
+
+
+			break;
+		case 6:
 			menu_gui::reset();
 			menu_gui::add_top_text("Skup sie!");
 			menu_gui::add_option("juz juz");
 			menu_gui::display();
 			break;
-		case 6:	//wyjdz
+		case 7:	//wyjdz
 			return;	//wyjscie z tego menu
 		}
 	}

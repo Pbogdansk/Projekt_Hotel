@@ -2,15 +2,17 @@
 
 int roomQualityMenu, numberOfPeopleMenu, floorMenu, surfaceAreaMenu;
 std::string sure;
+Room newRoom;
 void howManyPeople();
 void menu_addRoom(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
 void whatSurfaceArea();
 int whatFloor();
 void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms);
-void changeClientsData(Customer*& customersAccounts);
-Room newRoom;
+void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomers);
 void menu_usun_pokoj();
-void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, Customer*& customersAccounts) {
+void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms,
+	Customer*& customersAccounts, int currentNumberOfCustomers) 
+{
 	while (1) {
 		menu_gui::reset();
 		menu_gui::add_top_text("Witaj admin kogo zbanujesz dzisiaj?");
@@ -28,10 +30,10 @@ void menu_admin(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms, C
 			menu_usun_pokoj();
 			break;
 		case 2:
-			changeClientsData(customersAccounts);
+			changeClientsData(customersAccounts, currentNumberOfCustomers);
 			break;
 		default:
-			break;
+			return;
 		}
 	}
 }
@@ -173,19 +175,49 @@ void areYouSure(Admin account, Room*& rooms, int* pointerCurrentNumberOfRooms) {
 	}
 }
 
-void changeClientsData(Customer*& customersAccounts) {
+void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomers) {
 	menu_gui::reset();
 	menu_gui::add_top_text("Proszê wybrac uzytkownika ktoremu zostana zmienione dane");
 
-	for (int i = 0; i < sizeof(customersAccounts); i++)
+	for (int i = 0; i < currentNumberOfCustomers; i++)
 	{
 		menu_gui::add_option(customersAccounts[i].getName() + " " + customersAccounts[i].getSurname());
 	}
+	menu_gui::add_option("Powrot");
 
+	int chosenIndex = menu_gui::display();
 
-	cout << menu_gui::display();
+	menu_gui::reset();
+	menu_gui::add_top_text("Prosze wybrac ktora informacja zostanie zmieniona użytkownikowi " +
+		customersAccounts[chosenIndex].getName() + " " + customersAccounts[chosenIndex].getSurname());
+	menu_gui::add_option("Imie");
+	menu_gui::add_option("Nazwisko");
+	menu_gui::add_option("Data urodzenia");
+	menu_gui::add_option("E-mail");
+	menu_gui::add_option("Haslo");
+	menu_gui::add_option("Powrot");
 
-	menu_gui::display();
+	switch (menu_gui::display())
+	{
+	case 0:			//zmiana imienia
+		customersAccounts[chosenIndex].changeName();
+		break;
+	case 1:			//zmiena nazwiska
+		customersAccounts[chosenIndex].changeSurname();
+		break;
+	case 2:			//zmiana daty urodzenia
+		customersAccounts[chosenIndex].changeDateOfBirth();
+		break;
+	case 3:			//zmiana e-mailu
+		customersAccounts[chosenIndex].changeEmail();
+		break;
+	case 4:			//zmiana hasła
+		customersAccounts[chosenIndex].forceChangePassword();
+		break;
+
+	default:
+		break;
+	}
 }
 void menu_usun_pokoj() {
 }

@@ -7,7 +7,7 @@
 
 
 
-void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations){
+void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn){
 	
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];
@@ -136,7 +136,16 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			if (PickedOption == 0) //tak
 			{
 				newReservation.setisBooked(1);
-				std::cout << newReservation.getisBooked();
+				//std::cout << newReservation.getisBooked();
+				(*pointerCurrentNumberOfBookedIn)++;
+				menu_gui::reset();
+				menu_gui::add_top_text("Udalo sie zameldowac klienta");
+				menu_gui::add_option("Ok");
+				switch (menu_gui::display())
+				{
+				case 0:
+					break;
+				}
 			}
 			else if (PickedOption == 1) // anuluj
 			{
@@ -145,24 +154,9 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 		}
 			
 			break;
+
 		case 5:
 		{
-			menu_gui::reset();
-			menu_gui::add_top_text("Meldowanie klienta");
-			menu_gui::add_top_text("Wybierz rezerwacje");
-			menu_gui::add_top_text("");
-			menu_gui::add_top_text("email klienta                    | data od    | do         | czy zaplacono | kwota do zaplacenia");
-			for (int i = 0; i < *pointerCurrentNumberOfReservations; i++)
-			{
-				menu_gui::add_option(newReservation.reservationToString(reservations[i]) + "           | " + to_string(reservations[i].getAmountRemainingToPay()));
-			}
-			menu_gui::add_option("Anuluj");
-			int indexOfChoosenReservation = menu_gui::display();
-
-			if (indexOfChoosenReservation == *pointerCurrentNumberOfReservations)
-				//Reservation reservationToCancel = reservations[indexOfChoosenReservation];
-				return;
-
 			menu_gui::reset();
 			menu_gui::add_top_text("Wymeldowanie Klienta");
 			menu_gui::add_top_text("Jestes pewnien, ze chcesz wymeldowac klienta?");
@@ -173,6 +167,14 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			{
 				newReservation.setisBooked(0);
 				std::cout << newReservation.getisBooked();
+				menu_gui::reset();
+				menu_gui::add_top_text("Udalo sie wymeldowac klienta");
+				menu_gui::add_option("Ok");
+				switch (menu_gui::display())
+				{
+				case 0:
+					break;
+				}
 			}
 			else if (PickedOption == 1) // anuluj
 			{
@@ -180,7 +182,7 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			}
 		}
 
-
+		
 			break;
 		case 6:
 			menu_gui::reset();

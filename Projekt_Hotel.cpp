@@ -17,6 +17,9 @@ int main()
 
 	int currentNumberOfCustomers = 10;
 	int* pointerCurrentNumberOfCustomers = &currentNumberOfCustomers;
+	
+	int currentNumberOfBookedIn = 0;
+	int* pointerCurrentNumberOfBookedIn = &currentNumberOfBookedIn;
 
 	Room* rooms = new Room[50];
    int currentNumberOfRooms = 50;
@@ -48,7 +51,7 @@ int main()
 					menu_customer(customersAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
 					break;
 				case 1:
-					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations);
+					menu_receptionist(receptionistsAccounts[currentlyLoggedIn.getIndex()], rooms, *pointerCurrentNumberOfRooms, reservations, pointerCurrentNumberOfReservations, pointerCurrentNumberOfBookedIn);
 					break;
 				case 2:
 					menu_admin(adminsAccounts[currentlyLoggedIn.getIndex()], rooms, pointerCurrentNumberOfRooms);

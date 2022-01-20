@@ -23,7 +23,7 @@ class Reservation
 private:
 	Room* reservatedRoom;
 	Customer* customer;
-	BookIn bookIn;
+	BookIn* bookIn;
 	int startingDate;
 	int endingDate;
 	bool paymentStatus;
@@ -31,7 +31,7 @@ private:
 	bool isBooked;
 
 public:
-	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL);
+	Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom = NULL, Customer* newCustomer = NULL, BookIn* newBookIn = NULL);
 	Reservation();
 	void pay(int paymentAmount);
 	void annulReservation();

@@ -11,14 +11,14 @@ using namespace std;
 #include "../include.h"
 
 
-Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer)
+Reservation::Reservation(int newStartingDate, int newEndingDate, bool newPaymentStatus, Room* newReservatedRoom, Customer* newCustomer, BookIn* newBookIn)
 {
 	startingDate = newStartingDate;
 	endingDate = newEndingDate;
 	paymentStatus = newPaymentStatus;
 	reservatedRoom = newReservatedRoom;
 	customer = newCustomer;
-	bookIn = BookIn();
+	bookIn = newBookIn;
 }
 Reservation::Reservation() {
 }
@@ -96,13 +96,16 @@ void Reservation::setisBooked(bool a) {
 };
 
 bool Reservation::getIsAnyoneBookedIn() {
-	return bookIn.getIsAnyoneBookedIn();
+	return bookIn->getIsAnyoneBookedIn();
 }
 
-void Reservation::setBookIn(int startingDate, int endingDate){
-	bookIn = BookIn(startingDate, endingDate);
+void Reservation::setBookIn(int date1, int date2){
+	if (substractDates(date1, date2) != -1)
+		bookIn->bookIn(date1, date2);
+	else
+		throw "error: wrong date's";
 }
 
 void Reservation::setBookOut() {
-	bookIn = BookIn();
+	bookIn->bookOut();
 }

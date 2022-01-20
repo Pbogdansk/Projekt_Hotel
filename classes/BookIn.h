@@ -21,6 +21,7 @@ public:
 	int getStartingDate();
 	int getEndingDate();
 	bool getIsAnyoneBookedIn();
+	BookIn(int startingDate=-1, int endingDate=-1);
 };
 
 #endif

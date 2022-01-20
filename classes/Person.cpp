@@ -123,7 +123,7 @@ void Person::changeDateOfBirth() {
 	menu_gui::reset();
 	int dateOfBirth;
 	cout << endl << "Prosze podac nowa date urodzenia: ";
-	cin >> dateOfBirth;
+	dateOfBirth = inputInDateSystem();
 
 	setDateOfBirth(dateOfBirth);
 

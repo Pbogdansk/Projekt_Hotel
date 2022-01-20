@@ -5,7 +5,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-Person currentlyLoggedIn;
+Person* currentlyLoggedIn;
 
 namespace LogInAccount {
 	TEST_CLASS(functionfindEmailAdressInGivenArray) {

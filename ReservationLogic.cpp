@@ -253,7 +253,7 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 	{
 		menu_gui::reset();
 		menu_gui::add_top_text("email klienta                  | data od    | do         | czy zaplacono | kwota do zaplacenia");
-		menu_gui::add_top_text(reservationToString(reservations[indexOfChoosenReservation]) + "           | " + to_string(reservations[indexOfChoosenReservation].getAmountRemainingToPay()));
+		menu_gui::add_top_text(reservationToString(reservations[indexOfChoosenReservation]) + "           | " + to_string(customersReservation->getAmountRemainingToPay()));
 		menu_gui::add_top_text("");
 		menu_gui::add_option("Zaplac calosc");
 		menu_gui::add_option("Zaplac zaliczke (20%)");
@@ -263,7 +263,7 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 		if (typeOfPayment == 2)
 		{
 			cin >> amountOfMoneyToPay;
-			if (amountOfMoneyToPay < 0 || amountOfMoneyToPay > reservations[indexOfChoosenReservation].getAmountRemainingToPay())
+			if (amountOfMoneyToPay < 0 || amountOfMoneyToPay > customersReservation->getAmountRemainingToPay())
 			{
 				menu_gui::reset();
 				menu_gui::add_top_text("Prosze podac prawidlowa kwote");
@@ -275,19 +275,19 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 		}
 		else if (typeOfPayment == 1)
 		{
-			amountOfMoneyToPay = 0.2 * reservations[indexOfChoosenReservation].getAmountRemainingToPay();
+			amountOfMoneyToPay = 0.2 * customersReservation->getAmountRemainingToPay();
 			break;
 		}
 		else
 		{
-			amountOfMoneyToPay = reservations[indexOfChoosenReservation].getAmountRemainingToPay();
+			amountOfMoneyToPay = customersReservation->getAmountRemainingToPay();
 			break;
 		}
 	}
 
 	menu_gui::reset();
 	menu_gui::add_top_text("email klienta                  | data od    | do         | czy zaplacono | kwota do zaplacenia");
-	menu_gui::add_top_text(reservationToString(reservations[indexOfChoosenReservation]) + "           | " + to_string(reservations[indexOfChoosenReservation].getAmountRemainingToPay()));
+	menu_gui::add_top_text(reservationToString(*customersReservation) + "           | " + to_string(customersReservation->getAmountRemainingToPay()));
 	menu_gui::add_top_text("");
 	menu_gui::add_top_text("Wybierz metode platnosci");
 	menu_gui::add_option("Gotowka");
@@ -303,8 +303,8 @@ void makePaymentCustomer(Reservation*& reservations, int* pointerCurrentNumberOf
 
 	menu_gui::reset();
 	menu_gui::add_top_text("Pomyslinie dokonano platnosci");
-	if (reservations[indexOfChoosenReservation].getAmountRemainingToPay() > 0)
-		menu_gui::add_top_text("Pozostala kwota do uregulowania: " + to_string(reservations[indexOfChoosenReservation].getAmountRemainingToPay()));
+	if (customersReservation->getAmountRemainingToPay() > 0)
+		menu_gui::add_top_text("Pozostala kwota do uregulowania: " + to_string(customersReservation->getAmountRemainingToPay()));
 	menu_gui::add_option("Ok");
 	menu_gui::display();
 	return;

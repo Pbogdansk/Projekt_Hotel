@@ -130,19 +130,19 @@ void menu_customer(Customer account, Room*& rooms, int numberOfRooms, Reservatio
 		 
 			switch (menu_gui::display()) {
 			case 0:			//zmiana imienia
-				currentlyLoggedIn.changeName();
+				currentlyLoggedIn->changeName();
 				break;
 			case 1:			//zmiena nazwiska
-				currentlyLoggedIn.changeSurname();
+				currentlyLoggedIn->changeSurname();
 				break;
 			case 2:			//zmiana daty urodzenia
-				currentlyLoggedIn.changeDateOfBirth();
+				currentlyLoggedIn->changeDateOfBirth();
 				break;
 			case 3:			//zmiana e-mailu
-				currentlyLoggedIn.changeEmail();
+				currentlyLoggedIn->changeEmail();
 				break;
 			case 4:			//zmiana has³a
-				currentlyLoggedIn.changePassword();
+				currentlyLoggedIn->changePassword();
 				break;
 			default:		//powrót
 				break;

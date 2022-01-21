@@ -230,10 +230,12 @@ void changeClientsData(Customer*& customersAccounts, int currentNumberOfCustomer
 	}
 }
 void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availaibleRooms[]) {
-	int availaibleRoomscounter = 0;
+	int availaibleRoomsCounter = 0;
+
 	menu_gui::reset();
 	menu_gui::add_top_text("Usuwanie pokoju");
 	menu_gui::add_top_text("Wybierz pokoj do usuniecia");
+	menu_gui::add_top_text("liczba miejsc: na pietrze:  standard: powierzchnia:  cena: ");
 	for (int i = 0; i < *pointerCurrentNumberOfRooms; i++)
 	{
 		bool isThisRoomFree = true;
@@ -245,22 +247,59 @@ void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availa
 		if (isThisRoomFree == true)
 		{
 			menu_gui::add_option(roomToString(rooms[i]));
-			availaibleRooms[availaibleRoomscounter] = rooms[i];
-			availaibleRoomscounter++;
+			availaibleRooms[availaibleRoomsCounter] = rooms[i];
+			availaibleRoomsCounter++;
+		}
+	}
+	int indexOfRoomToDelete = menu_gui::display();
+	Room roomToDelete = rooms[indexOfRoomToDelete];
+
+	menu_gui::reset();
+	menu_gui::add_top_text("Usuwanie pokoju");
+	menu_gui::add_top_text("Jestes pewnien, ze chcesz usunac nastepujacy pokoj?");
+	menu_gui::add_top_text("");
+	menu_gui::add_top_text("liczba miejsc: na pietrze:  standard: powierzchnia:  cena: ");
+	menu_gui::add_top_text(roomToString(roomToDelete));
+	menu_gui::add_option("Tak");
+	menu_gui::add_option("Anuluj");
+	if (menu_gui::display() == 1)
+		return;	//opcja Anuluj
+
+	Room* temp = new Room[(availaibleRoomsCounter) - 1];
+	for (int i = 0, x = 0; i < (availaibleRoomsCounter); i++) //copy bez tego usuwanego
+	{
+		if (i != indexOfRoomToDelete)
+		{
+			temp[x] = rooms[i];
+			x++;
 		}
 	}
 
-	//Room* temp = new Room[(*pointerCurrentNumberOfRooms) - 1];
-	//for (int i = 0, j = 0; i < (*pointerCurrentNumberOfRooms); i++) //copy bez tego usuwanego
-	//{
-	//	 (i != indexOfRoomToDelete)
-	//	{
-	//		temp[j] = rooms[i];
-	//		j++;
-	//	}
-	//}
-	//delete[] rooms;
-	//rooms = temp;
-	//*pointerCurrentNumberOfRooms -= 1;
+	delete[] rooms;
+	rooms = temp;
+	availaibleRoomsCounter -= 1;
 
+	menu_gui::reset();
+	menu_gui::add_top_text("Pokoj zostal usuniety ");
+	menu_gui::add_top_text(roomToString(roomToDelete));
+	menu_gui::add_option("Ok");
+	switch (menu_gui::display())
+	{
+
+	case 0:
+		return;
+	}
+	/*Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) - 1];
+	for (int i = 0, j = 0; i < (*pointerCurrentNumberOfReservations); i++) //copy bez tego usuwanego
+	{
+		if (i != indexOfReseravtionToCancel)
+		{
+			temp[j] = reservations[i];
+			j++;
+		}
+	}
+	delete[] reservations;
+	reservations = temp;
+	*pointerCurrentNumberOfReservations -= 1;
+	*/
 	}

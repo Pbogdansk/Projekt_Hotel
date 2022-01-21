@@ -7,11 +7,12 @@
 
 
 
-void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Reservation*& reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn) {
+void menu_receptionist(Receptionist account, Room*& rooms, int* pointerCurrentNumberOfRooms, Reservation* reservations, int* pointerCurrentNumberOfReservations, int* pointerCurrentNumberOfBookedIn) {
 
 	Customer newCustomer = Customer();
 	Room* pointerRoomToReserve = new Room[1];
 	Reservation newReservation;
+	BookIn newBookIn = BookIn();
 	int fromDate = -1;
 	int toDate = -1;
 	while (1)
@@ -40,7 +41,7 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 			toDate = inputInDateSystem();
 			while (1)
 			{
-				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, numberOfRooms);
+				pointerRoomToReserve = account.checkAvailability(fromDate, toDate, rooms, *pointerCurrentNumberOfRooms);
 				if (pointerRoomToReserve != NULL)
 				{
 					menu_gui::reset();
@@ -95,7 +96,7 @@ void menu_receptionist(Receptionist account, Room*& rooms, int numberOfRooms, Re
 					newCustomer = Customer("RECEPTIONIST", "RESERVATION", 26061970, newEmail, "aaSDWTJevGfZ3Wp0");
 					//wybierz konto albo utworz nowe dla klienta  /\
 
-					newReservation = account.reservation(pointerRoomToReserve, fromDate, toDate, &newCustomer);
+					newReservation = account.reservation(pointerRoomToReserve, fromDate, toDate, &newCustomer, &newBookIn);
 					newReservation.makeReservation();
 					//powiêkszenie tablicy reservations o jeden
 					Reservation* temp = new Reservation[(*pointerCurrentNumberOfReservations) + 1];

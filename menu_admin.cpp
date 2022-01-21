@@ -239,9 +239,9 @@ void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availa
 	for (int i = 0; i < *pointerCurrentNumberOfRooms; i++)
 	{
 		bool isThisRoomFree = true;
-		for (int j = 0; j < 365; j++)
+		for (int j = 0; j < 344; j++)
 		{
-			if (rooms[i].getIsOccupied(21 + j) == true)
+			if (rooms[i].getIsOccupied(j) == true)
 				isThisRoomFree = false;
 		}
 		if (isThisRoomFree == true)
@@ -270,7 +270,7 @@ void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availa
 	{
 		if (i != indexOfRoomToDelete)
 		{
-			temp[x] = rooms[i];
+			temp[x] = availaibleRooms[i];
 			x++;
 		}
 	}
@@ -278,14 +278,13 @@ void menu_usun_pokoj(Room*& rooms, int* pointerCurrentNumberOfRooms, Room availa
 	delete[] rooms;
 	rooms = temp;
 	availaibleRoomsCounter -= 1;
-
+	(*pointerCurrentNumberOfRooms)--;
 	menu_gui::reset();
 	menu_gui::add_top_text("Pokoj zostal usuniety ");
 	menu_gui::add_top_text(roomToString(roomToDelete));
 	menu_gui::add_option("Ok");
 	switch (menu_gui::display())
 	{
-
 	case 0:
 		return;
 	}
